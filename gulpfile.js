@@ -5,6 +5,8 @@ var uglify = require('gulp-uglify');
 var cssnano = require('gulp-cssnano');
 var gulpIf = require('gulp-if');
 
+var del = require('del');
+
 var browserSync = require('browser-sync').create();
 
 gulp.task('sass', function() {
@@ -36,6 +38,10 @@ gulp.task('watch', ['browserSync', 'sass', 'useref'], function() {
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload);
+})
+
+gulp.task('clean', function() {
+  return del.sync('dist');
 })
 
 gulp.task('build', ['sass', 'useref']);
