@@ -1,0 +1,29 @@
+{
+  "name": "SSHH.IO",
+  "version": "1.0.0",
+  "description": "My Website",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sshh12/SSHH.IO.git"
+  },
+  "author": "Shrivu Shankar",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/sshh12/SSHH.IO/issues"
+  },
+  "homepage": "https://github.com/sshh12/SSHH.IO"
+}
