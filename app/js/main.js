@@ -1,50 +1,82 @@
 
 $(() => {
 
-  let years = {}
+  sortByTime();
+
+})
+
+function sortByTime() {
 
   projects.sort((a, b) => {
     return new Date(b.start).getTime() - new Date(a.start).getTime()
   })
 
+  let prevYear = null;
+  let html = '';
+
   for(let project of projects) {
 
     let curYear = new Date(project.start).getFullYear()
 
-    if(!years[curYear]) {
+    if(curYear !== prevYear) {
 
-      years[curYear] = []
+      if(prevYear != null) { html += '</section>' }
+
+      html += `<section class="year"><h3>${curYear}</h3>`
+
+      prevYear = curYear;
 
     }
 
-    years[curYear].push(project);
+    html += getProjectHTML(project)
 
   }
 
+  $('#timeline-container').html(html);
+
+}
+
+function sortByCoolness() {
+
+  projects.sort((a, b) => {
+    return b.coolness - a.coolness
+  })
+
+  let prevCool = null;
   let html = '';
 
-  Object.keys(years).sort().reverse().forEach((year) => {
+  for(let project of projects) {
 
-    html += `<section class="year"><h3>${year}</h3>`
+    let curCool = project.coolness;
 
-    for(let project of years[year]) {
+    if(curCool !== prevCool) {
 
-      html += `
-        <section>
-          <ul>
-          <li>
-            <b>${project.title}</b> <hr>
-            ${project.tagline}
-          </li>
-          </ul>
-        </section>`
+      if(prevCool != null) { html += '</section>' }
+
+      html += `<section class="year"><h3>${curCool}</h3>`
+
+      prevCool = curCool;
 
     }
 
-    html += '</section>'
+    html += getProjectHTML(project)
 
-  });
+  }
 
-  $('#timeline-container').append(html);
+  $('#timeline-container').html(html);
 
-})
+}
+
+function getProjectHTML(project) {
+
+  return `
+    <section>
+      <ul>
+      <li>
+        <b>${project.title}</b> <hr>
+        ${project.tagline}
+      </li>
+      </ul>
+    </section><br>`
+
+}

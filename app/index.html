@@ -12,9 +12,9 @@
   <script src="js/main.js"></script>
   <!-- endbuild -->
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <!--build:css css/lib.min.css-->
   <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <!-- endbuild -->
 
   <!--build:css css/main.min.css-->
@@ -39,6 +39,13 @@
       <input id="search" class="form-control form-control-lg" type="text" placeholder="What...">
       <div class="input-group-append">
         <div class="input-group-text">?</div>
+      </div>
+    </div>
+
+    <div class="btn-menu">
+      <div class="btn-group">
+        <button onclick="sortByTime()" type="button" class="btn btn-primary"><i class="far fa-calendar-alt"></i></button>
+        <button onclick="sortByCoolness()" type="button" class="btn btn-success"><i class="fas fa-trophy"></i></button>
       </div>
     </div>
 

@@ -7,13 +7,10 @@
   margin-top: 3em;
   width: 50%; }
 
-/*.carousel {
-  margin-top: 1em;
-  .carousel-indicators {
-    color: #000;
-  }
-  .carousel-control-prev, .carousel-control-next {
-    color: #000;
-  }
-}
-*/
+.btn-menu {
+  text-align: center;
+  margin: auto;
+  margin-top: 3em;
+  display: flex;
+  width: inherit;
+  display: inline-block; }
