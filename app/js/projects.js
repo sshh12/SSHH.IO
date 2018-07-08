@@ -34,6 +34,7 @@ const projects = [
     'tagline': 'This website.',
     'tags': 'website gulp html5',
     'language': 'JS HTML CSS',
+    'url': 'https://sshh.io',
     'github': 'https://github.com/sshh12/SSHH.IO',
     'start': 'Jul 5, 2018',
     'wip': true,

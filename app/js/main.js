@@ -1,7 +1,7 @@
 
 $(() => {
 
-  sortByTags();
+  sortByTime();
 
 })
 
@@ -32,6 +32,7 @@ function sortByTime() {
 
   }
 
+  $('#sort-msg').html('Viewing Chronologically');
   $('#timeline-container').html(html);
 
 }
@@ -63,6 +64,7 @@ function sortByCoolness() {
 
   }
 
+  $('#sort-msg').html('Viewing By Coolness');
   $('#timeline-container').html(html);
 
 }
@@ -122,6 +124,7 @@ function sortByTags() {
 
   })
 
+  $('#sort-msg').html('Grouped By Tags');
   $('#timeline-container').html(html);
 
 }
@@ -154,6 +157,7 @@ function sortByLanguage() {
 
   }
 
+  $('#sort-msg').html('Grouped By Language');
   $('#timeline-container').html(html);
 
 }
