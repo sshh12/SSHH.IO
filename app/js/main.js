@@ -67,7 +67,64 @@ function sortByCoolness() {
 
 }
 
+function sortByTags() {
 
+  let allTags = {}
+
+  for(let project of projects) {
+
+    let tags = project.tags.split(' ')
+
+    for(let tag of tags) {
+
+      if(!allTags[tag]) {
+        allTags[tag] = 0
+      }
+      allTags[tag]++
+
+    }
+
+  }
+
+  let html = '';
+  let used = [];
+
+  let sortTags = (a, b) => {
+    let cmp = allTags[b] - allTags[a];
+    return cmp === 0 ? a.length - b.length : cmp
+  }
+
+  Object.keys(allTags).sort(sortTags).forEach((tag) => {
+
+    let first = true;
+
+    for(let project of projects) {
+
+      if(used.includes(project.title) || !project.tags.split(' ').includes(tag)) {
+        continue
+      }
+
+      if(first) {
+
+        if(used.length != 0) { html += '</section>' }
+
+        html += `<section class="year"><h3>${tag}</h3>`
+
+        first = false;
+
+      }
+
+      html += getProjectHTML(project)
+
+      used.push(project.title)
+
+    }
+
+  })
+
+  $('#timeline-container').html(html);
+
+}
 
 function sortByLanguage() {
 
