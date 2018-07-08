@@ -1,7 +1,7 @@
 
 $(() => {
 
-  sortByTime();
+  sortByTags();
 
 })
 
@@ -56,6 +56,40 @@ function sortByCoolness() {
       html += `<section class="year"><h3>${curCool}</h3>`
 
       prevCool = curCool;
+
+    }
+
+    html += getProjectHTML(project)
+
+  }
+
+  $('#timeline-container').html(html);
+
+}
+
+
+
+function sortByLanguage() {
+
+  projects.sort((a, b) => {
+    let cmp = b.language.localeCompare(a.language)
+    return cmp === 0 ? b.coolness - a.coolness : cmp;
+  })
+
+  let prevLang = null;
+  let html = '';
+
+  for(let project of projects) {
+
+    let curLang = project.language;
+
+    if(curLang !== prevLang) {
+
+      if(prevLang != null) { html += '</section>' }
+
+      html += `<section class="year"><h3>${curLang.split(' ').sort().join('<br>')}</h3>`
+
+      prevLang = curLang;
 
     }
 
