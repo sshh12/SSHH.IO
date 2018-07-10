@@ -52,6 +52,13 @@ a {
   margin-left: .2em;
 }
 
+#nanobar {
+  .bar {
+    margin: 0 auto;
+    border-radius: 4px;
+  }
+}
+
 // COLORS
 
 $A1: #1976d2;
@@ -165,35 +172,27 @@ $D2: #a5124c;
 #nanobar.bar-a {
   .bar {
     background: $A1;
-    border-radius: 4px;
     box-shadow: 0 0 10px $A2;
-    margin: 0 auto;
   }
 }
 
 #nanobar.bar-b {
   .bar {
     background: $B1;
-    border-radius: 4px;
     box-shadow: 0 0 10px $B2;
-    margin: 0 auto;
   }
 }
 
 #nanobar.bar-c {
   .bar {
     background: $C1;
-    border-radius: 4px;
     box-shadow: 0 0 10px $C2;
-    margin: 0 auto;
   }
 }
 
 #nanobar.bar-d {
   .bar {
     background: $D1;
-    border-radius: 4px;
     box-shadow: 0 0 10px $D2;
-    margin: 0 auto;
   }
 }

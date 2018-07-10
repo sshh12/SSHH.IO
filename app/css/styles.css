@@ -40,6 +40,10 @@ a {
   float: right;
   margin-left: .2em; }
 
+#nanobar .bar {
+  margin: 0 auto;
+  border-radius: 4px; }
+
 .color-a {
   color: #fff;
   background-color: #1976d2;
@@ -90,24 +94,16 @@ a {
 
 #nanobar.bar-a .bar {
   background: #1976d2;
-  border-radius: 4px;
-  box-shadow: 0 0 10px #1466b7;
-  margin: 0 auto; }
+  box-shadow: 0 0 10px #1466b7; }
 
 #nanobar.bar-b .bar {
   background: #d84315;
-  border-radius: 4px;
-  box-shadow: 0 0 10px #b73812;
-  margin: 0 auto; }
+  box-shadow: 0 0 10px #b73812; }
 
 #nanobar.bar-c .bar {
   background: #689f38;
-  border-radius: 4px;
-  box-shadow: 0 0 10px #56872f;
-  margin: 0 auto; }
+  box-shadow: 0 0 10px #56872f; }
 
 #nanobar.bar-d .bar {
   background: #c2185b;
-  border-radius: 4px;
-  box-shadow: 0 0 10px #a5124c;
-  margin: 0 auto; }
+  box-shadow: 0 0 10px #a5124c; }

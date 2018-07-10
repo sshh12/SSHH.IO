@@ -171,7 +171,7 @@ function sortByTags() {
 function getProjectHTML(project) {
 
   return `
-    <section>
+    <section id="project-${project._id}">
       <ul>
       <li>
         <b>${project.title}</b>
@@ -188,6 +188,13 @@ function getProjectHTML(project) {
 
 }
 
+for(let project of projects) {
+  let repr = JSON.stringify(project)
+  repr = repr.replace(/\W+/g, '').toLowerCase()
+  project._repr = repr
+  project._id = project.title.replace(/\W+/g, '')
+}
+
 $(() => {
 
   let nanobar = new Nanobar({id: 'nanobar'})
@@ -195,7 +202,20 @@ $(() => {
   sortByTime()
 
   $("#search").keyup((event) => {
-    console.log($("#search").val())
+
+    let query = $("#search").val()
+    query = query.replace(/\W+/g, '').toLowerCase()
+
+    for(let project of projects) {
+
+      if(project._repr.includes(query)) {
+        $(`#project-${project._id}`).show()
+      } else {
+        $(`#project-${project._id}`).hide()
+      }
+
+    }
+
   })
 
   $(window).scroll((event) => {
