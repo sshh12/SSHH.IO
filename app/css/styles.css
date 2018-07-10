@@ -1,3 +1,6 @@
+body {
+  background-color: #FAFAFA; }
+
 .page-header {
   margin-top: 4em;
   text-align: center; }
@@ -5,7 +8,10 @@
 .searchbar {
   margin: auto;
   margin-top: 3em;
-  width: 50%; }
+  width: 50%;
+  -webkit-box-shadow: 0 8px 6px -6px #777;
+  -moz-box-shadow: 0 8px 6px -6px #777;
+  box-shadow: 0 8px 6px -6px #777; }
 
 .btn-menu {
   text-align: center;
@@ -14,6 +20,10 @@
   display: flex;
   width: inherit;
   display: inline-block; }
+  .btn-menu .btn-group {
+    -webkit-box-shadow: 0 8px 6px -6px #777;
+    -moz-box-shadow: 0 8px 6px -6px #777;
+    box-shadow: 0 8px 6px -6px #777; }
 
 #sort-msg {
   text-align: center;

@@ -1,18 +1,12 @@
 
-$(() => {
-
-  sortByTime();
-
-})
-
 function sortByTime() {
 
   projects.sort((a, b) => {
     return new Date(b.start).getTime() - new Date(a.start).getTime()
   })
 
-  let prevYear = null;
-  let html = '';
+  let prevYear = null
+  let html = ''
 
   for(let project of projects) {
 
@@ -24,7 +18,7 @@ function sortByTime() {
 
       html += `<section class="year"><h3>${curYear}</h3>`
 
-      prevYear = curYear;
+      prevYear = curYear
 
     }
 
@@ -32,8 +26,8 @@ function sortByTime() {
 
   }
 
-  $('#sort-msg').html('Viewing Chronologically');
-  $('#timeline-container').html(html);
+  $('#sort-msg').html('Viewing Chronologically')
+  $('#timeline-container').html(html)
 
 }
 
@@ -43,12 +37,12 @@ function sortByCoolness() {
     return b.coolness - a.coolness
   })
 
-  let prevCool = null;
-  let html = '';
+  let prevCool = null
+  let html = ''
 
   for(let project of projects) {
 
-    let curCool = project.coolness;
+    let curCool = project.coolness
 
     if(curCool !== prevCool) {
 
@@ -56,7 +50,7 @@ function sortByCoolness() {
 
       html += `<section class="year"><h3>${curCool}</h3>`
 
-      prevCool = curCool;
+      prevCool = curCool
 
     }
 
@@ -64,8 +58,8 @@ function sortByCoolness() {
 
   }
 
-  $('#sort-msg').html('Viewing By Coolness');
-  $('#timeline-container').html(html);
+  $('#sort-msg').html('Viewing By Coolness')
+  $('#timeline-container').html(html)
 
 }
 
@@ -88,17 +82,17 @@ function sortByTags() {
 
   }
 
-  let html = '';
-  let used = [];
+  let html = ''
+  let used = []
 
   let sortTags = (a, b) => {
-    let cmp = allTags[b] - allTags[a];
+    let cmp = allTags[b] - allTags[a]
     return cmp === 0 ? a.length - b.length : cmp
   }
 
   Object.keys(allTags).sort(sortTags).forEach((tag) => {
 
-    let first = true;
+    let first = true
 
     for(let project of projects) {
 
@@ -112,7 +106,7 @@ function sortByTags() {
 
         html += `<section class="year"><h3>${tag}</h3>`
 
-        first = false;
+        first = false
 
       }
 
@@ -124,8 +118,8 @@ function sortByTags() {
 
   })
 
-  $('#sort-msg').html('Grouped By Tags');
-  $('#timeline-container').html(html);
+  $('#sort-msg').html('Grouped By Tags')
+  $('#timeline-container').html(html)
 
 }
 
@@ -133,15 +127,15 @@ function sortByLanguage() {
 
   projects.sort((a, b) => {
     let cmp = b.language.localeCompare(a.language)
-    return cmp === 0 ? b.coolness - a.coolness : cmp;
+    return cmp === 0 ? b.coolness - a.coolness : cmp
   })
 
-  let prevLang = null;
-  let html = '';
+  let prevLang = null
+  let html = ''
 
   for(let project of projects) {
 
-    let curLang = project.language;
+    let curLang = project.language
 
     if(curLang !== prevLang) {
 
@@ -149,7 +143,7 @@ function sortByLanguage() {
 
       html += `<section class="year"><h3>${curLang.split(' ').sort().join('<br>')}</h3>`
 
-      prevLang = curLang;
+      prevLang = curLang
 
     }
 
@@ -157,8 +151,8 @@ function sortByLanguage() {
 
   }
 
-  $('#sort-msg').html('Grouped By Language');
-  $('#timeline-container').html(html);
+  $('#sort-msg').html('Grouped By Language')
+  $('#timeline-container').html(html)
 
 }
 
@@ -175,3 +169,13 @@ function getProjectHTML(project) {
     </section><br>`
 
 }
+
+$(() => {
+
+  sortByTime()
+
+  $("#search").keyup((event) => {
+    console.log($("#search").val())
+  })
+
+})

@@ -25,7 +25,7 @@
       bottom: 0rem;
       left: 64px;
       z-index: 1;
-      background: #C5C5C5;
+      background: #3C8C3F;
     }
   }
   h3 {
@@ -62,7 +62,7 @@
         line-height: 1.2em;
         margin: 0;
         padding: 0 0 0 89px;
-        color: #C5C5C5;
+        color: #000;
         @media (min-width: 62em) {
           font-size: 1em;
         }
@@ -86,8 +86,8 @@
           content: '';
           width: 10px;
           height: 10px;
-          background: #C5C5C5;
-          border: 2px solid #CACACA;
+          background: #3C8C3F;
+          border: 2px solid #2C662E;
           @include border-radius(50%);
           position: absolute;
           left: 60px;

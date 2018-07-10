@@ -15,7 +15,7 @@
     bottom: 0rem;
     left: 64px;
     z-index: 1;
-    background: #C5C5C5; }
+    background: #3C8C3F; }
   #timeline h3 {
     position: -webkit-sticky;
     position: sticky;
@@ -44,7 +44,7 @@
         line-height: 1.2em;
         margin: 0;
         padding: 0 0 0 89px;
-        color: #C5C5C5; }
+        color: #000; }
         @media (min-width: 62em) {
           #timeline section.year section h4 {
             font-size: 1em; } }
@@ -64,8 +64,8 @@
           content: '';
           width: 10px;
           height: 10px;
-          background: #C5C5C5;
-          border: 2px solid #CACACA;
+          background: #3C8C3F;
+          border: 2px solid #2C662E;
           -webkit-border-radius: 50%;
           -moz-border-radius: 50%;
           -ms-border-radius: 50%;
