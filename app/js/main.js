@@ -1,6 +1,9 @@
 
 function sortByTime() {
 
+  $('#timeline').attr('class', 'timeline-a')
+  $('#nanobar').attr('class', 'nanobar bar-a')
+
   projects.sort((a, b) => {
     return new Date(b.start).getTime() - new Date(a.start).getTime()
   })
@@ -33,6 +36,9 @@ function sortByTime() {
 
 function sortByCoolness() {
 
+  $('#timeline').attr('class', 'timeline-b')
+  $('#nanobar').attr('class', 'nanobar bar-b')
+
   projects.sort((a, b) => {
     return b.coolness - a.coolness
   })
@@ -63,7 +69,46 @@ function sortByCoolness() {
 
 }
 
+function sortByLanguage() {
+
+  $('#timeline').attr('class', 'timeline-c')
+  $('#nanobar').attr('class', 'nanobar bar-c')
+
+  projects.sort((a, b) => {
+    let cmp = b.language.localeCompare(a.language)
+    return cmp === 0 ? b.coolness - a.coolness : cmp
+  })
+
+  let prevLang = null
+  let html = ''
+
+  for(let project of projects) {
+
+    let curLang = project.language
+
+    if(curLang !== prevLang) {
+
+      if(prevLang != null) { html += '</section>' }
+
+      html += `<section class="year"><h3>${curLang.split(' ').sort().join('<br>')}</h3>`
+
+      prevLang = curLang
+
+    }
+
+    html += getProjectHTML(project)
+
+  }
+
+  $('#sort-msg').html('Grouped By Language')
+  $('#timeline-container').html(html)
+
+}
+
 function sortByTags() {
+
+  $('#timeline').attr('class', 'timeline-d')
+  $('#nanobar').attr('class', 'nanobar bar-d')
 
   let allTags = {}
 
@@ -123,39 +168,6 @@ function sortByTags() {
 
 }
 
-function sortByLanguage() {
-
-  projects.sort((a, b) => {
-    let cmp = b.language.localeCompare(a.language)
-    return cmp === 0 ? b.coolness - a.coolness : cmp
-  })
-
-  let prevLang = null
-  let html = ''
-
-  for(let project of projects) {
-
-    let curLang = project.language
-
-    if(curLang !== prevLang) {
-
-      if(prevLang != null) { html += '</section>' }
-
-      html += `<section class="year"><h3>${curLang.split(' ').sort().join('<br>')}</h3>`
-
-      prevLang = curLang
-
-    }
-
-    html += getProjectHTML(project)
-
-  }
-
-  $('#sort-msg').html('Grouped By Language')
-  $('#timeline-container').html(html)
-
-}
-
 function getProjectHTML(project) {
 
   return `
@@ -163,12 +175,12 @@ function getProjectHTML(project) {
       <ul>
       <li>
         <b>${project.title}</b>
-        ${project.github ? '<a href="' + project.github + '"><i class="fab fa-github"></i></a>':''}
-        ${project.url ? '<a href="' + project.url + '"><i class="fas fa-link"></i></a>':''}
-        ${project.wip ? '<span title="Work in progress" class="badge badge-warning">WIP</span>':''}
         ${project.tiny ? '<span class="badge badge-info">Mini Project</span>':''}
+        ${project.wip ? '<span title="Work in progress" class="badge badge-warning">WIP</span>':''}
+        <br>
+        ${project.github ? '<a href="' + project.github + '"><i class="link-icon fab fa-github"></i></a>':''}
+        ${project.url ? '<a href="' + project.url + '"><i class="link-icon fas fa-link"></i></a>':''}
         <hr>
-
         ${project.tagline}
       </li>
       </ul>
@@ -178,10 +190,17 @@ function getProjectHTML(project) {
 
 $(() => {
 
+  let nanobar = new Nanobar({id: 'nanobar'})
+
   sortByTime()
 
   $("#search").keyup((event) => {
     console.log($("#search").val())
   })
+
+  $(window).scroll((event) => {
+    let maxScroll = document.body.offsetHeight - window.innerHeight;
+    nanobar.go(Math.min(100, window.scrollY / maxScroll * 100, 99))
+  });
 
 })
