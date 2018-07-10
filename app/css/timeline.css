@@ -72,14 +72,15 @@
           border-radius: 50%;
           position: absolute;
           left: 60px;
-          top: 3px;
+          top: 6px;
           z-index: 2; }
         #timeline section.year section ul li {
-          margin-left: .5rem; }
-          #timeline section.year section ul li:before {
+          margin-left: .5rem;
+          /*&:before {
             content: '·';
             margin-left: -.5rem;
-            padding-right: .3rem; }
+            padding-right: .3rem;
+          }*/ }
           #timeline section.year section ul li:not(:first-child) {
             margin-top: .5rem; }
           #timeline section.year section ul li span.price {

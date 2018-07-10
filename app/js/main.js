@@ -162,7 +162,13 @@ function getProjectHTML(project) {
     <section>
       <ul>
       <li>
-        <b>${project.title}</b> <hr>
+        <b>${project.title}</b>
+        ${project.github ? '<a href="' + project.github + '"><i class="fab fa-github"></i></a>':''}
+        ${project.url ? '<a href="' + project.url + '"><i class="fas fa-link"></i></a>':''}
+        ${project.wip ? '<span title="Work in progress" class="badge badge-warning">WIP</span>':''}
+        ${project.tiny ? '<span class="badge badge-info">Mini Project</span>':''}
+        <hr>
+
         ${project.tagline}
       </li>
       </ul>

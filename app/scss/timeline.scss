@@ -91,16 +91,16 @@
           @include border-radius(50%);
           position: absolute;
           left: 60px;
-          top: 3px;
+          top: 6px;
           z-index: 2;
         }
         li {
           margin-left: .5rem;
-          &:before {
+          /*&:before {
             content: '·';
             margin-left: -.5rem;
             padding-right: .3rem;
-          }
+          }*/
           &:not(:first-child) {
             margin-top: .5rem;
           }

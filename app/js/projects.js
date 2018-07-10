@@ -78,7 +78,7 @@ const projects = [
   {
     'title': 'MLCode',
     'tagline': 'A collection of scripts related to machine learning.',
-    'tags': 'machine-learning ai tensorflow coursera kaggle deeplearning',
+    'tags': 'ML ai tensorflow coursera kaggle deeplearning',
     'language': 'Python Jupyter',
     'github': 'https://github.com/sshh12/MLCode',
     'start': 'Aug 13, 2017',
@@ -96,7 +96,7 @@ const projects = [
   {
     'title': 'OverwatchML',
     'tagline': 'Overwatch + AI',
-    'tags': 'overwatch machine-learning ai keras',
+    'tags': 'overwatch ML ai keras',
     'language': 'Python Jupyter',
     'github': 'https://github.com/sshh12/OverwatchML',
     'start': 'Aug 25, 2017',
@@ -198,7 +198,7 @@ const projects = [
   {
     'title': 'ImageDissectionML',
     'tagline': 'Dissecting and manipulating images with ML',
-    'tags': 'machine-learning computer-vision',
+    'tags': 'ML computer-vision',
     'language': 'Python',
     'github': 'https://github.com/sshh12/ImageDissectionML',
     'start': 'Apr 1, 2018',
@@ -218,7 +218,7 @@ const projects = [
   {
     'title': 'Money Classifier',
     'tagline': 'Charting expenses',
-    'tags': 'machine-learning chase textblob',
+    'tags': 'ML chase textblob',
     'language': 'Python',
     'github': 'https://gist.github.com/sshh12/d362dba3f72498cd9604de63a659b870',
     'start': 'Jun 20, 2018',
@@ -258,6 +258,7 @@ const projects = [
   {
     'title': 'Probability Test',
     'tagline': 'Testing the probability of an even distribution of n numbers over k values.',
+    'tags': 'math probability',
     'language': 'Python',
     'github': 'https://gist.github.com/sshh12/6186968785dd6f7b4c9a3b34aee9ac76',
     'start': 'Nov 5, 2017',
@@ -267,6 +268,7 @@ const projects = [
   {
     'title': 'Count Lines',
     'tagline': 'Lines of code',
+    'tags': 'counter utility',
     'language': 'Python',
     'github': 'https://gist.github.com/sshh12/17c07015d88824e601fff05f22a9df23',
     'start': 'Dec 19, 2017',
@@ -276,7 +278,7 @@ const projects = [
   {
     'title': 'Titanic',
     'tagline': 'Anaylizing the Titanic',
-    'tags': 'kaggle machine-learning',
+    'tags': 'kaggle ML',
     'language': 'Python Jupyter',
     'github': 'https://github.com/sshh12/MLCode/blob/master/competitions/titanic/Titanic.ipynb',
     'kaggle': 'https://www.kaggle.com/c/titanic',
@@ -309,7 +311,8 @@ const projects = [
     'language': 'CSS HTML JS',
     'url': '//TODO',
     'start': 'Apr 10, 2017',
-    'coolness': 4
+    'coolness': 4,
+    'tiny': true
   },
   {
     'title': 'Trump Physics',
@@ -350,7 +353,7 @@ const projects = [
     'tiny': true
   },
   {
-    'title': 'Le Mont-Saint-Michel',
+    'title': 'Le Mont Saint Michel',
     'tagline': 'AP French castle project',
     'tags': 'french 3D school',
     'language': 'HTML',
