@@ -2,12 +2,12 @@ body {
   background-color: #FAFAFA; }
 
 .page-header {
-  margin-top: 4em;
+  margin-top: 60px;
   text-align: center; }
 
 .searchbar {
   margin: auto;
-  margin-top: 3em;
+  margin-top: 45px;
   width: 50%;
   -webkit-box-shadow: 0 8px 6px -6px #777;
   -moz-box-shadow: 0 8px 6px -6px #777;
@@ -16,7 +16,7 @@ body {
 .btn-menu {
   text-align: center;
   margin: auto;
-  margin-top: 4em;
+  margin-top: 60px;
   display: flex;
   width: inherit;
   display: inline-block; }
@@ -30,7 +30,7 @@ body {
   margin-top: 1em; }
 
 .badge {
-  margin-left: .75em;
+  margin-left: 9px;
   float: right; }
 
 a {
@@ -38,11 +38,33 @@ a {
 
 .link-icon {
   float: right;
-  margin-left: .2em; }
+  margin-left: 3px; }
 
 #nanobar .bar {
   margin: 0 auto;
   border-radius: 4px; }
+
+#timeline-container {
+  width: 512px; }
+
+.floating-action-btn {
+  box-shadow: 0 2px 2px 1px #777;
+  border-radius: 50%;
+  display: block;
+  width: 56px;
+  height: 56px;
+  background: #1976d2;
+  position: fixed;
+  z-index: 99;
+  bottom: 60px;
+  right: 60px;
+  color: #fff;
+  text-align: center;
+  transition: all .1s ease-out;
+  line-height: 56px;
+  font-size: 18px; }
+  .floating-action-btn:hover {
+    box-shadow: 0 1px 1px .5px #777; }
 
 .color-a {
   color: #fff;
