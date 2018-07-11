@@ -197,8 +197,6 @@ for(let project of projects) {
 
 $(() => {
 
-  $('#contact-modal').modal('show')
-
   let nanobar = new Nanobar({id: 'nanobar'})
 
   sortByTime()
