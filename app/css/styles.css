@@ -57,8 +57,8 @@ a {
   background: #1976d2;
   position: fixed;
   z-index: 99;
-  bottom: 60px;
-  right: 60px;
+  bottom: 40px;
+  right: 30px;
   color: #fff;
   text-align: center;
   transition: all .1s ease-out;
@@ -66,3 +66,7 @@ a {
   font-size: 18px; }
   .floating-action-btn:hover {
     box-shadow: 0 1px 1px .5px #777; }
+
+section:not(.year) ul li:hover {
+  margin-left: 10px !important;
+  transition: all .4s ease-out; }
