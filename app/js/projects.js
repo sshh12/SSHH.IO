@@ -36,8 +36,7 @@ const projects = [
     'url': 'https://sshh.io',
     'github': 'https://github.com/sshh12/SSHH.IO',
     'start': 'Jul 5, 2018',
-    'coolness': 4,
-    'wip': true
+    'coolness': 4
   },
   {
     'title': '"Shrivu Bot"',
