@@ -24,14 +24,14 @@ gulp.task('html', function() {
     .pipe(useref())
     .pipe(gulpIf('*.js', babel({presets: ['minify']})))
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('public'))
 });
 
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: 'app'
-    },
+    }
   })
 })
 
@@ -39,10 +39,6 @@ gulp.task('watch', ['browserSync', 'sass', 'html'], function() {
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch('app/*.html', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload);
-})
-
-gulp.task('clean', function() {
-  return del.sync('dist');
 })
 
 gulp.task('build', ['sass', 'html']);
