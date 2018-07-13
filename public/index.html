@@ -10,10 +10,10 @@
   <meta name="msapplication-TileColor" content="#009688">
   <meta name="theme-color" content="#009688">
 
-  <script src="js/scripts.min.js"></script>
-
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
+
+  <script src="js/scripts.min.js"></script>
 
   <title>SSHH.IO</title>
 
@@ -25,7 +25,7 @@
 
     <div class="page-header">
       <h1>Shrivu Shankar</h1>
-      <p class="lead">An app builder, hacker, full-stack programmer, and UT '22.</p>
+      <p class="lead">An app builder, hacker, full-stack programmer, and <a href="https://www.utexas.edu/">UT '22</a>.</p>
     </div>
 
     <i onClick="$('#contact-modal').modal('show')" class="fas fa-comment floating-action-btn"></i>
@@ -67,16 +67,20 @@
           <form method="post" action="https://formspree.io/shrivu1122@gmail.com">
             <div class="modal-body">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Name:</label>
-                <input type="text" class="form-control" id="recipient-name">
+
               </div>
               <div class="form-group">
-                <label for="recipient-email" class="col-form-label">Email:</label>
-                <input type="text" class="form-control" id="recipient-email">
+                <div class="row">
+                  <div class="col">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="name@email.com">
+                  </div>
+                </div>
               </div>
               <div class="form-group">
-                <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
+                <textarea class="form-control" name="msg" id="message-text">Message...</textarea>
               </div>
             </div>
             <div class="modal-footer">
