@@ -196,6 +196,7 @@ function getProjectHTML(project) {
       <ul>
       <li>
         <b>${project.title}</b>
+        ${project.hack ? '<span title="Ethical Hacking!" class="badge badge-danger">Hacking</span>':''}
         ${project.tiny ? '<span class="badge badge-info">Mini Project</span>':''}
         ${project.wip ? '<span title="Work in progress" class="badge badge-warning">WIP</span>':''}
         <br>

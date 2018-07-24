@@ -370,5 +370,42 @@ const projects = [
     'start': 'Nov 2, 2016',
     'coolness': 4,
     'tiny': true
+  },
+  {
+    'title': 'infotrac.galegroup.com',
+    'tagline': 'Blind SQL Injection',
+    'tags': 'hack sql',
+    'language': 'SQL',
+    'start': 'Jan 20, 2017',
+    'coolness': 5,
+    'hack': true
+  },
+  {
+    'title': 'texasmusicforms.com',
+    'tagline': 'Error Based SQL Injection',
+    'tags': 'hack sql',
+    'language': 'SQL',
+    'start': 'Oct 10, 2017',
+    'coolness': 4,
+    'hack': true
+  },
+  {
+    'title': 'home-access.cfisd.net',
+    'tagline': 'Integer Overflow (MS15-034)',
+    'tags': 'hack overflow',
+    'language': 'Python',
+    'url': 'https://gist.github.com/sshh12/f468394dfa51f4cee2721e3e057740b9',
+    'start': 'Aug 15, 2016',
+    'coolness': 8,
+    'hack': true
+  },
+  {
+    'title': 'practiceit.cs.washington.edu',
+    'tagline': 'Reflected XSS',
+    'tags': 'hack overflow',
+    'language': 'JS',
+    'start': 'Mar 8, 2016',
+    'coolness': 5,
+    'hack': true
   }
 ]
