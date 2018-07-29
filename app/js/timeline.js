@@ -198,7 +198,7 @@ function getProjectHTML(project) {
         <b>${project.title}</b>
         ${project.hack ? '<span title="Ethical Hacking!" class="badge badge-danger">Hacking</span>':''}
         ${project.tiny ? '<span class="badge badge-info">Mini Project</span>':''}
-        ${project.wip ? '<span title="Work in progress" class="badge badge-warning">WIP</span>':''}
+        ${project.wip ? '<span title="Not yet complete" class="badge badge-warning">//TODO</span>':''}
         <br>
         ${project.github ? '<a href="' + project.github + '"><i class="link-icon fab fa-github"></i></a>':''}
         ${project.url ? '<a href="' + project.url + '"><i class="link-icon fas fa-link"></i></a>':''}
