@@ -407,5 +407,14 @@ const projects = [
     'start': 'Mar 8, 2016',
     'coolness': 5,
     'hack': true
+  },
+  {
+    'title': 'Tradinhood',
+    'tagline': 'Programmatically trading stocks and crypto with Robinhood.',
+    'tags': 'robinhood crypto stocks',
+    'language': 'Python',
+    'github': 'https://github.com/sshh12/Tradinhood',
+    'start': 'Jul 27, 2018',
+    'coolness': 7
   }
 ]

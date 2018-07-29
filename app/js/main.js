@@ -1,9 +1,17 @@
 
 for(let project of projects) {
-  let repr = Object.values(project).join('').replace(/\W+/g, '').toLowerCase()
-  project._repr = repr
+
+  let repr = Object.values(project).join('')
+  if(project.hack) { repr += 'greyhat whitehat ethical hacking' }
+  if(project.github) { repr += 'github open-source' }
+  if(project.url) { repr += 'online webpage linked' }
+  if(project.wip) { repr += 'wip todo inprogress' }
+  else { repr += 'complete' }
+
+  project._repr = repr.replace(/\W+/g, '').toLowerCase()
   project._id = project.title.replace(/\W+/g, '')
   project._hide = false
+
 }
 
 $(() => {
