@@ -86,8 +86,20 @@ a {
 }
 
 section:not(.year) {
-  ul li:hover {
-    margin-left: 10px !important;
+  ul li {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 8px -8px #777;
+    -moz-box-shadow: 0 5px 8px -8px #777;
+    box-shadow: 0 5px 8px -8px #777;
     transition: all .4s ease-out;
+    &:hover {
+      margin-left: 12px !important;
+    }
   }
+}
+
+.small-date {
+  font-size: .6em;
 }
