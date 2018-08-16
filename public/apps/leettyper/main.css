@@ -1,0 +1,10 @@
+html, body {
+  height: 100%;
+  background: #101010;
+}
+
+#code {
+  color: #10fe00;
+  font-family: monospace;
+  line-height: 200%;
+}

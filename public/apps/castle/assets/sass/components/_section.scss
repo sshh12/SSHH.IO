@@ -1,0 +1,104 @@
+///
+/// Polymorph by Pixelarity
+/// pixelarity.com @pixelarity
+/// License: pixelarity.com/license
+///
+
+/* Section/Article */
+
+	section, article {
+		&.special {
+			text-align: center;
+
+			@include breakpoint(xsmall) {
+				text-align: left;
+			}
+		}
+	}
+
+	header {
+		cursor: default;
+
+		.category {
+			display: block;
+			font-size: 0.8em;
+			font-weight: _font(weight-bold);
+			letter-spacing: _font(letter-spacing-heading);
+			margin: 0 0 (_size(element-margin) * (0.75 / 0.8)) 0;
+			text-transform: uppercase;
+
+			& + h2,
+			& + h3,
+			& + h4,
+			& + h5,
+			& + h6 {
+				margin-top: 0;
+			}
+		}
+
+		&.major {
+			margin: 0 0 (_size(element-margin) * 1.5) 0;
+			text-align: center;
+
+			h2 {
+				font-size: 1.75em;
+			}
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		@include breakpoint(small) {
+			&.major {
+				margin: 0 0 _size(element-margin) 0;
+
+				h2 {
+					font-size: 1.35em;
+				}
+			}
+		}
+
+		@include breakpoint(xsmall) {
+			&.major {
+				text-align: left;
+			}
+		}
+	}
+
+	footer {
+		&.major {
+			@include padding(_size(gutter), _size(gutter));
+			text-align: center;
+			border-top: solid 1px;
+			margin-top: -1px;
+		}
+
+		@include breakpoint(medium) {
+			&.major {
+				@include padding(_size(gutter), _size(gutter-medium));
+			}
+		}
+
+		@include breakpoint(small) {
+			&.major {
+				@include padding(_size(gutter-medium), _size(gutter-small));
+			}
+		}
+	}
+
+	@mixin color-section($p: null) {
+		header {
+			.category {
+				color: _palette($p, fg-light);
+			}
+		}
+
+		footer {
+			&.major {
+				border-top-color: _palette($p, border);
+			}
+		}
+	}
+
+	@include color-section;

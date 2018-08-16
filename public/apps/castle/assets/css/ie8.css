@@ -1,0 +1,49 @@
+/*
+	Polymorph by Pixelarity
+	pixelarity.com @pixelarity
+	License: pixelarity.com/license
+*/
+
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		border: solid 1px #dbdbdb;
+	}
+
+		input[type="submit"].special,
+		input[type="reset"].special,
+		input[type="button"].special,
+		button.special,
+		.button.special {
+			border: 0;
+		}
+
+/* Form */
+
+	form .field {
+		padding-left: 0;
+	}
+
+/* Posts */
+
+	.posts > article {
+		width: 33%;
+		float: none;
+		display: inline-block;
+	}
+
+/* Header */
+
+	#header {
+		border-bottom: solid 1px #dbdbdb;
+	}
+
+/* Banner */
+
+	#banner > article:before {
+		display: none;
+	}

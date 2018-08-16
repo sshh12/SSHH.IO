@@ -1,0 +1,112 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
+/*
+	Polymorph by Pixelarity
+	pixelarity.com @pixelarity
+	License: pixelarity.com/license
+*/
+
+/* List */
+
+	ul {
+		&.pagination {
+			display: inline-block;
+
+			&:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+
+			li {
+				float: left;
+			}
+		}
+	}
+
+/* Posts */
+
+	.posts {
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		> article {
+			float: left;
+		}
+	}
+
+/* Header */
+
+	#header {
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.logo {
+			float: left;
+		}
+
+		nav {
+			float: left;
+
+			&:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+
+			> ul {
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				> li {
+					display: inline-block;
+				}
+			}
+		}
+	}
+
+/* Banner */
+
+	#banner {
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		> article {
+			float: left;
+			min-height: 0 !important;
+
+			.content {
+				margin: 0 auto;
+			}
+		}
+	}
+
+/* Footer */
+
+	#footer {
+		> .inner {
+			&:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+
+			> section {
+				float: left;
+				width: 50%;
+			}
+		}
+	}

@@ -57,6 +57,15 @@ const projects = [
     'coolness': 8
   },
   {
+    'title': 'Splitscreen Player',
+    'tagline': 'A synchronous multi-video viewer built on firebase.',
+    'tags': 'firebase bootstrap esports',
+    'language': 'HTML CSS JS',
+    'github': 'https://github.com/sshh12/Splitscreen-Player',
+    'start': 'Feb 5, 2017',
+    'coolness': 8
+  },
+  {
     'title': 'SchoolCode',
     'tagline': 'A collection of scripts/algorithms that I wrote for/were inspired by school projects.',
     'tags': 'school computer-science-algorithms ap-computer-science cyranch',
@@ -86,7 +95,7 @@ const projects = [
   {
     'title': 'Build-A-Bill',
     'tagline': 'Creating Legislation with AI',
-    'tags': 'keras lstm char-rnn govtrack',
+    'tags': 'ML keras lstm char-rnn govtrack',
     'language': 'Python Jupyter',
     'github': 'https://github.com/sshh12/Build-A-Bill',
     'start': 'Jan 5, 2018',
@@ -104,7 +113,7 @@ const projects = [
   {
     'title': 'Webcam Anomaly Detection',
     'tagline': 'An FTP server that logs anomalous motion from a camera stream.',
-    'tags': 'ftp webcam pyftpdlib keras anomaly-detection skimage',
+    'tags': 'ML ftp webcam pyftpdlib keras anomaly-detection skimage',
     'language': 'Python',
     'github': 'https://github.com/sshh12/Webcam-Anomaly-Detection',
     'start': 'Jun 4, 2017',
@@ -195,11 +204,11 @@ const projects = [
     'wip': true
   },
   {
-    'title': 'ImageDissectionML',
-    'tagline': 'Dissecting and manipulating images with ML',
+    'title': 'StealthML',
+    'tagline': 'Hiding stuff but with machine learning.',
     'tags': 'ML computer-vision',
     'language': 'Python',
-    'github': 'https://github.com/sshh12/ImageDissectionML',
+    'github': 'https://github.com/sshh12/StealthML',
     'start': 'Apr 1, 2018',
     'coolness': 8,
     'wip': true
@@ -290,7 +299,7 @@ const projects = [
     'tagline': 'An interactive sound visualizer',
     'tags': 'sound interactive p5js',
     'language': 'HTML CSS JS',
-    'url': '//TODO',
+    'url': '/apps/freqvis/index.html',
     'start': 'May 8, 2017',
     'coolness': 5
   },
@@ -299,8 +308,17 @@ const projects = [
     'tagline': 'A small collection of mobile web tools.',
     'tags': 'tools p5js mobile',
     'language': 'HTML CSS JS',
-    'url': '//TODO',
+    'url': '/apps/toolkit/gyro.html',
     'start': 'Apr 22, 2017',
+    'coolness': 4
+  },
+  {
+    'title': 'Hangman Solver',
+    'tagline': 'A bruteforcer for hangman.',
+    'tags': 'tools bootstrap hangman',
+    'language': 'HTML CSS JS',
+    'url': '/apps/hangman/index.html',
+    'start': 'Mar 14, 2017',
     'coolness': 4
   },
   {
@@ -308,7 +326,7 @@ const projects = [
     'tagline': 'Codin\' like a pro',
     'tags': 'typing leet',
     'language': 'HTML CSS JS',
-    'url': '//TODO',
+    'url': '/apps/leettyper/index.html?http://raw.githubusercontent.com/sshh12/Webcam-Anomaly-Detection/master/generate_anomaly_model.py',
     'start': 'Apr 10, 2017',
     'coolness': 4,
     'tiny': true
@@ -318,7 +336,7 @@ const projects = [
     'tagline': 'An AP Physics project',
     'tags': 'physics video-analysis school',
     'language': 'HTML',
-    'url': '//TODO',
+    'url': '/apps/trumpphysics/index.html',
     'start': 'Nov 15, 2017',
     'coolness': 1,
     'tiny': true
@@ -328,7 +346,7 @@ const projects = [
     'tagline': 'A parser to increase the efficiency of debate.',
     'tags': 'parser debate',
     'language': 'HTML CSS JS',
-    'url': '//TODO',
+    'url': '/apps/case-viewer/view.html',
     'start': 'Sep 30, 2017',
     'coolness': 6
   },
@@ -337,7 +355,7 @@ const projects = [
     'tagline': 'An interactive timeline for an AP French Book.',
     'tags': 'french interactive maps school',
     'language': 'HTML CSS JS',
-    'url': '//TODO',
+    'url': '/apps/lehomme/index.html',
     'start': 'Nov 20, 2015',
     'coolness': 4
   },
@@ -346,7 +364,7 @@ const projects = [
     'tagline': 'World History AP Genocide Project',
     'tags': 'WHAP history school',
     'language': 'HTML',
-    'url': '//TODO',
+    'url': '/apps/genocide/index.html',
     'start': 'April 10, 2016',
     'coolness': 3,
     'tiny': true
@@ -356,7 +374,7 @@ const projects = [
     'tagline': 'AP French castle project',
     'tags': 'french 3D school',
     'language': 'HTML',
-    'url': '//TODO',
+    'url': '/apps/castle/index.html',
     'start': 'Feb 15, 2016',
     'coolness': 4,
     'tiny': true
@@ -366,7 +384,7 @@ const projects = [
     'tagline': 'US History tension visualized with cats.',
     'tags': 'history school',
     'language': 'HTML',
-    'url': '//TOOD',
+    'url': '/apps/revolution/index.html',
     'start': 'Nov 2, 2016',
     'coolness': 4,
     'tiny': true
