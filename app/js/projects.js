@@ -29,6 +29,15 @@ const projects = [
     'coolness': 6
   },
   {
+    'title': 'UT Finder',
+    'tagline': 'A simple utility for UT students.',
+    'language': 'HTML CSS JS',
+    'tags': 'android apple school ionic ut school-app',
+    'github': 'https://github.com/sshh12/UT-Finder',
+    'start': 'Sep 10, 2018',
+    'coolness': 5
+  },
+  {
     'title': 'SSHH.IO',
     'tagline': 'This website.',
     'tags': 'website gulp html5',
