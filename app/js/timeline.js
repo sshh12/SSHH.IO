@@ -199,6 +199,7 @@ function getProjectHTML(project) {
         ${project.hack ? '<span title="Ethical Hacking!" class="badge badge-danger">Hacking</span>':''}
         ${project.tiny ? '<span class="badge badge-info">Mini Project</span>':''}
         ${project.wip ? '<span title="Not yet complete" class="badge badge-warning">//TODO</span>':''}
+        ${project.team ? '<span title="Group Project" class="badge badge-success">Team</span>':''}
         <br>
         <span class="small-date">${project.start}</span>
         <br>
