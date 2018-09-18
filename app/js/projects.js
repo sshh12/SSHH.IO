@@ -445,13 +445,14 @@ const projects = [
 	},
 	{
 		'title': 'Campus Maps',
-		'tagline': '[HackRice \'18] Mapping places and events.',
+		'tagline': 'Mapping places and events.',
 		'language': 'HTML CSS JS',
 		'tags': 'react firebase map',
 		'github': 'https://github.com/sshh12/Campus-Maps',
 		'start': 'Sep 14, 2018',
 		'coolness': 6,
-		'team': true,
+		'team': 'HackRice \'18',
+		'url': 'https://devpost.com/software/campus-maps-k6y2pd',
 		'tiny': true
 	}
 ]
