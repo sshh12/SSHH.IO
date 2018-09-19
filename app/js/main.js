@@ -2,10 +2,11 @@
 for(let project of projects) {
 
   let repr = Object.values(project).join('')
-  if(project.hack) { repr += 'greyhat whitehat ethical hacking' }
+  if(project.hack) { repr += 'greyhat whitehat ethical hacking security' }
   if(project.github) { repr += 'github open-source' }
   if(project.url) { repr += 'online webpage linked' }
   if(project.wip) { repr += 'wip todo inprogress' }
+  if(project.team) { repr += 'team' + project.team }
   else { repr += 'complete' }
 
   project._repr = repr.replace(/\W+/g, '').toLowerCase()
@@ -44,4 +45,4 @@ $(() => {
 
   sortByTime()
 
-})
+}); /* semicolon or else google code break */

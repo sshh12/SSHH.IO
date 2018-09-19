@@ -58,8 +58,8 @@ const projects = [
 	{
 		'title': 'StockMarketML',
 		'tagline': 'Predicting stocks with ML.',
-		'tags': 'tensorflow keras stock-market stock-price-prediction',
-		'language': 'Python',
+		'tags': 'tensorflow keras machine-learning stock-market stock-price-prediction',
+		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/StockMarketML',
 		'start': 'Sep 16, 2017',
 		'coolness': 8
@@ -94,7 +94,7 @@ const projects = [
 	{
 		'title': 'MLCode',
 		'tagline': 'A collection of scripts related to machine learning.',
-		'tags': 'ML ai tensorflow coursera kaggle deeplearning',
+		'tags': 'ML ai tensorflow coursera kaggle deeplearning machine-learning',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/MLCode',
 		'start': 'Aug 13, 2017',
@@ -103,7 +103,7 @@ const projects = [
 	{
 		'title': 'Build-A-Bill',
 		'tagline': 'Creating Legislation with AI',
-		'tags': 'ML keras lstm char-rnn govtrack',
+		'tags': 'ML keras lstm char-rnn govtrack machine-learning',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/Build-A-Bill',
 		'start': 'Jan 5, 2018',
@@ -112,7 +112,7 @@ const projects = [
 	{
 		'title': 'OverwatchML',
 		'tagline': 'Overwatch + AI',
-		'tags': 'overwatch ML ai keras',
+		'tags': 'overwatch ML ai keras machine-learning',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/OverwatchML',
 		'start': 'Aug 25, 2017',
@@ -214,7 +214,7 @@ const projects = [
 	{
 		'title': 'StealthML',
 		'tagline': 'Hiding stuff but with machine learning.',
-		'tags': 'ML computer-vision',
+		'tags': 'ML computer-vision machine-learning',
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/StealthML',
 		'start': 'Apr 1, 2018',
@@ -294,7 +294,7 @@ const projects = [
 	{
 		'title': 'Titanic',
 		'tagline': 'Anaylizing the Titanic',
-		'tags': 'kaggle ML',
+		'tags': 'kaggle ML machine-learning',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/MLCode/blob/master/competitions/titanic/Titanic.ipynb',
 		'kaggle': 'https://www.kaggle.com/c/titanic',
@@ -447,7 +447,7 @@ const projects = [
 		'title': 'Campus Maps',
 		'tagline': 'Mapping places and events.',
 		'language': 'HTML CSS JS',
-		'tags': 'react firebase map',
+		'tags': 'react firebase map hackathon',
 		'github': 'https://github.com/sshh12/Campus-Maps',
 		'start': 'Sep 14, 2018',
 		'coolness': 6,
