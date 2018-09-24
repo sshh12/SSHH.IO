@@ -31,7 +31,7 @@ const projects = [
 		'title': 'UT Finder',
 		'tagline': 'A simple utility for UT students.',
 		'language': 'HTML CSS JS',
-		'tags': 'android apple school ionic ut school-app',
+		'tags': 'android apple school ionic UT school-app',
 		'github': 'https://github.com/sshh12/UT-Finder',
 		'start': 'Sep 10, 2018',
 		'coolness': 5
@@ -454,5 +454,26 @@ const projects = [
 		'team': 'HackRice \'18',
 		'url': 'https://devpost.com/software/campus-maps-k6y2pd',
 		'tiny': true
+	},
+	{
+		'title': 'Target Finder',
+		'tagline': 'Combining image recognition with unmanned aerial vehicles.',
+		'language': 'Python',
+		'tags': 'uav opencv tensorflow UT club',
+		'github': 'https://github.com/uavaustin',
+		'start': 'Sep 20, 2018',
+		'coolness': 7,
+		'team': 'UAV Austin'
+	},
+	{
+		'title': 'UT Student Gov. Bot',
+		'tagline': 'Helping students access university resources with AI.',
+		'language': 'Python',
+		'tags': 'ML machine-learning NLP club dialog-flow',
+		'start': 'Sep 24, 2018',
+		'coolness': 7,
+		'team': 'Texas Convergent',
+		'url': 'http://www.txconvergent.org/',
+		'wip': true
 	}
 ]
