@@ -2,7 +2,7 @@
 // GENERAL
 
 body {
-  background-color: #FAFAFA;
+  background-color: #F8F8F8;
 }
 
 .page-header {
@@ -96,6 +96,9 @@ section:not(.year) {
     transition: all .4s ease-out;
     &:hover {
       margin-left: 12px !important;
+      -webkit-box-shadow: 0 10px 10px -10px #777;
+      -moz-box-shadow: 0 10px 10px -10px #777;
+      box-shadow: 0 10px 10px -10px #777;
     }
   }
 }

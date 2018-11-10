@@ -58,7 +58,7 @@ const projects = [
 	{
 		'title': 'StockMarketML',
 		'tagline': 'Predicting stocks with ML.',
-		'tags': 'tensorflow keras machine-learning stock-market stock-price-prediction',
+		'tags': 'tensorflow keras ML stock-market stock-price-prediction',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/StockMarketML',
 		'start': 'Sep 16, 2017',
@@ -94,7 +94,7 @@ const projects = [
 	{
 		'title': 'MLCode',
 		'tagline': 'A collection of scripts related to machine learning.',
-		'tags': 'ML ai tensorflow coursera kaggle deeplearning machine-learning',
+		'tags': 'ML ai tensorflow coursera kaggle deeplearning',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/MLCode',
 		'start': 'Aug 13, 2017',
@@ -103,7 +103,7 @@ const projects = [
 	{
 		'title': 'Build-A-Bill',
 		'tagline': 'Creating Legislation with AI',
-		'tags': 'ML keras lstm char-rnn govtrack machine-learning',
+		'tags': 'ML keras lstm char-rnn govtrack',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/Build-A-Bill',
 		'start': 'Jan 5, 2018',
@@ -112,7 +112,7 @@ const projects = [
 	{
 		'title': 'OverwatchML',
 		'tagline': 'Overwatch + AI',
-		'tags': 'overwatch ML ai keras machine-learning',
+		'tags': 'overwatch ML ai keras',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/OverwatchML',
 		'start': 'Aug 25, 2017',
@@ -214,7 +214,7 @@ const projects = [
 	{
 		'title': 'StealthML',
 		'tagline': 'Hiding stuff but with machine learning.',
-		'tags': 'ML computer-vision machine-learning',
+		'tags': 'ML computer-vision',
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/StealthML',
 		'start': 'Apr 1, 2018',
@@ -233,7 +233,7 @@ const projects = [
 	},
 	{
 		'title': 'Money Classifier',
-		'tagline': 'Charting expenses',
+		'tagline': 'Charting and classifying expenses.',
 		'tags': 'ML chase textblob',
 		'language': 'Python',
 		'github': 'https://gist.github.com/sshh12/d362dba3f72498cd9604de63a659b870',
@@ -294,7 +294,7 @@ const projects = [
 	{
 		'title': 'Titanic',
 		'tagline': 'Anaylizing the Titanic',
-		'tags': 'kaggle ML machine-learning',
+		'tags': 'kaggle ML',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/MLCode/blob/master/competitions/titanic/Titanic.ipynb',
 		'kaggle': 'https://www.kaggle.com/c/titanic',
@@ -445,7 +445,7 @@ const projects = [
 	},
 	{
 		'title': 'Campus Maps',
-		'tagline': 'Mapping places and events.',
+		'tagline': 'Mapping places and events around campuses.',
 		'language': 'HTML CSS JS',
 		'tags': 'react firebase map hackathon',
 		'github': 'https://github.com/sshh12/Campus-Maps',
@@ -461,19 +461,29 @@ const projects = [
 		'language': 'Python',
 		'tags': 'uav opencv tensorflow UT club',
 		'github': 'https://github.com/uavaustin',
+		'url': 'http://uavaustin.org',
 		'start': 'Sep 20, 2018',
 		'coolness': 7,
 		'team': 'UAV Austin'
 	},
 	{
-		'title': 'UT Student Gov. Bot',
+		'title': 'UText NLP Bot',
 		'tagline': 'Helping students access university resources with AI.',
 		'language': 'Python',
-		'tags': 'ML machine-learning NLP club dialog-flow',
+		'tags': 'ML NLP club dialog-flow',
 		'start': 'Sep 24, 2018',
 		'coolness': 7,
 		'team': 'Texas Convergent',
-		'url': 'http://www.txconvergent.org/',
-		'wip': true
+		'github': 'https://github.com/txconvergent/utext',
+		'url': 'http://www.txconvergent.org/'
+	},
+	{
+		'title': 'Halite III Bot',
+		'tagline': 'A bot for competing in Two Sigma\'s AI tournament.',
+		'language': 'Python',
+		'tags': 'ML RL bot competition',
+		'start': 'Nov 3, 2018',
+		'coolness': 5,
+		'url': 'https://halite.io/'
 	}
 ]

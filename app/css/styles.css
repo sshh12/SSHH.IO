@@ -1,5 +1,5 @@
 body {
-  background-color: #FAFAFA; }
+  background-color: #F8F8F8; }
 
 .page-header {
   margin-top: 60px;
@@ -76,7 +76,10 @@ section:not(.year) ul li {
   box-shadow: 0 5px 8px -8px #777;
   transition: all .4s ease-out; }
   section:not(.year) ul li:hover {
-    margin-left: 12px !important; }
+    margin-left: 12px !important;
+    -webkit-box-shadow: 0 10px 10px -10px #777;
+    -moz-box-shadow: 0 10px 10px -10px #777;
+    box-shadow: 0 10px 10px -10px #777; }
 
 .small-date {
   font-size: .6em; }

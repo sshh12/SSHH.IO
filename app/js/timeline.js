@@ -77,7 +77,7 @@ function sortByCoolness() {
 
   }
 
-  $('#sort-msg').html('Viewing By Coolness')
+  $('#sort-msg').html('Viewing By Coolness 😎')
   $('#timeline-container').html(html)
 
 }

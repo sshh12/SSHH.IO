@@ -5,9 +5,13 @@ for(let project of projects) {
   if(project.hack) { repr += 'greyhat whitehat ethical hacking security' }
   if(project.github) { repr += 'github open-source' }
   if(project.url) { repr += 'online webpage linked' }
-  if(project.wip) { repr += 'wip todo inprogress' }
   if(project.team) { repr += 'team' + project.team }
+  if(project.wip) { repr += 'wip todo inprogress' }
   else { repr += 'complete' }
+
+  if(/\bML\b/.test(project.tags)) { repr += 'machine-learning' }
+  if(/\bRL\b/.test(project.tags)) { repr += 'reinforcement-learning' }
+  if(/\bNLP\b/.test(project.tags)) { repr += 'natural-language-processing' }
 
   project._repr = repr.replace(/\W+/g, '').toLowerCase()
   project._id = project.title.replace(/\W+/g, '')
