@@ -29,7 +29,7 @@ const projects = [
 	},
 	{
 		'title': 'UT Finder',
-		'tagline': 'A simple utility for UT students.',
+		'tagline': 'An app for the University of Texas at Austin.',
 		'language': 'HTML CSS JS',
 		'tags': 'android apple school ionic UT school-app',
 		'github': 'https://github.com/sshh12/UT-Finder',
@@ -71,7 +71,7 @@ const projects = [
 		'language': 'HTML CSS JS',
 		'github': 'https://github.com/sshh12/Splitscreen-Player',
 		'start': 'Feb 5, 2017',
-		'coolness': 8
+		'coolness': 7
 	},
 	{
 		'title': 'SchoolCode',
@@ -213,13 +213,12 @@ const projects = [
 	},
 	{
 		'title': 'StealthML',
-		'tagline': 'Hiding stuff but with machine learning.',
-		'tags': 'ML computer-vision',
+		'tagline': 'Using image segmentation and in-painting to tinker with images.',
+		'tags': 'ML computer-vision segmentation',
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/StealthML',
-		'start': 'Apr 1, 2018',
-		'coolness': 8,
-		'wip': true
+		'start': 'Dec 9, 2018',
+		'coolness': 8
 	},
 	{
 		'title': 'FlappyTilesOfThe48',
@@ -468,7 +467,7 @@ const projects = [
 	},
 	{
 		'title': 'UText NLP Bot',
-		'tagline': 'Helping students access university resources with AI.',
+		'tagline': 'Helping students access university resources with Machine Comprehension.',
 		'language': 'Python',
 		'tags': 'ML NLP club dialog-flow',
 		'start': 'Sep 24, 2018',
@@ -484,6 +483,7 @@ const projects = [
 		'tags': 'ML RL bot competition',
 		'start': 'Nov 3, 2018',
 		'coolness': 5,
+		'github': 'https://github.com/sshh12/Halite-III-AI-Bot',
 		'url': 'https://halite.io/'
 	}
 ]
