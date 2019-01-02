@@ -485,5 +485,14 @@ const projects = [
 		'coolness': 5,
 		'github': 'https://github.com/sshh12/Halite-III-AI-Bot',
 		'url': 'https://halite.io/'
+	},
+	{
+		'title': 'OdoNet',
+		'tagline': 'A framework for a network of advanced monitoring devices.',
+		'language': 'HTML CSS JS Python',
+		'tags': 'raspberry-pi wifi security object-recognition',
+		'github': 'https://github.com/sshh12/OdoNet',
+		'start': 'Jan 1, 2019',
+		'coolness': 7
 	}
 ]
