@@ -473,7 +473,7 @@ const projects = [
 		'start': 'Sep 24, 2018',
 		'coolness': 7,
 		'team': 'Texas Convergent',
-		'github': 'https://github.com/txconvergent/utext',
+		'github': 'https://github.com/sshh12/utext',
 		'url': 'http://www.txconvergent.org/'
 	},
 	{
