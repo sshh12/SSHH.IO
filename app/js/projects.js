@@ -34,7 +34,7 @@ const projects = [
 		'tags': 'android apple school ionic UT school-app',
 		'github': 'https://github.com/sshh12/UT-Finder',
 		'start': 'Sep 10, 2018',
-		'coolness': 5
+		'coolness': 8
 	},
 	{
 		'title': 'SSHH.IO',
@@ -143,7 +143,7 @@ const projects = [
 		'language': 'HTML CSS JS Python',
 		'github': 'https://github.com/sshh12/Students-Visualization',
 		'start': 'Apr 28, 2017',
-		'coolness': 8
+		'coolness': 7
 	},
 	{
 		'title': 'RanchCoin',
@@ -494,5 +494,25 @@ const projects = [
 		'github': 'https://github.com/sshh12/OdoNet',
 		'start': 'Jan 1, 2019',
 		'coolness': 7
+	},
+	{
+		'title': 'Oracle Mentorship',
+		'tagline': 'A social platform to connect students to professionals.',
+		'language': 'HTML CSS JS',
+		'tags': 'k12 school express mongodb',
+		'url': 'https://oracle-mentorship.herokuapp.com/',
+		'team': 'Oracle Mentorship',
+		'start': 'Jan 20, 2019',
+		'coolness': 5
+	},
+	{
+		'title': 'Squarecap Intern',
+		'tagline': 'Using webscrapers to generate leads.',
+		'language': 'Python',
+		'tags': 'college school',
+		'team': 'Squarecap',
+		'url': 'https://info.squarecap.com/',
+		'start': 'Feb 11, 2019',
+		'coolness': 4
 	}
 ]
