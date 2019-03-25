@@ -514,5 +514,24 @@ const projects = [
 		'url': 'https://info.squarecap.com/',
 		'start': 'Feb 11, 2019',
 		'coolness': 4
+	},
+	{
+		'title': 'Crypto Marketplace Workshop',
+		'tagline': 'Learning JS backend with fake crypto.',
+		'language': 'JS',
+		'tags': 'college express mongodb mongoose',
+		'team': 'Texas Convergent',
+		'github': 'https://github.com/sshh12/Crypto-Marketplace-Workshop',
+		'start': 'Mar 23, 2019',
+		'coolness': 4
+	},
+	{
+		'title': 'PSAL',
+		'tagline': 'An AI.',
+		'language': 'Python',
+		'tags': 'ML',
+		'start': 'Feb 16, 2019',
+		'wip': true,
+		'coolness': 9
 	}
 ]
