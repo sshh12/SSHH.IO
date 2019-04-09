@@ -194,7 +194,7 @@ function getProjectHTML(project) {
   return `
     <section id="project-${project._id}">
       <ul>
-      <li>
+      <li class="project-item">
         <b>${project.title}</b>
         ${project.hack ? '<span title="Ethical Hacking!" class="badge badge-danger">Hacking</span>':''}
         ${project.tiny ? '<span class="badge badge-info">Mini Project</span>':''}
@@ -207,8 +207,33 @@ function getProjectHTML(project) {
         ${project.url ? '<a href="' + project.url + '"><i class="link-icon fas fa-link"></i></a>':''}
         <hr>
         ${project.tagline}
+        <!--<hr>
+        <div class="desc" id="desc-${project._id}">
+        </div>-->
       </li>
       </ul>
     </section><br>`
 
 }
+
+// function generateDescs() {
+//
+//   let converter = new showdown.Converter()
+//   showdown.setFlavor('github')
+//   converter.setOption('noHeaderId', 'true')
+//
+//   for(let project of projects) {
+//     if(!project.desc && project.github) {
+//       let readmeURL = `${project.github.replace('github.com', 'raw.githubusercontent.com')}/master/README.md`
+//       fetch(readmeURL)
+//         .then((resp) => resp.text())
+//         .then((text) => {
+//           project.desc = text;
+//           var html = converter.makeHtml(text)
+//           $(`#desc-${project._id}`).html(html)
+//           $(`#desc-${project._id}`).show()
+//         });
+//     }
+//   }
+//
+// }

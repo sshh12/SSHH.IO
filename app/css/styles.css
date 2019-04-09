@@ -67,7 +67,7 @@ a {
   .floating-action-btn:hover {
     box-shadow: 0 1px 1px .5px #777; }
 
-section:not(.year) ul li {
+section:not(.year) .project-item {
   background-color: #fff;
   padding: 10px;
   border-radius: 6px;
@@ -75,7 +75,7 @@ section:not(.year) ul li {
   -moz-box-shadow: 0 5px 8px -8px #777;
   box-shadow: 0 5px 8px -8px #777;
   transition: all .4s ease-out; }
-  section:not(.year) ul li:hover {
+  section:not(.year) .project-item:hover {
     margin-left: 12px !important;
     -webkit-box-shadow: 0 10px 10px -10px #777;
     -moz-box-shadow: 0 10px 10px -10px #777;
@@ -83,3 +83,25 @@ section:not(.year) ul li {
 
 .small-date {
   font-size: .6em; }
+
+.desc {
+  display: none;
+  font-size: 16px;
+  font-size: 1.8vw;
+  height: 500px;
+  overflow-y: scroll; }
+  .desc h1 {
+    display: none; }
+  .desc h2 {
+    font-size: 1.2em; }
+  .desc h5 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; }
+  .desc code {
+    margin-left: 6px; }
+  .desc a {
+    margin-top: 20px; }
+  .desc li {
+    list-style-type: circle; }

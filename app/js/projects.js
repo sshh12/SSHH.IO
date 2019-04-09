@@ -92,15 +92,6 @@ const projects = [
 		'coolness': 5
 	},
 	{
-		'title': 'MLCode',
-		'tagline': 'A collection of scripts related to machine learning.',
-		'tags': 'ML ai tensorflow coursera kaggle deeplearning',
-		'language': 'Python Jupyter',
-		'github': 'https://github.com/sshh12/MLCode',
-		'start': 'Aug 13, 2017',
-		'coolness': 2
-	},
-	{
 		'title': 'Build-A-Bill',
 		'tagline': 'Creating Legislation with AI',
 		'tags': 'ML keras lstm char-rnn govtrack',
@@ -202,16 +193,6 @@ const projects = [
 		'coolness': 4
 	},
 	{
-		'title': 'Model Monitor',
-		'tagline': 'An app for monitoring Keras models',
-		'tags': 'keras android',
-		'language': 'Kotlin',
-		'github': 'https://github.com/sshh12/Model-Monitor-App',
-		'start': 'Jun 10, 2018',
-		'coolness': 5,
-		'wip': true
-	},
-	{
 		'title': 'StealthML',
 		'tagline': 'Using image segmentation and in-painting to tinker with images.',
 		'tags': 'ML computer-vision segmentation',
@@ -219,16 +200,6 @@ const projects = [
 		'github': 'https://github.com/sshh12/StealthML',
 		'start': 'Dec 9, 2018',
 		'coolness': 8
-	},
-	{
-		'title': 'FlappyTilesOfThe48',
-		'tagline': 'The Flappiest Tilest Game of the 2048 variety.',
-		'tags': 'flappy-bird 2048 ionic piano-tiles',
-		'language': 'HTML CSS JS',
-		'github': 'https://github.com/sshh12/FlappyTilesOfThe48',
-		'start': 'Dec 10, 2017',
-		'coolness': 6,
-		'wip': true
 	},
 	{
 		'title': 'Money Classifier',
@@ -507,9 +478,9 @@ const projects = [
 	},
 	{
 		'title': 'Squarecap Intern',
-		'tagline': 'Using webscrapers to generate leads.',
-		'language': 'Python',
-		'tags': 'college school',
+		'tagline': 'Using technology to empower teachers and students.',
+		'language': 'Python JS',
+		'tags': 'college school electron webscraping',
 		'team': 'Squarecap',
 		'url': 'https://info.squarecap.com/',
 		'start': 'Feb 11, 2019',
@@ -519,19 +490,20 @@ const projects = [
 		'title': 'Crypto Marketplace Workshop',
 		'tagline': 'Learning JS backend with fake crypto.',
 		'language': 'JS',
-		'tags': 'college express mongodb mongoose',
+		'tags': 'college express mongodb mongoose workshop',
 		'team': 'Texas Convergent',
 		'github': 'https://github.com/sshh12/Crypto-Marketplace-Workshop',
 		'start': 'Mar 23, 2019',
 		'coolness': 4
 	},
 	{
-		'title': 'PSAL',
-		'tagline': 'An AI.',
-		'language': 'Python',
-		'tags': 'ML',
-		'start': 'Feb 16, 2019',
-		'wip': true,
-		'coolness': 9
+		'title': 'Ti Scripts',
+		'tagline': 'Misc utilities/scripts for Ti calculators.',
+		'language': 'C',
+		'github': 'https://github.com/sshh12/Ti-Scripts',
+		'tags': 'college ti tigcc',
+		'start': 'Mar 20, 2019',
+		'tiny': true,
+		'coolness': 4
 	}
 ]
