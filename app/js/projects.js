@@ -426,6 +426,18 @@ const projects = [
 		'tiny': true
 	},
 	{
+		'title': 'Videoscopic',
+		'tagline': 'Uncovering political insights one video at a time.',
+		'language': 'Python HTML',
+		'tags': 'chrome ML CV NLP',
+		'github': 'https://github.com/sshh12/Videoscopic',
+		'start': 'Apr 21, 2019',
+		'coolness': 7,
+		'team': 'HackTogether \'19',
+		'url': 'https://devpost.com/software/videoscopic',
+		'tiny': true
+	},
+	{
 		'title': 'Target Finder',
 		'tagline': 'Combining image recognition with unmanned aerial vehicles.',
 		'language': 'Python',
