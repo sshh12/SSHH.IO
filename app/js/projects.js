@@ -19,11 +19,11 @@ const projects = [
 	},
 	{
 		'title': 'CFISD API',
-		'tagline': 'The Unofficial CFISD API.',
+		'tagline': 'The Unofficial CFISD Student API.',
 		'language': 'Python',
-		'tags': 'api flask app web-app requests lxml cyranch',
-		'url': 'https://cfisdapi.herokuapp.com/',
-		'github': 'https://github.com/sshh12/CyRanch-App-Server',
+		'tags': 'rest-api flask requests lxml cyranch',
+		'url': 'http://cfisdapi.sshh.io',
+		'github': 'https://github.com/sshh12/CFISD-API',
 		'start': 'Jan 20, 2017',
 		'coolness': 6
 	},
@@ -273,7 +273,7 @@ const projects = [
 		'tiny': true
 	},
 	{
-		'title': 'Freq. Visualizer',
+		'title': 'Frequency Visualizer',
 		'tagline': 'An interactive sound visualizer',
 		'tags': 'sound interactive p5js',
 		'language': 'HTML CSS JS',
@@ -282,7 +282,7 @@ const projects = [
 		'coolness': 5
 	},
 	{
-		'title': 'Web Toolkit',
+		'title': 'Online Physics Utilities',
 		'tagline': 'A small collection of mobile web tools.',
 		'tags': 'tools p5js mobile',
 		'language': 'HTML CSS JS',
@@ -304,7 +304,7 @@ const projects = [
 		'tagline': 'Codin\' like a pro',
 		'tags': 'typing leet',
 		'language': 'HTML CSS JS',
-		'url': '/apps/leettyper/index.html?http://raw.githubusercontent.com/sshh12/Webcam-Anomaly-Detection/master/generate_anomaly_model.py',
+		'url': '/apps/leettyper/index.html?https://raw.githubusercontent.com/sshh12/Webcam-Anomaly-Detection/master/generate_anomaly_model.py',
 		'start': 'Apr 10, 2017',
 		'coolness': 4,
 		'tiny': true
@@ -316,7 +316,7 @@ const projects = [
 		'language': 'HTML',
 		'url': '/apps/trumpphysics/index.html',
 		'start': 'Nov 15, 2017',
-		'coolness': 1,
+		'coolness': 2,
 		'tiny': true
 	},
 	{
@@ -420,7 +420,7 @@ const projects = [
 		'tags': 'react firebase map hackathon',
 		'github': 'https://github.com/sshh12/Campus-Maps',
 		'start': 'Sep 14, 2018',
-		'coolness': 6,
+		'coolness': 5,
 		'team': 'HackRice \'18',
 		'url': 'https://devpost.com/software/campus-maps-k6y2pd',
 		'tiny': true
@@ -456,7 +456,7 @@ const projects = [
 		'start': 'Sep 24, 2018',
 		'coolness': 7,
 		'team': 'Texas Convergent',
-		'github': 'https://github.com/sshh12/utext',
+		'github': 'https://github.com/sshh12/UText-NLP',
 		'url': 'http://www.txconvergent.org/'
 	},
 	{
@@ -465,7 +465,7 @@ const projects = [
 		'language': 'Python',
 		'tags': 'ML RL bot competition',
 		'start': 'Nov 3, 2018',
-		'coolness': 5,
+		'coolness': 6,
 		'github': 'https://github.com/sshh12/Halite-III-AI-Bot',
 		'url': 'https://halite.io/'
 	},
@@ -486,10 +486,10 @@ const projects = [
 		'url': 'https://oracle-mentorship.herokuapp.com/',
 		'team': 'Oracle Mentorship',
 		'start': 'Jan 20, 2019',
-		'coolness': 5
+		'coolness': 6
 	},
 	{
-		'title': 'Squarecap Intern',
+		'title': 'Squarecap SWE Intern',
 		'tagline': 'Using technology to empower teachers and students.',
 		'language': 'Python JS',
 		'tags': 'college school electron webscraping',
@@ -517,5 +517,24 @@ const projects = [
 		'start': 'Mar 20, 2019',
 		'tiny': true,
 		'coolness': 4
+	},
+	{
+		'title': 'InvestorCraft',
+		'tagline': 'Invest in stocks through Minecraft.',
+		'language': 'Java',
+		'github': 'https://github.com/sshh12/InvestorCraft',
+		'tags': 'minecraft plugin',
+		'start': 'May 22, 2019',
+		'tiny': true,
+		'coolness': 5
+	},
+	{
+		'title': 'Conv-VAD',
+		'tagline': 'A packaged convolutional voice activity detector for noisy environments.',
+		'language': 'Python',
+		'github': 'https://github.com/sshh12/Conv-VAD',
+		'tags': 'ML CNN keras vad voice-activity-detection',
+		'start': 'May 24, 2019',
+		'coolness': 6
 	}
 ]
