@@ -93,12 +93,16 @@ section:not(.year) {
     -webkit-box-shadow: 0 5px 8px -8px #777;
     -moz-box-shadow: 0 5px 8px -8px #777;
     box-shadow: 0 5px 8px -8px #777;
-    transition: all .4s ease-out;
+    transition: all .5s ease-out;
     &:hover {
       margin-left: 12px !important;
       -webkit-box-shadow: 0 10px 10px -10px #777;
       -moz-box-shadow: 0 10px 10px -10px #777;
       box-shadow: 0 10px 10px -10px #777;
+      .desc {
+        display: block;
+        opacity: 1;
+      }
     }
   }
 }
@@ -108,30 +112,20 @@ section:not(.year) {
 }
 
 .desc {
+  opacity: 0;
   display: none;
-  font-size: 16px;
-  font-size: 1.8vw;
-  h1 {
-    display: none;
+  font-size: 12px;
+  transition: visibility 2s, opacity 2s linear;
+  .desc-list {
+    margin-left: 5px !important;
+    margin-top: 10px !important;
+    padding-left: 10px !important;
+    li {
+      list-style-type: circle;
+      margin-top: 5px !important;
+    }
   }
-  h2 {
-    font-size: 1.2em;
+  .desc-img {
+    width: 100%;
   }
-  h5 {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-  }
-  code {
-    margin-left: 6px;
-  }
-  a {
-    margin-top: 20px;
-  }
-  li {
-    list-style-type: circle;
-  }
-  height: 500px;
-  overflow-y: scroll;
 }

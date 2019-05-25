@@ -48,6 +48,5 @@ $(() => {
   });
 
   sortByTime()
-  generateDescs()
 
 }); /* semicolon or else google code break */

@@ -74,34 +74,30 @@ section:not(.year) .project-item {
   -webkit-box-shadow: 0 5px 8px -8px #777;
   -moz-box-shadow: 0 5px 8px -8px #777;
   box-shadow: 0 5px 8px -8px #777;
-  transition: all .4s ease-out; }
+  transition: all .5s ease-out; }
   section:not(.year) .project-item:hover {
     margin-left: 12px !important;
     -webkit-box-shadow: 0 10px 10px -10px #777;
     -moz-box-shadow: 0 10px 10px -10px #777;
     box-shadow: 0 10px 10px -10px #777; }
+    section:not(.year) .project-item:hover .desc {
+      display: block;
+      opacity: 1; }
 
 .small-date {
   font-size: .6em; }
 
 .desc {
+  opacity: 0;
   display: none;
-  font-size: 16px;
-  font-size: 1.8vw;
-  height: 500px;
-  overflow-y: scroll; }
-  .desc h1 {
-    display: none; }
-  .desc h2 {
-    font-size: 1.2em; }
-  .desc h5 {
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px; }
-  .desc code {
-    margin-left: 6px; }
-  .desc a {
-    margin-top: 20px; }
-  .desc li {
-    list-style-type: circle; }
+  font-size: 12px;
+  transition: visibility 2s, opacity 2s linear; }
+  .desc .desc-list {
+    margin-left: 5px !important;
+    margin-top: 10px !important;
+    padding-left: 10px !important; }
+    .desc .desc-list li {
+      list-style-type: circle;
+      margin-top: 5px !important; }
+  .desc .desc-img {
+    width: 100%; }

@@ -6,7 +6,12 @@ const projects = [
 		'tags': 'android apple school ionic cyranch cfisd school-app',
 		'github': 'https://github.com/sshh12/CyRanch-App',
 		'start': 'May 25, 2016',
-		'coolness': 8
+		'coolness': 8,
+    'desc': [
+      'Created an Ionic app for IOS and Android for CyRanch HS',
+      'Used Admob to monetize the app and profit'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58373859-68ff5b00-7efa-11e9-9fd9-8bbf82846be7.png'
 	},
 	{
 		'title': 'CFISD App',
@@ -15,7 +20,12 @@ const projects = [
 		'language': 'HTML CSS JS',
 		'github': 'https://github.com/sshh12/CFISD-App',
 		'start': 'May 14, 2018',
-		'coolness': 5
+		'coolness': 5,
+    'desc': [
+      'Created an app for IOS and Android for all of CFISD',
+      'Used Admob to monetize the app and profit'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58373775-36a12e00-7ef9-11e9-99e1-28d9f1f79d33.png'
 	},
 	{
 		'title': 'CFISD API',
@@ -34,7 +44,13 @@ const projects = [
 		'tags': 'android apple school ionic UT school-app',
 		'github': 'https://github.com/sshh12/UT-Finder',
 		'start': 'Sep 10, 2018',
-		'coolness': 8
+		'coolness': 8,
+    'desc': [
+      'Created an IOS/Android app for UT Austin students',
+      'Integrated course schedules, $ balances, and bus routes',
+      'Featured in the Daily Texan'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/57817116-92bec200-7743-11e9-92c6-111aa96dc3f5.png'
 	},
 	{
 		'title': 'SSHH.IO',
@@ -44,7 +60,8 @@ const projects = [
 		'url': 'https://sshh.io',
 		'github': 'https://github.com/sshh12/SSHH.IO',
 		'start': 'Jul 5, 2018',
-		'coolness': 4
+		'coolness': 4,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/43047784-83142740-8da2-11e8-89f3-50499a38e378.png'
 	},
 	{
 		'title': '"Shrivu Bot"',
@@ -62,7 +79,13 @@ const projects = [
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/StockMarketML',
 		'start': 'Sep 16, 2017',
-		'coolness': 8
+		'coolness': 8,
+    'desc': [
+      'Created several parsers to gather large amounts of headlines and stock data',
+      'Developed several models for predicting price movements based on headlines and tick data overtime',
+      'Used a bootstrap based web app to view predictions'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/40280636-7ac6908a-5c1c-11e8-9d96-ededc88cb233.png'
 	},
 	{
 		'title': 'Splitscreen Player',
@@ -71,7 +94,12 @@ const projects = [
 		'language': 'HTML CSS JS',
 		'github': 'https://github.com/sshh12/Splitscreen-Player',
 		'start': 'Feb 5, 2017',
-		'coolness': 7
+		'coolness': 7,
+    'desc': [
+      'Developed web app to play and control several videos in sync',
+      'Used Firebase to allow multiple users to control and stream the videos simultaneously'
+    ],
+    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/22629722/6aaf0f06-ebb1-11e6-993f-ef71bfa0e9c9.jpg'
 	},
 	{
 		'title': 'SchoolCode',
@@ -98,7 +126,12 @@ const projects = [
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/Build-A-Bill',
 		'start': 'Jan 5, 2018',
-		'coolness': 6
+		'coolness': 6,
+    'desc': [
+      'Scraped and processed years of US Congressional legislation to create a dataset',
+      'Trained a character-level LSTM and finetuned GPT-2 (117M) to write fake bills'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374269-3c027680-7f01-11e9-9147-4424b489e0fa.png'
 	},
 	{
 		'title': 'OverwatchML',
@@ -107,7 +140,12 @@ const projects = [
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/OverwatchML',
 		'start': 'Aug 25, 2017',
-		'coolness': 7
+		'coolness': 7,
+    'desc': [
+      'Created a web scraper to gather usernames as test data',
+      'Analyzed and processed user stats to build a predictive model',
+      'Built a webapp to allow users to predict their online rank'
+    ]
 	},
 	{
 		'title': 'Webcam Anomaly Detection',
@@ -116,7 +154,12 @@ const projects = [
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/Webcam-Anomaly-Detection',
 		'start': 'Jun 4, 2017',
-		'coolness': 6
+		'coolness': 6,
+    'desc': [
+      'Created a specialized FTP server to process images on upload',
+      'Used Skimage and Keras to detect anomalies in the photo stream'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/26891644-64de5080-4b7b-11e7-8960-57ce75c99e28.jpg'
 	},
 	{
 		'title': 'Genetic Connect4',
@@ -125,7 +168,11 @@ const projects = [
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/Genetic-Connect4',
 		'start': 'Jun 22, 2017',
-		'coolness': 5
+		'coolness': 5,
+    'desc': [
+      'Added several coefficients to the minimax agent\'s scoring heuristic',
+      'Used these coefficients as DNA with win rate as a fitness function'
+    ]
 	},
 	{
 		'title': 'Students Visualization',
@@ -134,7 +181,12 @@ const projects = [
 		'language': 'HTML CSS JS Python',
 		'github': 'https://github.com/sshh12/Students-Visualization',
 		'start': 'Apr 28, 2017',
-		'coolness': 7
+		'coolness': 7,
+    'desc': [
+      'With the data collected from the CyRanch/CFISD Apps, every users\' grades were turned into a 7D vector based on their average grade in 7 fields: Science, Math, English, (Non-English) Language, Arts, Sports, and Social Studies. Using a dimensionality reduction algorithm, t-SNE, the data was used to create clusters of students based on their academic performance. While these 3D groupings are purely abstract, they serve as an interesting way to visualize students and see possible patterns.',
+      'Additional visualizations were contructed to explore GPA, classes, and demographics.'
+    ],
+    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/25551412/3e642c36-2c4a-11e7-84ca-030f6d723ba6.gif'
 	},
 	{
 		'title': 'RanchCoin',
@@ -144,7 +196,11 @@ const projects = [
 		'url': 'https://ranchcoin.firebaseapp.com/',
 		'github': 'https://github.com/sshh12/RanchCoin',
 		'start': 'Apr 10, 2018',
-		'coolness': 5
+		'coolness': 5,
+    'desc': [
+      'Created a fully functioning currency/wallet for Economics Fair.'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/39553689-800be568-4e34-11e8-86f5-7d32e4927666.png'
 	},
 	{
 		'title': 'FaceTweet',
@@ -154,7 +210,11 @@ const projects = [
 		'url': 'https://facetweet-71a89.firebaseapp.com/',
 		'github': 'https://github.com/sshh12/FaceTweet',
 		'start': 'Mar 7, 2018',
-		'coolness': 4
+		'coolness': 4,
+    'desc': [
+      'Adapted Firebase\'s social media demo site to create an interactive satire'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/37736121-0c3a7f82-2d1e-11e8-8f2f-23527d778b83.png'
 	},
 	{
 		'title': 'Rummy',
@@ -163,7 +223,11 @@ const projects = [
 		'language': 'HTML CSS JS',
 		'github': 'https://github.com/sshh12/Rummy',
 		'start': 'Jan 11, 2018',
-		'coolness': 5
+		'coolness': 5,
+    'desc': [
+      'A web-based online multiplayer version of the card game Rummy'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/35307951-e63e8362-006a-11e8-97a5-18361f151072.gif'
 	},
 	{
 		'title': 'Ballz Bot',
@@ -172,7 +236,13 @@ const projects = [
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/Ballz-Bot',
 		'start': 'Apr 9, 2017',
-		'coolness': 6
+		'coolness': 6,
+    'desc': [
+      'Combined ADB and pytesser to parse the devices screen when in the game',
+      'Constructed a physics engine to simulate playing the game with different moves',
+      'Used the android swipe API to execute the best move'
+    ],
+    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/25557899/f4b1f0fe-2ce0-11e7-9245-463100049ea3.gif'
 	},
 	{
 		'title': 'Recording Bot',
@@ -199,7 +269,12 @@ const projects = [
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/StealthML',
 		'start': 'Dec 9, 2018',
-		'coolness': 8
+		'coolness': 8,
+    'desc': [
+      'Combined image segmentation and inpainting to create a invisibility cloak like effect',
+      'Tweaked the model to run at near real time from a webcam stream'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/51450883-87f9a080-1d00-11e9-98d6-4f5983bdb5b8.gif'
 	},
 	{
 		'title': 'Money Classifier',
@@ -219,7 +294,8 @@ const projects = [
 		'github': 'https://gist.github.com/sshh12/3bdb4daf63fb1bc00500c27f0a731fe8',
 		'start': 'Mar 21, 2018',
 		'coolness': 5,
-		'tiny': true
+		'tiny': true,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374409-53426380-7f03-11e9-8b6b-f622f648c1ab.png'
 	},
 	{
 		'title': 'Caterpillar Code',
@@ -263,7 +339,7 @@ const projects = [
 	},
 	{
 		'title': 'Titanic',
-		'tagline': 'Anaylizing the Titanic',
+		'tagline': 'Analyzing the Titanic',
 		'tags': 'kaggle ML',
 		'language': 'Python Jupyter',
 		'github': 'https://github.com/sshh12/MLCode/blob/master/competitions/titanic/Titanic.ipynb',
@@ -279,7 +355,8 @@ const projects = [
 		'language': 'HTML CSS JS',
 		'url': '/apps/freqvis/index.html',
 		'start': 'May 8, 2017',
-		'coolness': 5
+		'coolness': 5,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374383-ddd69300-7f02-11e9-9a55-377bad352976.gif'
 	},
 	{
 		'title': 'Online Physics Utilities',
@@ -326,7 +403,8 @@ const projects = [
 		'language': 'HTML CSS JS',
 		'url': '/apps/case-viewer/view.html',
 		'start': 'Sep 30, 2017',
-		'coolness': 6
+		'coolness': 6,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374374-a36cf600-7f02-11e9-9f7c-6ce7af12ef4a.gif'
 	},
 	{
 		'title': 'L\'Homme Qui Plantait Des Arbres',
@@ -411,7 +489,12 @@ const projects = [
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/Tradinhood',
 		'start': 'Jul 27, 2018',
-		'coolness': 7
+		'coolness': 7,
+    'desc': [
+      'Used Chrome DevTools to reverse engineer Robinhood\'s REST API',
+      'Developed a wrapper for the API and well as several other trading sites',
+      'Designed a trading interface to seamlessly go from backtests to trading real assets'
+    ]
 	},
 	{
 		'title': 'Campus Maps',
@@ -423,7 +506,11 @@ const projects = [
 		'coolness': 5,
 		'team': 'HackRice \'18',
 		'url': 'https://devpost.com/software/campus-maps-k6y2pd',
-		'tiny': true
+		'tiny': true,
+    'desc': [
+      'Our product is a map that encodes visual, spatial, temporal, and other descriptive data about events happening around in the local environment. It seeks to streamline the process of obtaining information for the general public, filling a void that is not satsified by current technology such as Facebook, Google Maps, and other services that provide data about the world around you. It is meant to be a gateway to experiencing a higher quality level of campus life.'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/45606639-5e580200-ba0c-11e8-82a5-48ce68d4bc53.png'
 	},
 	{
 		'title': 'Videoscopic',
@@ -435,7 +522,13 @@ const projects = [
 		'coolness': 7,
 		'team': 'HackTogether \'19',
 		'url': 'https://devpost.com/software/videoscopic',
-		'tiny': true
+		'tiny': true,
+    'desc': [
+      'Using the user\'s screen to provide realtime insights with facial recognition',
+      'The video\'s description and tags with NLP entity recognition to provide related topics',
+      'The channel is used to determine the validity and accuracy of the video'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/56474300-c278f380-643d-11e9-8799-892fd4ce84d3.png'
 	},
 	{
 		'title': 'Target Finder',
@@ -446,7 +539,8 @@ const projects = [
 		'url': 'http://uavaustin.org',
 		'start': 'Sep 20, 2018',
 		'coolness': 7,
-		'team': 'UAV Austin'
+		'team': 'UAV Austin',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374531-6fdf9b00-7f05-11e9-9d2c-e51c024209d5.jpg'
 	},
 	{
 		'title': 'UText NLP Bot',
@@ -457,7 +551,8 @@ const projects = [
 		'coolness': 7,
 		'team': 'Texas Convergent',
 		'github': 'https://github.com/sshh12/UText-NLP',
-		'url': 'http://www.txconvergent.org/'
+		'url': 'http://www.txconvergent.org/',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/51092865-78131700-176a-11e9-8d05-214ace83a48e.png'
 	},
 	{
 		'title': 'Halite III Bot',
@@ -476,7 +571,13 @@ const projects = [
 		'tags': 'raspberry-pi wifi security object-recognition',
 		'github': 'https://github.com/sshh12/OdoNet',
 		'start': 'Jan 1, 2019',
-		'coolness': 7
+		'coolness': 7,
+    'desc': [
+      'Developed a framework for IOT devices to chain WiFi connections',
+      'Used object detection (and OpenCV lib) to capture and report events through the network',
+      'Built an admin dashboard for controlling the devices'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/50607063-f1228c80-0e95-11e9-9b46-97053c982587.png'
 	},
 	{
 		'title': 'Oracle Mentorship',
@@ -486,7 +587,11 @@ const projects = [
 		'url': 'https://oracle-mentorship.herokuapp.com/',
 		'team': 'Oracle Mentorship',
 		'start': 'Jan 20, 2019',
-		'coolness': 6
+		'coolness': 6,
+    'desc': [
+      'Built a fullstack application which enables professionals to better answer student questions.',
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374258-f6de4480-7f00-11e9-943c-2f0c2666b69f.png'
 	},
 	{
 		'title': 'Squarecap SWE Intern',
@@ -526,7 +631,8 @@ const projects = [
 		'tags': 'minecraft plugin',
 		'start': 'May 22, 2019',
 		'tiny': true,
-		'coolness': 5
+		'coolness': 5,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374471-45d9a900-7f04-11e9-82ad-e2e7d6b7161b.gif'
 	},
 	{
 		'title': 'Conv-VAD',
