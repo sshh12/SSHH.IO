@@ -35,7 +35,8 @@ const projects = [
 		'url': 'http://cfisdapi.sshh.io',
 		'github': 'https://github.com/sshh12/CFISD-API',
 		'start': 'Jan 20, 2017',
-		'coolness': 6
+		'coolness': 6,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58511102-c6e0ac80-815f-11e9-829a-c5a050de73a9.png'
 	},
 	{
 		'title': 'UT Finder',
@@ -108,7 +109,8 @@ const projects = [
 		'language': 'JS Java Python',
 		'github': 'https://github.com/sshh12/SchoolCode',
 		'start': 'Jun 5, 2017',
-		'coolness': 7
+		'coolness': 7,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58511033-9d278580-815f-11e9-8ef6-7888b451b1d9.gif'
 	},
 	{
 		'title': 'JavaIsWeird',
@@ -117,7 +119,8 @@ const projects = [
 		'language': 'Java',
 		'github': 'https://github.com/sshh12/JavaIsWeird',
 		'start': 'Sep 1, 2017',
-		'coolness': 5
+		'coolness': 5,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510930-68b3c980-815f-11e9-86e2-c476c0199075.gif'
 	},
 	{
 		'title': 'Build-A-Bill',
@@ -260,7 +263,8 @@ const projects = [
 		'language': 'Python',
 		'github': 'https://github.com/sshh12/PwnSSHH',
 		'start': 'Jul 14, 2017',
-		'coolness': 4
+		'coolness': 4,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510859-373afe00-815f-11e9-8a59-50184145e961.png'
 	},
 	{
 		'title': 'StealthML',
@@ -346,7 +350,8 @@ const projects = [
 		'kaggle': 'https://www.kaggle.com/c/titanic',
 		'start': 'Mar 20, 2018',
 		'coolness': 4,
-		'tiny': true
+		'tiny': true,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510286-00181d00-815e-11e9-910c-198e1f4b6e0c.png'
 	},
 	{
 		'title': 'Frequency Visualizer',
@@ -365,7 +370,8 @@ const projects = [
 		'language': 'HTML CSS JS',
 		'url': '/apps/toolkit/gyro.html',
 		'start': 'Apr 22, 2017',
-		'coolness': 4
+		'coolness': 4,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510782-17a3d580-815f-11e9-843b-e941fc1686fd.gif'
 	},
 	{
 		'title': 'Hangman Solver',
@@ -374,7 +380,8 @@ const projects = [
 		'language': 'HTML CSS JS',
 		'url': '/apps/hangman/index.html',
 		'start': 'Mar 14, 2017',
-		'coolness': 4
+		'coolness': 4,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510682-e7f4cd80-815e-11e9-83d0-bedd8894c753.gif'
 	},
 	{
 		'title': 'Leet Typer',
@@ -384,7 +391,8 @@ const projects = [
 		'url': '/apps/leettyper/index.html?https://raw.githubusercontent.com/sshh12/Webcam-Anomaly-Detection/master/generate_anomaly_model.py',
 		'start': 'Apr 10, 2017',
 		'coolness': 4,
-		'tiny': true
+		'tiny': true,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510571-a2d09b80-815e-11e9-9c6d-cf1f43726feb.gif'
 	},
 	{
 		'title': 'Trump Physics',
@@ -394,7 +402,8 @@ const projects = [
 		'url': '/apps/trumpphysics/index.html',
 		'start': 'Nov 15, 2017',
 		'coolness': 2,
-		'tiny': true
+		'tiny': true,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58509900-43be5700-815d-11e9-9d27-26726a7b8323.png'
 	},
 	{
 		'title': 'Case Viewer',
@@ -423,7 +432,8 @@ const projects = [
 		'url': '/apps/genocide/index.html',
 		'start': 'April 10, 2016',
 		'coolness': 3,
-		'tiny': true
+		'tiny': true,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510498-7b79ce80-815e-11e9-8755-d3814aee6ddb.png'
 	},
 	{
 		'title': 'Le Mont Saint Michel',
@@ -433,7 +443,8 @@ const projects = [
 		'url': '/apps/castle/index.html',
 		'start': 'Feb 15, 2016',
 		'coolness': 4,
-		'tiny': true
+		'tiny': true,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510397-47061280-815e-11e9-87dd-2a96050875f3.png'
 	},
 	{
 		'title': 'Revolution Meter',
@@ -480,7 +491,8 @@ const projects = [
 		'language': 'JS',
 		'start': 'Mar 8, 2016',
 		'coolness': 5,
-		'hack': true
+		'hack': true,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510355-2ccc3480-815e-11e9-85a1-eb980c65388b.png'
 	},
 	{
 		'title': 'Tradinhood',
@@ -494,7 +506,8 @@ const projects = [
       'Used Chrome DevTools to reverse engineer Robinhood\'s REST API',
       'Developed a wrapper for the API and well as several other trading sites',
       'Designed a trading interface to seamlessly go from backtests to trading real assets'
-    ]
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58509787-fb069e00-815c-11e9-89eb-808f1861ce65.png'
 	},
 	{
 		'title': 'Campus Maps',
@@ -562,7 +575,11 @@ const projects = [
 		'start': 'Nov 3, 2018',
 		'coolness': 6,
 		'github': 'https://github.com/sshh12/Halite-III-AI-Bot',
-		'url': 'https://halite.io/'
+		'url': 'https://halite.io/',
+    'desc': [
+      'This bot switched from the idea of having a separate (shared) model for every unit to a single model that predicted a volume of actions (an action vector was predicted for every pixel). The bot was trained with a supervised dataset collected by an \'expert\' bot playing against the archive.'
+    ],
+    'thumb': 'https://i.imgur.com/ZXj1nzK.jpg'
 	},
 	{
 		'title': 'OdoNet',
@@ -591,7 +608,7 @@ const projects = [
     'desc': [
       'Built a fullstack application which enables professionals to better answer student questions.',
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58374258-f6de4480-7f00-11e9-943c-2f0c2666b69f.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58507511-8c731180-8157-11e9-8938-f69b3f43ecb5.gif'
 	},
 	{
 		'title': 'Squarecap SWE Intern',
@@ -611,7 +628,11 @@ const projects = [
 		'team': 'Texas Convergent',
 		'github': 'https://github.com/sshh12/Crypto-Marketplace-Workshop',
 		'start': 'Mar 23, 2019',
-		'coolness': 4
+		'coolness': 4,
+    'desc': [
+      'A super simple project to introduce backend web dev with Express and MongoDB.'
+    ],
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58508518-d2c97000-8159-11e9-9438-b23bf955df75.gif'
 	},
 	{
 		'title': 'Ti Scripts',
@@ -621,7 +642,8 @@ const projects = [
 		'tags': 'college ti tigcc',
 		'start': 'Mar 20, 2019',
 		'tiny': true,
-		'coolness': 4
+		'coolness': 4,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58509683-c09d0100-815c-11e9-9506-2f8851399712.gif'
 	},
 	{
 		'title': 'InvestorCraft',
@@ -641,6 +663,7 @@ const projects = [
 		'github': 'https://github.com/sshh12/Conv-VAD',
 		'tags': 'ML CNN keras vad voice-activity-detection',
 		'start': 'May 24, 2019',
-		'coolness': 6
+		'coolness': 6,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58511882-5aff4380-8161-11e9-9903-2f0a91afee99.gif'
 	}
 ]
