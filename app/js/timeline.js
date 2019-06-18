@@ -210,6 +210,7 @@ function getProjectHTML(project) {
         <br>
         ${project.github ? '<a href="' + project.github + '"><i class="link-icon fab fa-github"></i></a>':''}
         ${project.url ? '<a href="' + project.url + '"><i class="link-icon fas fa-link"></i></a>':''}
+        ${project.article ? '<a href="' + project.article + '"><i class="link-icon fas fa-book"></i></a>':''}
         <hr>
         ${project.tagline}
         <div class="desc" id="desc-${project._id}">

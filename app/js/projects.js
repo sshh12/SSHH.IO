@@ -4,7 +4,8 @@ const projects = [
         'tagline':'An app I created for Cy-Ranch High School.',
         'language':'HTML CSS JS',
         'tags':'android apple school ionic cyranch cfisd school-app',
-        'github':'https://github.com/sshh12/CyRanch-App',
+		'github':'https://github.com/sshh12/CyRanch-App',
+		'article': 'https://cyranchnews.com/4407/archives/school-app/',
         'start':'May 25, 2016',
         'coolness':8,
         'desc':[
@@ -18,7 +19,8 @@ const projects = [
         'tagline':'An app I created for Cypress Fairbanks ISD.',
         'tags':'android apple school ionic cyranch cfisd school-app',
         'language':'HTML CSS JS',
-        'github':'https://github.com/sshh12/CFISD-App',
+		'github':'https://github.com/sshh12/CFISD-App',
+		'article': 'https://cyranchnews.com/4407/archives/school-app/',
         'start':'May 14, 2018',
         'coolness':5,
         'desc':[
@@ -43,7 +45,8 @@ const projects = [
         'tagline':'An app for the University of Texas at Austin.',
         'language':'HTML CSS JS',
         'tags':'android apple school ionic UT school-app',
-        'github':'https://github.com/sshh12/UT-Finder',
+		'github':'https://github.com/sshh12/UT-Finder',
+		'article': 'https://www.dailytexanonline.com/2018/10/16/student-developed-ut-app-fills-void-left-by-official-university-app-redesign',
         'start':'Sep 10, 2018',
         'coolness':8,
         'desc':[
@@ -544,12 +547,13 @@ const projects = [
         'thumb':'https://user-images.githubusercontent.com/6625384/56474300-c278f380-643d-11e9-8799-892fd4ce84d3.png'
     },
     {
-        'title':'Target Finder',
+        'title':'UAV Image Rec',
         'tagline':'Combining image recognition with unmanned aerial vehicles.',
         'language':'Python',
-        'tags':'uav opencv tensorflow UT club',
-        'github':'https://github.com/uavaustin',
-        'url':'http://uavaustin.org',
+        'tags':'ML CV uav opencv tensorflow UT club target-finder uava',
+        'github':'https://github.com/sshh12/UAV-Image-Rec',
+		'url':'http://uavaustin.org',
+		'article': 'https://github.com/sshh12/UAV-Image-Rec/blob/master/UAVA-2019.pdf',
         'start':'Sep 20, 2018',
         'coolness':7,
         'team':'UAV Austin',
@@ -658,7 +662,7 @@ const projects = [
         'thumb':'https://user-images.githubusercontent.com/6625384/58374471-45d9a900-7f04-11e9-82ad-e2e7d6b7161b.gif'
     },
     {
-        'title':'Conv-VAD',
+        'title':'Conv VAD',
         'tagline':'A packaged convolutional voice activity detector for noisy environments.',
         'language':'Python',
         'github':'https://github.com/sshh12/Conv-VAD',
@@ -666,5 +670,25 @@ const projects = [
         'start':'May 24, 2019',
         'coolness':6,
         'thumb':'https://user-images.githubusercontent.com/6625384/58511882-5aff4380-8161-11e9-9903-2f0a91afee99.gif'
+	},
+	{
+        'title':'Voice Vector',
+        'tagline':'A one-shot siamese approach to generating voice embeddings.',
+        'language':'Python',
+        'github':'https://github.com/sshh12/Voice-Vector',
+        'tags':'ML CNN keras siamese',
+        'start':'May 31, 2019',
+        'coolness':6,
+        'thumb':'https://user-images.githubusercontent.com/6625384/58922114-2fe79780-86ff-11e9-9b45-33ee1c7a342d.png'
+	},
+	{
+        'title':'LibKinect2',
+        'tagline':'A Python API for interfacing with the Kinect2.',
+        'language':'C++ Python',
+        'github':'https://github.com/sshh12/LibKinect2',
+        'tags':'CPython kinect2',
+        'start':'June 8, 2019',
+        'coolness':6,
+        'thumb':'https://user-images.githubusercontent.com/6625384/59576903-088db480-9087-11e9-96f6-251240d25f0c.gif'
     }
 ]
