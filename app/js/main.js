@@ -7,11 +7,13 @@ for(let project of projects) {
   if(project.url) { repr += 'online webpage linked' }
   if(project.team) { repr += 'team' + project.team }
   if(project.wip) { repr += 'wip todo inprogress' }
+  if(project.private) { repr += 'private' }
   else { repr += 'complete' }
 
   if(/\bML\b/.test(project.tags)) { repr += 'machine-learning' }
   if(/\bRL\b/.test(project.tags)) { repr += 'reinforcement-learning' }
   if(/\bNLP\b/.test(project.tags)) { repr += 'natural-language-processing' }
+  if(/\bCV\b/.test(project.tags)) { repr += 'computer-vision' }
 
   project._repr = repr.replace(/\W+/g, '').toLowerCase()
   project._id = project.title.replace(/\W+/g, '')

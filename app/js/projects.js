@@ -690,5 +690,15 @@ const projects = [
         'start':'June 8, 2019',
         'coolness':6,
         'thumb':'https://user-images.githubusercontent.com/6625384/59576903-088db480-9087-11e9-96f6-251240d25f0c.gif'
+    },
+    {
+        'title':'Project Argent Facile',
+        'tagline':'A suite of market/financial news webscrapers and preprocessors tailored for machine learning models.',
+        'language':'Python',
+        'tags':'stocks bitcoin crypto elasticsearch',
+        'start':'June 25, 2019',
+        'coolness':5,
+        'private': true,
+        'thumb':'https://user-images.githubusercontent.com/6625384/61174301-d5462480-a563-11e9-98a3-27f388e20d63.png'
     }
 ]
