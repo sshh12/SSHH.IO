@@ -51,7 +51,7 @@ $(() => {
 
   sortByTime()
 
-  console.log('%c Welcome to //SSHH.IO ', 'color: green; background: #222; font-size: 30px')
+  console.log('%c Welcome to SSHH.IO ', 'color: green; background: #222; font-size: 30px')
   console.log(projects);
 
 }); /* semicolon or else google code break */

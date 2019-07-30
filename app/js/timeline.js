@@ -208,10 +208,10 @@ function getProjectHTML(project) {
         <br>
         <span class="small-date">${project.start}</span>
         <br>
-        ${project.github ? '<a href="' + project.github + '"><i class="link-icon fab fa-github"></i></a>':''}
-        ${project.url ? '<a href="' + project.url + '"><i class="link-icon fas fa-link"></i></a>':''}
-        ${project.article ? '<a href="' + project.article + '"><i class="link-icon fas fa-book"></i></a>':''}
-        ${project.private ? '<a href="javascript:alert(\'This repo is private, contact me if you\\\'re interested in the source code.\')"><i class="link-icon fas fa-lock"></i></a>':''}
+        ${project.github ? '<a href="' + project.github + '" target="_blank"><i class="link-icon fab fa-github"></i></a>':''}
+        ${project.url ? '<a href="' + project.url + '" target="_blank"><i class="link-icon fas fa-link"></i></a>':''}
+        ${project.article ? '<a href="' + project.article + '" target="_blank"><i class="link-icon fas fa-book"></i></a>':''}
+        ${project.private ? '<a href="javascript:alert(\'This project/repo is private. Fill free to contact me if you\\\'re interested in the source code.\')"><i class="link-icon fas fa-lock"></i></a>':''}
         <hr>
         ${project.tagline}
         <div class="desc" id="desc-${project._id}">

@@ -605,7 +605,7 @@ const projects = [
         'tagline':'A social platform to connect students to professionals.',
         'language':'HTML CSS JS',
         'tags':'k12 school express mongodb',
-        'url':'https://oracle-mentorship.herokuapp.com/',
+        'url':'https://my-mentor-network.herokuapp.com',
         'team':'Oracle Mentorship',
         'start':'Jan 20, 2019',
         'coolness':6,
@@ -619,7 +619,7 @@ const projects = [
         'title':'Squarecap SWE Intern',
         'tagline':'Using technology to empower teachers and students.',
         'language':'Python JS',
-        'tags':'college school electron webscraping',
+        'tags':'college edtech school electron webscraping react react-native pyramid cassandra',
         'team':'Squarecap',
         'url':'https://info.squarecap.com/',
         'start':'Feb 11, 2019',
@@ -700,5 +700,27 @@ const projects = [
         'coolness':5,
         'private': true,
         'thumb':'https://user-images.githubusercontent.com/6625384/61174301-d5462480-a563-11e9-98a3-27f388e20d63.png'
+    },
+    {
+        'title':'Convergent Portal',
+        'tagline':'A site to frictionlessly manage members, teams, and projects with Slack and GitHub integrations.',
+        'language':'JS',
+        'team':'Texas Convergent',
+        'tags':'college github slack portal react express',
+        'start':'July 13, 2019',
+        'coolness':4,
+        'private': true,
+        'thumb':'https://user-images.githubusercontent.com/6625384/62168424-2b98be80-b2eb-11e9-832e-a9ebc946bafb.png'
+    },
+    {
+        'title':'Shridux',
+        'tagline':'A superior (mini) React global state management library.',
+        'language':'JS',
+        'tiny': true,
+        'github':'https://gist.github.com/sshh12/3cfa2cc404b5851b23360f1915547de6',
+        'tags':'react redux',
+        'start':'July 14, 2019',
+        'coolness':3,
+        'thumb':'https://user-images.githubusercontent.com/6625384/62169230-4bc97d00-b2ed-11e9-923e-1f5905667a14.png'
     }
 ]
