@@ -722,5 +722,41 @@ const projects = [
         'start':'July 14, 2019',
         'coolness':3,
         'thumb':'https://user-images.githubusercontent.com/6625384/62169230-4bc97d00-b2ed-11e9-923e-1f5905667a14.png'
+    },
+    {
+        'title':'Wiress',
+        'tagline':'Dailup internet for mobile phones.',
+        'language':'Java',
+        'tags':'spark android hackathon',
+        'github':'https://github.com/sshh12/Wiress',
+        'start':'Sep 6, 2019',
+        'coolness':6,
+        'team':'PennApps \'19',
+        'tiny':true,
+        'desc':[
+            'Wiress allows users to use the internet through a phone call (kind of like dial up or reversed VoIP).',
+            '[Phone] <---callaudio---> [Twilio] <---websockets/hooks---> [Wiress Servers] <---http---> [Internet]'
+        ],
+        'thumb':'https://user-images.githubusercontent.com/6625384/64572938-f68e7b80-d32e-11e9-94c9-a4c973b0c0bd.png'
+    },
+    {
+        'title':'Inverse Style GAN',
+        'tagline':'Looking up a generative latent vectors from reference images.',
+        'language':'Python',
+        'tags':'Tensorflow ML',
+        'github':'https://github.com/sshh12/Inverse-Style-GAN',
+        'start':'Sep 14, 2019',
+        'coolness':6,
+        'thumb':'https://user-images.githubusercontent.com/6625384/64915614-b82efd00-d730-11e9-92e4-f3a6de1a5575.png'
+    },
+    {
+        'title':'Personal Home Assistant',
+        'tagline':'Custom Home Assistant plugins for my apartment.',
+        'language':'Python',
+        'tags':'ML CV OpenCV homeassistant',
+        'github':'https://github.com/sshh12/home-assistant-sshhio',
+        'start':'Sep 3, 2019',
+        'coolness':5,
+        'thumb':'https://user-images.githubusercontent.com/6625384/64915712-1ceb5700-d733-11e9-9404-64746db95882.jpg'
     }
 ]
