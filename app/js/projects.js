@@ -547,7 +547,7 @@ const projects = [
         'thumb':'https://user-images.githubusercontent.com/6625384/56474300-c278f380-643d-11e9-8799-892fd4ce84d3.png'
     },
     {
-        'title':'UAV Image Rec',
+        'title':'UAV Image Rec v1',
         'tagline':'Combining image recognition with unmanned aerial vehicles.',
         'language':'Python',
         'tags':'ML CV uav opencv tensorflow UT club target-finder uava',
@@ -556,7 +556,7 @@ const projects = [
 		'article': 'https://github.com/sshh12/UAV-Image-Rec/blob/master/UAVA-2019.pdf',
         'start':'Sep 20, 2018',
         'coolness':7,
-        'team':'UAV Austin',
+        'team':'UAV Austin 2019',
         'thumb':'https://user-images.githubusercontent.com/6625384/58374531-6fdf9b00-7f05-11e9-9d2c-e51c024209d5.jpg'
     },
     {
@@ -601,17 +601,16 @@ const projects = [
         'thumb':'https://user-images.githubusercontent.com/6625384/50607063-f1228c80-0e95-11e9-9b46-97053c982587.png'
     },
     {
-        'title':'Oracle Mentorship',
+        'title':'My Mentor Network',
         'tagline':'A social platform to connect students to professionals.',
         'language':'HTML CSS JS',
         'tags':'k12 school express mongodb',
         'url':'https://my-mentor-network.herokuapp.com',
-        'team':'Oracle Mentorship',
+        'team':'My Mentor Network',
         'start':'Jan 20, 2019',
-        'coolness':6,
+        'coolness':5,
         'desc':[
             'Built a fullstack application which enables professionals to better answer student questions.',
-
         ],
         'thumb':'https://user-images.githubusercontent.com/6625384/58507511-8c731180-8157-11e9-8938-f69b3f43ecb5.gif'
     },
@@ -623,6 +622,16 @@ const projects = [
         'team':'Squarecap',
         'url':'https://info.squarecap.com/',
         'start':'Feb 11, 2019',
+        'coolness':4
+    },
+    {
+        'title':'CSL Capital Management SWE Intern',
+        'tagline':'Enabling great innovators to build lasting companies.',
+        'language':'JS',
+        'tags':'react express pwa dashboard',
+        'team':'CSL',
+        'url':'http://www.cslenergy.com/',
+        'start':'Oct 1, 2019',
         'coolness':4
     },
     {

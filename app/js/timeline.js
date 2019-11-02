@@ -204,14 +204,14 @@ function getProjectHTML(project) {
         ${project.hack ? '<span title="Ethical Hacking!" class="badge badge-danger">Hacking</span>':''}
         ${project.tiny ? '<span class="badge badge-info">Mini Project</span>':''}
         ${project.wip ? '<span title="Not yet complete" class="badge badge-warning">//TODO</span>':''}
-        ${project.team ? '<span title="Group Project" class="badge badge-success">' + project.team + '</span>':''}
+        ${project.team ? '<span title="Team/Company Project" class="badge badge-success">' + project.team + '</span>':''}
         <br>
         <span class="small-date">${project.start}</span>
         <br>
         ${project.github ? '<a href="' + project.github + '" target="_blank"><i class="link-icon fab fa-github"></i></a>':''}
         ${project.url ? '<a href="' + project.url + '" target="_blank"><i class="link-icon fas fa-link"></i></a>':''}
         ${project.article ? '<a href="' + project.article + '" target="_blank"><i class="link-icon fas fa-book"></i></a>':''}
-        ${project.private ? '<a href="javascript:alert(\'This project/repo is private. Fill free to contact me if you\\\'re interested in the source code.\')"><i class="link-icon fas fa-lock"></i></a>':''}
+        ${project.private ? '<a href="javascript:alert(\'This project is private. Fill free to contact me if you\\\'re interested in the source code.\')"><i class="link-icon fas fa-lock"></i></a>':''}
         <hr>
         ${project.tagline}
         <div class="desc" id="desc-${project._id}">
