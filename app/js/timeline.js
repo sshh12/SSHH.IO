@@ -35,7 +35,7 @@ function sortByTime() {
 
   }
 
-  $('#sort-msg').html('Viewing Chronologically')
+  $('#sort-msg').html('Viewing Chronologically 🕒')
   $('#timeline-container').html(html)
 
 }

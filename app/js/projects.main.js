@@ -51,7 +51,11 @@ $(() => {
 
   sortByTime()
 
-  console.log('%c Welcome to SSHH.IO ', 'color: green; background: #222; font-size: 30px')
-  console.log(projects);
+  console.log('%c /* Hi! */ ', 'color: green; background: #222; font-size: 30px')
+  console.log('Projects:', projects)
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+  }
 
 }); /* semicolon or else google code break */
