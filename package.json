@@ -22,10 +22,8 @@
     "gulp-useref": "^3.1.6"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "watch": "gulp watch",
-    "build": "gulp build"
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
