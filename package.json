@@ -1,38 +1,31 @@
 {
-  "name": "SSHH.IO",
-  "version": "1.0.0",
-  "description": "My Website",
-  "main": "server.js",
+  "name": "sshhio",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-es2015": "^6.24.1",
-    "basic-auth": "^2.0.1",
-    "express": "^4.16.4",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-cssnano": "^2.1.3",
-    "natives": "^1.1.6"
-  },
-  "devDependencies": {
-    "babel-preset-minify": "^0.4.3",
-    "browser-sync": "^2.26.3",
-    "del": "^3.0.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.1",
-    "gulp-useref": "^3.1.6"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "node server.js",
-    "watch": "gulp watch"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sshh12/SSHH.IO.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "author": "Shrivu Shankar",
-  "license": "Apache 2.0",
-  "bugs": {
-    "url": "https://github.com/sshh12/SSHH.IO/issues"
-  },
-  "homepage": "https://github.com/sshh12/SSHH.IO"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

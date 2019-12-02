@@ -1,0 +1,110 @@
+///
+/// Polymorph by Pixelarity
+/// pixelarity.com @pixelarity
+/// License: pixelarity.com/license
+///
+
+/* Posts */
+
+	.posts {
+		@include vendor('display', 'flex');
+		@include vendor('flex-wrap', 'wrap');
+
+		> article {
+			width: (100% / 3);
+			border-style: solid;
+			border-right-width: 1px;
+			border-bottom-width: 1px;
+			padding: _size(gutter);
+
+			.image {
+				margin: (_size(gutter) * -0.5) 0 (_size(element-margin) + (_size(gutter) * 0.5)) (_size(gutter) * -0.5);
+				display: block;
+				position: relative;
+				width: calc(100% + #{_size(gutter)});
+
+				img {
+					width: 100%;
+				}
+			}
+
+			> :last-child {
+				margin-bottom: 0;
+
+				> :last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&:nth-child(3n) {
+				border-right-width: 0;
+			}
+
+			&:nth-last-child(1),
+			&:nth-last-child(2),
+			&:nth-last-child(3) {
+				border-bottom-width: 0;
+			}
+		}
+
+		@include breakpoint(large) {
+			> article {
+				width: 50%;
+
+				&:nth-child(2n) {
+					border-right-width: 0;
+				}
+
+				&:nth-child(3n) {
+					border-right-width: 1px;
+				}
+
+				&:nth-last-child(3) {
+					border-bottom-width: 1px;
+				}
+			}
+		}
+
+		@include breakpoint(medium) {
+			> article {
+				padding: _size(gutter) _size(gutter-medium);
+
+				.image {
+					margin: (_size(gutter) * -0.5) 0 (_size(element-margin) + (_size(gutter) * 0.25)) (_size(gutter-medium) * -0.5);
+					width: calc(100% + #{_size(gutter-medium)});
+				}
+			}
+		}
+
+		@include breakpoint(small) {
+			> article {
+				padding: _size(gutter-small) _size(gutter-small) _size(gutter-medium) _size(gutter-small);
+
+				.image {
+					margin: 0 0 _size(element-margin) 0;
+					width: 100%;
+				}
+			}
+		}
+
+		@include breakpoint(xsmall) {
+			> article {
+				width: 100%;
+				border-right-width: 0 !important;
+
+				&:nth-last-child(2) {
+					border-bottom-width: 1px;
+				}
+			}
+		}
+	}
+
+	@mixin color-posts($p: null) {
+		.posts {
+			> article {
+				border-color: _palette($p, border);
+			}
+		}
+	}
+
+	@include color-posts;

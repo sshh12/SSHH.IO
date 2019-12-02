@@ -1,0 +1,36 @@
+///
+/// Polymorph by Pixelarity
+/// pixelarity.com @pixelarity
+/// License: pixelarity.com/license
+///
+
+/* Main */
+
+	#main {
+		> .main {
+			border-bottom: solid 1px _palette(border);
+
+			> .inner {
+				@include padding(5em, _size(gutter));
+				max-width: _size(inner);
+				width: 100%;
+				margin: 0 auto;
+			}
+		}
+
+		@include breakpoint(medium) {
+			> .main {
+				> .inner {
+					@include padding(4em, _size(gutter-medium));
+				}
+			}
+		}
+
+		@include breakpoint(small) {
+			> .main {
+				> .inner {
+					@include padding(2em, _size(gutter-small));
+				}
+			}
+		}
+	}

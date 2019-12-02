@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Analysis</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css" crossorigin="anonymous">
+	<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Physics Video Analysis</h1>
+            <p class="lead">Bonus Project</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 video"><video id="original-video" width="100%"><source src="trim.mp4" type="video/mp4" preload="auto"></video></div>
+			<div class="col-md-6 video"><canvas id="video-canvas"></canvas></div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Controls</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-success" onClick="video.play()">Play</button>
+                            <button type="button" class="btn btn-primary" onClick="video.pause()">Pause</button>
+							<button type="button" class="btn btn-warning" onClick="video.pause();video.currentTime=0;video.play()">Replay</button>
+                        </div>
+						<div class="btn-group" role="group">
+						    <button type="button" class="btn btn-success" onClick="stepFrame(-1)"><</button>
+                            <button type="button" class="btn btn-success" onClick="stepFrame(-1/30)"><</button>
+                            <button type="button" class="btn btn-primary" onClick="stepFrame(1/30)">></button>
+							<button type="button" class="btn btn-primary" onClick="stepFrame(1)">>></button>
+                        </div>
+						<div class="btn-group" role="group">
+						    <button type="button" class="btn btn-info" onClick="setRelRate(.5)">Slower</button>
+                            <button type="button" class="btn btn-warning" onClick="setRelRate(2)">Faster</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="panel panel-default">
+            <div class="panel-heading">Video Data</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="btn-toolbar" role="toolbar">
+                        <h3 style="text-align: center" id="time">...</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="panel panel-default">
+            <div class="panel-heading" id="analysis-header">Translational Kinematic Analysis</div>
+            <div class="panel-body">
+				<p lang="latex">y_0 = H_{Trump} + H_{extended} \approx 1.88m + .3m \approx 2.18m</p>
+				<p lang="latex">y_f = H_{person+arms} \approx 2.3m</p>
+				<p lang="latex">\Delta x \approx 3m</p>
+				<p lang="latex">t_0 = 2.33s</p>
+				<p lang="latex">t_f = 3.11s</p>
+				<p lang="latex">g = a_{grav} \approx -9.81 \frac{m}{s^2}</p>
+				<hr>
+				<p lang="latex">\Delta t = .78s</p>
+				<hr>
+				<p lang="latex">v_{0,x} = v_0 cos \theta = \frac{\Delta x}{\Delta t} = 3.85 \frac{m}{s}</p>
+				<p lang="latex">v_0 = \frac{\Delta x}{\Delta t cos \theta} = \frac{3}{.78 cos \theta} = \frac{3.8}{cos \theta}</p>
+				<hr>
+				<p lang="latex">y_f = \frac{1}{2} g \Delta t^2 + v_{0, y} \Delta t + y_0 = \frac{1}{2} g \Delta t^2 + v_0 sin \theta \Delta t + y_0</p>
+				<p lang="latex">2.3 = -4.9 * .78^2 + .78 v_0 sin \theta + 2.18</p>
+				<p lang="latex">2.3 = -2.98 + 2.96 tan \theta + 2.18</p>
+				<p lang="latex">2.96 tan \theta = 3.1</p>
+				<p lang="latex">tan \theta = 1.05</p>
+				<p lang="latex">\theta_0 \approx 36^\circ</p>
+				<hr>
+				<p lang="latex">v_0 = \frac{v_{0,x}}{cos \theta} = \frac{3.85}{cos 39} = 4.76 \frac{m}{s}</p>
+				<p lang="latex">v_{0,y} = v_0 cos \theta = 4.76 cos 36 = 2.80 \frac{m}{s}</p>
+				<hr>
+				<p lang="latex">v_{f, x} = v_{0, x} = 3.85 \frac{m}{s}</p>
+				<p lang="latex">v_{f, y} = v_{0, y} + g \Delta t = 2.8 - 9.81 * .78 = -4.85 \frac{m}{s}</p>
+				<p lang="latex">v_f = \sqrt{v_{f, x}^2 + v_{f, y}^2} = 6.19 \frac{m}{s}</p>
+				<p lang="latex">\theta_f = tan^{-1} \frac{v_{f, y}}{v_{f, x}} \approx -52^\circ </p>
+            </div>
+        </div>
+		<div class="panel panel-default">
+            <div class="panel-heading" id="analysis-header">Translational Inertia Analysis</div>
+            <div class="panel-body">
+				<p lang="latex">M_{papertowl} = .23 kg</p>
+				<hr>
+				<p lang="latex">p_{papertowl, 0} = M_{papertowl} v_0 = 1.09 kg \frac{m}{s}</p>
+				<p lang="latex">p_{papertowl, min} = M_{papertowl} v_x = .886 kg \frac{m}{s}</p>
+				<p lang="latex">p_{papertowl, f} = M_{papertowl} v_f = 1.42 kg \frac{m}{s}</p>
+            </div>
+        </div>
+		<div class="panel panel-default">
+            <div class="panel-heading" id="analysis-header">Translational Force Analysis</div>
+            <div class="panel-body">
+				<p lang="latex">t_{Trump Force} \approx .2 s</p>
+				<hr>
+				<p lang="latex">p_{papertowl, 0} = F_{Trump} t_{Trump Force}</p>
+				<p lang="latex">F_{Trump} = \frac{p_{papertowl, 0}}{t_{Trump Force}} = 5.45 N</p>
+            </div>
+        </div>
+		<div class="panel panel-default">
+            <div class="panel-heading" id="analysis-header">Rotational Kinematic Analysis</div>
+            <div class="panel-body">
+				<p lang="latex">\Delta \theta = 1.8 revs = 11.31 rads</p>
+				<p lang="latex">\Delta t = .78s</p>
+				<p lang="latex">R_{papertowl, rot} = .14 m</p>
+				<hr>
+				<p lang="latex">\omega_{avg} = \frac{\Delta \theta}{\Delta t} = \frac{11.31}{.78} = 14.5 \frac{rads}{s}</p>
+				<hr>
+				<p lang="latex">v_{endpoint, avg} = \omega_{avg} R_{papertowl, rot} = 14.5 * .14 = 2.03 \frac{m}{s}</p>
+            </div>
+        </div>
+		<div class="panel panel-default">
+            <div class="panel-heading" id="analysis-header">Rotational Inertia Analysis</div>
+            <div class="panel-body">
+				<p lang="latex">M_{papertowl} = .23 kg</p>
+				<p lang="latex">L_{papertowl} = .28 m</p>
+				<p lang="latex">R_{papertowl} = .08 m</p>
+				<hr>
+				<p lang="latex">I_{papertowl} \approx I_{cylinder} = \frac{1}{4} M R^2 + \frac{1}{12} M L^2 = 1.87 \times 10^{-3} kg m^2</p>
+				<hr>
+				<p lang="latex">L_{papertowl} = I_{papertowl} \omega_{avg} = 14.5 * 1.87 \times 10^{-3} = 0.0271 kg \frac{m^2}{s}</p>
+            </div>
+        </div>
+		<div class="panel panel-default">
+            <div class="panel-heading" id="analysis-header">Rotational Force Analysis</div>
+            <div class="panel-body">
+				<p lang="latex">t_{Trump Torque} \approx .2 s</p>
+				<hr>
+				<p lang="latex">L_{papertowl} = \tau_{Trump} t_{Trump Force}</p>
+				<p lang="latex">\tau_{Trump} = \frac{L_{papertowl}}{t_{Trump Torque}} = .136 Nm</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+        .container {
+            width: 90%
+        }
+
+        .btn-toolbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .panel {
+            text-align: center;
+        }
+    </style>
+
+</body>
+
+</html>
