@@ -16,6 +16,7 @@ class App extends React.Component {
       return {
         title: project.title,
         desc: project.tagline,
+        descs: project.desc || [],
         img: project.thumb || '/images/no-pic.png'
       };
     });
