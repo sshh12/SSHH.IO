@@ -6,7 +6,7 @@ function Footer() {
       <div className="inner split">
         <div>
           <section>
-            <h2>Contact</h2>
+            <h2>Links</h2>
           </section>
           <section>
             <ul className="icons">

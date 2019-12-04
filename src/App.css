@@ -20,3 +20,35 @@
 .App-link {
   color: #09d3ac;
 }
+
+.link-icon {
+  border-bottom: none;
+  margin: 4px;
+  font-size: 20px;
+}
+
+.badge {
+  font-family: Lato,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;;
+  text-transform: none;
+  float: left;
+  margin-right: 10px;
+  font-size: 11px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #3498db;
+  font-weight: 500;
+  border-radius: .2rem;
+  padding: .25em .4em;
+}
+.badge-success {
+  background-color: #18bc9c;
+}
+.badge-danger {
+  background-color: #e74c3c;
+}
+.badge-warning {
+  background-color: #f39c12;
+}
+.badge-info {
+  background-color: #3498db;
+}

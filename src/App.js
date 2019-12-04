@@ -53,6 +53,10 @@ class App extends React.Component {
         name: 'Language',
         sort: (a, b) => b.meta.language.localeCompare(a.meta.language),
         title: (item) => `${item.title} (${item.meta.language})`
+      }, {
+        name: 'Domain',
+        sort: (a, b) => b.meta.language.localeCompare(a.meta.language),
+        title: (item) => `${item.title} (${item.meta.language})`
       }
     ];
     return (
