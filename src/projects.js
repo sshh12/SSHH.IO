@@ -12,7 +12,8 @@ const PROJECTS = [
       'Created an Ionic app for IOS and Android for CyRanch HS',
       'Used Admob to monetize the app and profit'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58373859-68ff5b00-7efa-11e9-9fd9-8bbf82846be7.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58373859-68ff5b00-7efa-11e9-9fd9-8bbf82846be7.png',
+    'domain': 'Mobile'
   },
   {
     'title': 'CFISD App',
@@ -27,7 +28,8 @@ const PROJECTS = [
       'Created an app for IOS and Android for all of CFISD',
       'Used Admob to monetize the app and profit'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58373775-36a12e00-7ef9-11e9-99e1-28d9f1f79d33.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58373775-36a12e00-7ef9-11e9-99e1-28d9f1f79d33.png',
+    'domain': 'Mobile'
   },
   {
     'title': 'CFISD API',
@@ -38,7 +40,8 @@ const PROJECTS = [
     'github': 'https://github.com/sshh12/CFISD-API',
     'start': 'Jan 20, 2017',
     'coolness': 6,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58511102-c6e0ac80-815f-11e9-829a-c5a050de73a9.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58511102-c6e0ac80-815f-11e9-829a-c5a050de73a9.png',
+    'domain': 'Backend'
   },
   {
     'title': 'UT Finder',
@@ -54,7 +57,8 @@ const PROJECTS = [
       'Integrated course schedules, $ balances, and bus routes',
       'Featured in the Daily Texan'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/57817116-92bec200-7743-11e9-92c6-111aa96dc3f5.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/57817116-92bec200-7743-11e9-92c6-111aa96dc3f5.png',
+    'domain': 'Mobile'
   },
   {
     'title': 'SSHH.IO',
@@ -65,7 +69,8 @@ const PROJECTS = [
     'github': 'https://github.com/sshh12/SSHH.IO',
     'start': 'Jul 5, 2018',
     'coolness': 4,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/43047784-83142740-8da2-11e8-89f3-50499a38e378.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/43047784-83142740-8da2-11e8-89f3-50499a38e378.png',
+    'domain': 'Frontend'
   },
   {
     'title': '"Shrivu Bot"',
@@ -74,7 +79,8 @@ const PROJECTS = [
     'language': 'JS',
     'github': 'https://github.com/sshh12/SSHHIO-Discord-Bot',
     'start': 'Dec 30, 2017',
-    'coolness': 4
+    'coolness': 4,
+    'domain': 'Misc'
   },
   {
     'title': 'StockMarketML',
@@ -89,7 +95,8 @@ const PROJECTS = [
       'Developed several models for predicting price movements based on headlines and tick data overtime',
       'Used a bootstrap based web app to view predictions'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/40280636-7ac6908a-5c1c-11e8-9d96-ededc88cb233.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/40280636-7ac6908a-5c1c-11e8-9d96-ededc88cb233.png',
+    'domain': 'AI'
   },
   {
     'title': 'Splitscreen Player',
@@ -103,7 +110,8 @@ const PROJECTS = [
       'Developed web app to play and control several videos in sync',
       'Used Firebase to allow multiple users to control and stream the videos simultaneously'
     ],
-    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/22629722/6aaf0f06-ebb1-11e6-993f-ef71bfa0e9c9.jpg'
+    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/22629722/6aaf0f06-ebb1-11e6-993f-ef71bfa0e9c9.jpg',
+    'domain': 'Full Stack'
   },
   {
     'title': 'SchoolCode',
@@ -113,7 +121,8 @@ const PROJECTS = [
     'github': 'https://github.com/sshh12/SchoolCode',
     'start': 'Jun 5, 2017',
     'coolness': 7,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58511033-9d278580-815f-11e9-8ef6-7888b451b1d9.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58511033-9d278580-815f-11e9-8ef6-7888b451b1d9.gif',
+    'domain': 'Misc'
   },
   {
     'title': 'JavaIsWeird',
@@ -123,7 +132,8 @@ const PROJECTS = [
     'github': 'https://github.com/sshh12/JavaIsWeird',
     'start': 'Sep 1, 2017',
     'coolness': 5,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510930-68b3c980-815f-11e9-86e2-c476c0199075.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510930-68b3c980-815f-11e9-86e2-c476c0199075.gif',
+    'domain': 'Misc'
   },
   {
     'title': 'Build-A-Bill',
@@ -137,7 +147,8 @@ const PROJECTS = [
       'Scraped and processed years of US Congressional legislation to create a dataset',
       'Trained a character-level LSTM and finetuned GPT-2 (117M) to write fake bills'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58374269-3c027680-7f01-11e9-9147-4424b489e0fa.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374269-3c027680-7f01-11e9-9147-4424b489e0fa.png',
+    'domain': 'AI'
   },
   {
     'title': 'OverwatchML',
@@ -151,7 +162,8 @@ const PROJECTS = [
       'Created a web scraper to gather usernames as test data',
       'Analyzed and processed user stats to build a predictive model',
       'Built a webapp to allow users to predict their online rank'
-    ]
+    ],
+    'domain': 'AI'
   },
   {
     'title': 'Webcam Anomaly Detection',
@@ -165,7 +177,8 @@ const PROJECTS = [
       'Created a specialized FTP server to process images on upload',
       'Used Skimage and Keras to detect anomalies in the photo stream'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/26891644-64de5080-4b7b-11e7-8960-57ce75c99e28.jpg'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/26891644-64de5080-4b7b-11e7-8960-57ce75c99e28.jpg',
+    'domain': 'AI'
   },
   {
     'title': 'Genetic Connect4',
@@ -178,7 +191,8 @@ const PROJECTS = [
     'desc': [
       'Added several coefficients to the minimax agent\'s scoring heuristic',
       'Used these coefficients as DNA with win rate as a fitness function'
-    ]
+    ],
+    'domain': 'AI'
   },
   {
     'title': 'Students Visualization',
@@ -192,7 +206,8 @@ const PROJECTS = [
       'With the data collected from the CyRanch/CFISD Apps, every users\' grades were turned into a 7D vector based on their average grade in 7 fields: Science, Math, English, (Non-English) Language, Arts, Sports, and Social Studies. Using a dimensionality reduction algorithm, t-SNE, the data was used to create clusters of students based on their academic performance. While these 3D groupings are purely abstract, they serve as an interesting way to visualize students and see possible patterns.',
       'Additional visualizations were contructed to explore GPA, classes, and demographics.'
     ],
-    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/25551412/3e642c36-2c4a-11e7-84ca-030f6d723ba6.gif'
+    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/25551412/3e642c36-2c4a-11e7-84ca-030f6d723ba6.gif',
+    'domain': 'Data'
   },
   {
     'title': 'RanchCoin',
@@ -206,7 +221,8 @@ const PROJECTS = [
     'desc': [
       'Created a fully functioning currency/wallet for Economics Fair.'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/39553689-800be568-4e34-11e8-86f5-7d32e4927666.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/39553689-800be568-4e34-11e8-86f5-7d32e4927666.png',
+    'domain': 'Full Stack'
   },
   {
     'title': 'FaceTweet',
@@ -220,7 +236,8 @@ const PROJECTS = [
     'desc': [
       'Adapted Firebase\'s social media demo site to create an interactive satire'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/37736121-0c3a7f82-2d1e-11e8-8f2f-23527d778b83.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/37736121-0c3a7f82-2d1e-11e8-8f2f-23527d778b83.png',
+    'domain': 'Frontend'
   },
   {
     'title': 'Rummy',
@@ -233,7 +250,8 @@ const PROJECTS = [
     'desc': [
       'A web-based online multiplayer version of the card game Rummy'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/35307951-e63e8362-006a-11e8-97a5-18361f151072.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/35307951-e63e8362-006a-11e8-97a5-18361f151072.gif',
+    'domain': 'Full Stack'
   },
   {
     'title': 'Ballz Bot',
@@ -248,7 +266,8 @@ const PROJECTS = [
       'Constructed a physics engine to simulate playing the game with different moves',
       'Used the android swipe API to execute the best move'
     ],
-    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/25557899/f4b1f0fe-2ce0-11e7-9245-463100049ea3.gif'
+    'thumb': 'https://cloud.githubusercontent.com/assets/6625384/25557899/f4b1f0fe-2ce0-11e7-9245-463100049ea3.gif',
+    'domain': 'AI'
   },
   {
     'title': 'Recording Bot',
@@ -257,7 +276,8 @@ const PROJECTS = [
     'language': 'JS Python',
     'github': 'https://github.com/sshh12/Recording-Bot',
     'start': 'May 23, 2017',
-    'coolness': 6
+    'coolness': 6,
+    'domain': 'Misc'
   },
   {
     'title': 'PwnSSHH',
@@ -267,7 +287,8 @@ const PROJECTS = [
     'github': 'https://github.com/sshh12/PwnSSHH',
     'start': 'Jul 14, 2017',
     'coolness': 4,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510859-373afe00-815f-11e9-8a59-50184145e961.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510859-373afe00-815f-11e9-8a59-50184145e961.png',
+    'domain': 'Hacking'
   },
   {
     'title': 'StealthML',
@@ -281,7 +302,8 @@ const PROJECTS = [
       'Combined image segmentation and inpainting to create a invisibility cloak like effect',
       'Tweaked the model to run at near real time from a webcam stream'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/51450883-87f9a080-1d00-11e9-98d6-4f5983bdb5b8.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/51450883-87f9a080-1d00-11e9-98d6-4f5983bdb5b8.gif',
+    'domain': 'AI'
   },
   {
     'title': 'Money Classifier',
@@ -291,7 +313,8 @@ const PROJECTS = [
     'github': 'https://gist.github.com/sshh12/d362dba3f72498cd9604de63a659b870',
     'start': 'Jun 20, 2018',
     'coolness': 2,
-    'tiny': true
+    'tiny': true,
+    'domain': 'Data'
   },
   {
     'title': 'CS UIL Data',
@@ -302,7 +325,8 @@ const PROJECTS = [
     'start': 'Mar 21, 2018',
     'coolness': 5,
     'tiny': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58374409-53426380-7f03-11e9-8b6b-f622f648c1ab.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374409-53426380-7f03-11e9-8b6b-f622f648c1ab.png',
+    'domain': 'Data'
   },
   {
     'title': 'Caterpillar Code',
@@ -312,7 +336,8 @@ const PROJECTS = [
     'github': 'https://gist.github.com/sshh12/63cb074767d1f7032c3379652772b51e',
     'start': 'Dec 16, 2017',
     'coolness': 1,
-    'tiny': true
+    'tiny': true,
+    'domain': 'Misc'
   },
   {
     'title': 'DPS Checker',
@@ -322,7 +347,8 @@ const PROJECTS = [
     'github': 'https://gist.github.com/sshh12/fc3867a218ed41ca6e4cd5e634b666f6',
     'start': 'Aug 1, 2017',
     'coolness': 6,
-    'tiny': true
+    'tiny': true,
+    'domain': 'Misc'
   },
   {
     'title': 'Probability Test',
@@ -332,7 +358,8 @@ const PROJECTS = [
     'github': 'https://gist.github.com/sshh12/6186968785dd6f7b4c9a3b34aee9ac76',
     'start': 'Nov 5, 2017',
     'coolness': 1,
-    'tiny': true
+    'tiny': true,
+    'domain': 'Misc'
   },
   {
     'title': 'Titanic',
@@ -344,7 +371,8 @@ const PROJECTS = [
     'start': 'Mar 20, 2018',
     'coolness': 4,
     'tiny': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510286-00181d00-815e-11e9-910c-198e1f4b6e0c.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510286-00181d00-815e-11e9-910c-198e1f4b6e0c.png',
+    'domain': 'Data'
   },
   {
     'title': 'Frequency Visualizer',
@@ -354,7 +382,8 @@ const PROJECTS = [
     'url': '/apps/freqvis/index.html',
     'start': 'May 8, 2017',
     'coolness': 5,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58374383-ddd69300-7f02-11e9-9a55-377bad352976.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374383-ddd69300-7f02-11e9-9a55-377bad352976.gif',
+    'domain': 'Frontend'
   },
   {
     'title': 'Online Physics Utilities',
@@ -364,7 +393,8 @@ const PROJECTS = [
     'url': '/apps/toolkit/gyro.html',
     'start': 'Apr 22, 2017',
     'coolness': 4,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510782-17a3d580-815f-11e9-843b-e941fc1686fd.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510782-17a3d580-815f-11e9-843b-e941fc1686fd.gif',
+    'domain': 'Frontend'
   },
   {
     'title': 'Hangman Solver',
@@ -374,7 +404,8 @@ const PROJECTS = [
     'url': '/apps/hangman/index.html',
     'start': 'Mar 14, 2017',
     'coolness': 4,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510682-e7f4cd80-815e-11e9-83d0-bedd8894c753.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510682-e7f4cd80-815e-11e9-83d0-bedd8894c753.gif',
+    'domain': 'Frontend'
   },
   {
     'title': 'Leet Typer',
@@ -385,7 +416,8 @@ const PROJECTS = [
     'start': 'Apr 10, 2017',
     'coolness': 4,
     'tiny': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510571-a2d09b80-815e-11e9-9c6d-cf1f43726feb.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510571-a2d09b80-815e-11e9-9c6d-cf1f43726feb.gif',
+    'domain': 'Frontend'
   },
   {
     'title': 'Trump Physics',
@@ -396,7 +428,8 @@ const PROJECTS = [
     'start': 'Nov 15, 2017',
     'coolness': 2,
     'tiny': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58509900-43be5700-815d-11e9-9d27-26726a7b8323.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58509900-43be5700-815d-11e9-9d27-26726a7b8323.png',
+    'domain': 'Frontend'
   },
   {
     'title': 'Case Viewer',
@@ -406,7 +439,8 @@ const PROJECTS = [
     'url': '/apps/case-viewer/view.html',
     'start': 'Sep 30, 2017',
     'coolness': 6,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58374374-a36cf600-7f02-11e9-9f7c-6ce7af12ef4a.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374374-a36cf600-7f02-11e9-9f7c-6ce7af12ef4a.gif',
+    'domain': 'Frontend'
   },
   {
     'title': 'L\'Homme Qui Plantait Des Arbres',
@@ -415,7 +449,8 @@ const PROJECTS = [
     'language': 'HTML CSS JS',
     'url': '/apps/lehomme/index.html',
     'start': 'Nov 20, 2015',
-    'coolness': 4
+    'coolness': 4,
+    'domain': 'Frontend'
   },
   {
     'title': 'Genocide Project',
@@ -426,7 +461,8 @@ const PROJECTS = [
     'start': 'April 10, 2016',
     'coolness': 3,
     'tiny': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510498-7b79ce80-815e-11e9-8755-d3814aee6ddb.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510498-7b79ce80-815e-11e9-8755-d3814aee6ddb.png',
+    'domain': 'Frontend'
   },
   {
     'title': 'Le Mont Saint Michel',
@@ -437,7 +473,8 @@ const PROJECTS = [
     'start': 'Feb 15, 2016',
     'coolness': 4,
     'tiny': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510397-47061280-815e-11e9-87dd-2a96050875f3.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510397-47061280-815e-11e9-87dd-2a96050875f3.png',
+    'domain': 'Frontend'
   },
   {
     'title': 'Revolution Meter',
@@ -447,7 +484,8 @@ const PROJECTS = [
     'url': '/apps/revolution/index.html',
     'start': 'Nov 2, 2016',
     'coolness': 4,
-    'tiny': true
+    'tiny': true,
+    'domain': 'Frontend'
   },
   {
     'title': 'infotrac.galegroup.com',
@@ -456,7 +494,8 @@ const PROJECTS = [
     'language': 'SQL',
     'start': 'Jan 20, 2017',
     'coolness': 5,
-    'hack': true
+    'hack': true,
+    'domain': 'Hacking'
   },
   {
     'title': 'texasmusicforms.com',
@@ -465,7 +504,8 @@ const PROJECTS = [
     'language': 'SQL',
     'start': 'Oct 10, 2017',
     'coolness': 4,
-    'hack': true
+    'hack': true,
+    'domain': 'Hacking'
   },
   {
     'title': 'home-access.cfisd.net',
@@ -475,7 +515,8 @@ const PROJECTS = [
     'url': 'https://gist.github.com/sshh12/f468394dfa51f4cee2721e3e057740b9',
     'start': 'Aug 15, 2016',
     'coolness': 8,
-    'hack': true
+    'hack': true,
+    'domain': 'Hacking'
   },
   {
     'title': 'practiceit.cs.washington.edu',
@@ -485,7 +526,8 @@ const PROJECTS = [
     'start': 'Mar 8, 2016',
     'coolness': 5,
     'hack': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58510355-2ccc3480-815e-11e9-85a1-eb980c65388b.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58510355-2ccc3480-815e-11e9-85a1-eb980c65388b.png',
+    'domain': 'Hacking'
   },
   {
     'title': 'Tradinhood',
@@ -500,7 +542,8 @@ const PROJECTS = [
       'Developed a wrapper for the API and well as several other trading sites',
       'Designed a trading interface to seamlessly go from backtests to trading real assets'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58509787-fb069e00-815c-11e9-89eb-808f1861ce65.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58509787-fb069e00-815c-11e9-89eb-808f1861ce65.png',
+    'domain': 'Misc'
   },
   {
     'title': 'Campus Maps',
@@ -516,7 +559,8 @@ const PROJECTS = [
     'desc': [
       'Our product is a map that encodes visual, spatial, temporal, and other descriptive data about events happening around in the local environment. It seeks to streamline the process of obtaining information for the general public, filling a void that is not satsified by current technology such as Facebook, Google Maps, and other services that provide data about the world around you. It is meant to be a gateway to experiencing a higher quality level of campus life.'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/45606639-5e580200-ba0c-11e8-82a5-48ce68d4bc53.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/45606639-5e580200-ba0c-11e8-82a5-48ce68d4bc53.png',
+    'domain': 'Full Stack'
   },
   {
     'title': 'Videoscopic',
@@ -534,7 +578,8 @@ const PROJECTS = [
       'The video\'s description and tags with NLP entity recognition to provide related topics',
       'The channel is used to determine the validity and accuracy of the video'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/56474300-c278f380-643d-11e9-8799-892fd4ce84d3.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/56474300-c278f380-643d-11e9-8799-892fd4ce84d3.png',
+    'domain': 'AI'
   },
   {
     'title': 'UAV Image Rec v1',
@@ -547,7 +592,8 @@ const PROJECTS = [
     'start': 'Sep 20, 2018',
     'coolness': 7,
     'team': 'UAV Austin 2019',
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58374531-6fdf9b00-7f05-11e9-9d2c-e51c024209d5.jpg'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374531-6fdf9b00-7f05-11e9-9d2c-e51c024209d5.jpg',
+    'domain': 'AI'
   },
   {
     'title': 'UText NLP Bot',
@@ -559,7 +605,8 @@ const PROJECTS = [
     'team': 'Texas Convergent',
     'github': 'https://github.com/sshh12/UText-NLP',
     'url': 'http://www.txconvergent.org/',
-    'thumb': 'https://user-images.githubusercontent.com/6625384/51092865-78131700-176a-11e9-8d05-214ace83a48e.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/51092865-78131700-176a-11e9-8d05-214ace83a48e.png',
+    'domain': 'AI'
   },
   {
     'title': 'Halite III Bot',
@@ -573,7 +620,8 @@ const PROJECTS = [
     'desc': [
       'This bot switched from the idea of having a separate (shared) model for every unit to a single model that predicted a volume of actions (an action vector was predicted for every pixel). The bot was trained with a supervised dataset collected by an \'expert\' bot playing against the archive.'
     ],
-    'thumb': 'https://i.imgur.com/ZXj1nzK.jpg'
+    'thumb': 'https://i.imgur.com/ZXj1nzK.jpg',
+    'domain': 'AI'
   },
   {
     'title': 'OdoNet',
@@ -588,7 +636,8 @@ const PROJECTS = [
       'Used object detection (and OpenCV lib) to capture and report events through the network',
       'Built an admin dashboard for controlling the devices'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/50607063-f1228c80-0e95-11e9-9b46-97053c982587.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/50607063-f1228c80-0e95-11e9-9b46-97053c982587.png',
+    'domain': 'Misc'
   },
   {
     'title': 'My Mentor Network',
@@ -602,7 +651,8 @@ const PROJECTS = [
     'desc': [
       'Built a fullstack application which enables professionals to better answer student questions.',
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58507511-8c731180-8157-11e9-8938-f69b3f43ecb5.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58507511-8c731180-8157-11e9-8938-f69b3f43ecb5.gif',
+    'domain': 'Full Stack'
   },
   {
     'title': 'Squarecap SWE Intern',
@@ -612,7 +662,8 @@ const PROJECTS = [
     'team': 'Squarecap',
     'url': 'https://info.squarecap.com/',
     'start': 'Feb 11, 2019',
-    'coolness': 4
+    'coolness': 4,
+    'domain': 'Internship'
   },
   {
     'title': 'CSL Capital Management SWE Intern',
@@ -622,7 +673,8 @@ const PROJECTS = [
     'team': 'CSL',
     'url': 'http://www.cslenergy.com/',
     'start': 'Oct 1, 2019',
-    'coolness': 4
+    'coolness': 4,
+    'domain': 'Internship'
   },
   {
     'title': 'Crypto Marketplace Workshop',
@@ -636,7 +688,8 @@ const PROJECTS = [
     'desc': [
       'A super simple project to introduce backend web dev with Express and MongoDB.'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58508518-d2c97000-8159-11e9-9438-b23bf955df75.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58508518-d2c97000-8159-11e9-9438-b23bf955df75.gif',
+    'domain': 'Full Stack'
   },
   {
     'title': 'Ti Scripts',
@@ -647,7 +700,8 @@ const PROJECTS = [
     'start': 'Mar 20, 2019',
     'tiny': true,
     'coolness': 4,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58509683-c09d0100-815c-11e9-9506-2f8851399712.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58509683-c09d0100-815c-11e9-9506-2f8851399712.gif',
+    'domain': 'Misc'
   },
   {
     'title': 'InvestorCraft',
@@ -658,7 +712,8 @@ const PROJECTS = [
     'start': 'May 22, 2019',
     'tiny': true,
     'coolness': 5,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58374471-45d9a900-7f04-11e9-82ad-e2e7d6b7161b.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58374471-45d9a900-7f04-11e9-82ad-e2e7d6b7161b.gif',
+    'domain': 'Misc'
   },
   {
     'title': 'Conv VAD',
@@ -668,7 +723,8 @@ const PROJECTS = [
     'tags': 'ML CNN keras vad voice-activity-detection',
     'start': 'May 24, 2019',
     'coolness': 6,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58511882-5aff4380-8161-11e9-9903-2f0a91afee99.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58511882-5aff4380-8161-11e9-9903-2f0a91afee99.gif',
+    'domain': 'AI'
   },
   {
     'title': 'Voice Vector',
@@ -678,7 +734,8 @@ const PROJECTS = [
     'tags': 'ML CNN keras siamese',
     'start': 'May 31, 2019',
     'coolness': 6,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/58922114-2fe79780-86ff-11e9-9b45-33ee1c7a342d.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/58922114-2fe79780-86ff-11e9-9b45-33ee1c7a342d.png',
+    'domain': 'AI'
   },
   {
     'title': 'LibKinect2',
@@ -688,7 +745,8 @@ const PROJECTS = [
     'tags': 'CPython kinect2',
     'start': 'June 8, 2019',
     'coolness': 6,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/59576903-088db480-9087-11e9-96f6-251240d25f0c.gif'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/59576903-088db480-9087-11e9-96f6-251240d25f0c.gif',
+    'domain': 'Misc'
   },
   {
     'title': 'Project Argent Facile',
@@ -698,7 +756,8 @@ const PROJECTS = [
     'start': 'June 25, 2019',
     'coolness': 5,
     'private': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/61174301-d5462480-a563-11e9-98a3-27f388e20d63.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/61174301-d5462480-a563-11e9-98a3-27f388e20d63.png',
+    'domain': 'Data'
   },
   {
     'title': 'Convergent Portal',
@@ -709,7 +768,8 @@ const PROJECTS = [
     'start': 'July 13, 2019',
     'coolness': 4,
     'private': true,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/62168424-2b98be80-b2eb-11e9-832e-a9ebc946bafb.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/62168424-2b98be80-b2eb-11e9-832e-a9ebc946bafb.png',
+    'domain': 'Full Stack'
   },
   {
     'title': 'Shridux',
@@ -720,7 +780,8 @@ const PROJECTS = [
     'tags': 'react redux',
     'start': 'July 14, 2019',
     'coolness': 3,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/62169230-4bc97d00-b2ed-11e9-923e-1f5905667a14.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/62169230-4bc97d00-b2ed-11e9-923e-1f5905667a14.png',
+    'domain': 'Frontend'
   },
   {
     'title': 'Wiress',
@@ -736,7 +797,8 @@ const PROJECTS = [
       'Wiress allows users to use the internet through a phone call (kind of like dial up or reversed VoIP).',
       '[Phone] <---callaudio---> [Twilio] <---websockets/hooks---> [Wiress Servers] <---http---> [Internet]'
     ],
-    'thumb': 'https://user-images.githubusercontent.com/6625384/64572938-f68e7b80-d32e-11e9-94c9-a4c973b0c0bd.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/64572938-f68e7b80-d32e-11e9-94c9-a4c973b0c0bd.png',
+    'domain': 'Misc'
   },
   {
     'title': 'Inverse Style GAN',
@@ -746,7 +808,8 @@ const PROJECTS = [
     'github': 'https://github.com/sshh12/Inverse-Style-GAN',
     'start': 'Sep 14, 2019',
     'coolness': 6,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/64915614-b82efd00-d730-11e9-92e4-f3a6de1a5575.png'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/64915614-b82efd00-d730-11e9-92e4-f3a6de1a5575.png',
+    'domain': 'AI'
   },
   {
     'title': 'Personal Home Assistant',
@@ -756,7 +819,8 @@ const PROJECTS = [
     'github': 'https://github.com/sshh12/home-assistant-sshhio',
     'start': 'Sep 3, 2019',
     'coolness': 5,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/64915712-1ceb5700-d733-11e9-9404-64746db95882.jpg'
+    'thumb': 'https://user-images.githubusercontent.com/6625384/64915712-1ceb5700-d733-11e9-9404-64746db95882.jpg',
+    'domain': 'Misc'
   }
 ];
 

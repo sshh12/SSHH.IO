@@ -20,7 +20,7 @@ function Gallery({ items, search, sorts }) {
         {hasSorts && <ul className="actions small" style={{marginTop: '27px'}}>
           {sorts.map((st, i) => <li key={st.name} style={{margin: 'auto'}}>
             <a onClick={() => setSort(sorts[i])}
-              class={`button small${st.name == sort.name ? ' primary': ''}`}>{st.name}</a></li>)}
+              className={`button small${st.name == sort.name ? ' primary': ''}`}>{st.name}</a></li>)}
         </ul>}
       </div>
       <div id="main">
