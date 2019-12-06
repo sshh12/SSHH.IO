@@ -2,7 +2,9 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Gallery from './components/Gallery';
+import Index from './components/Index';
 import Projects from './projects';
+import Photos from './photos';
 import './App.css';
 
 function makeProjectRepr(project) {
@@ -22,19 +24,27 @@ function makeProjectRepr(project) {
   return repr;
 }
 
+function makePhotoRepr(photo) {
+  let repr = Object.values(photo).join('')
+  repr = repr.toLocaleLowerCase();
+  return repr;
+}
+
 class App extends React.Component {
 
   componentDidMount() {
-    console.log(Projects);
+    console.log('Projects: ', Projects);
+    console.log('Photos: ', Photos);
   }
 
-  render() {
+  renderProjects() {
     let projects = Projects.map(project => {
       return {
         title: project.title,
         desc: project.tagline,
         descs: project.desc || [],
         img: project.thumb || '/images/no-pic.png',
+        thumb: project.thumb || '/images/no-pic.png',
         date: new Date(project.start) || new Date(),
         repr: makeProjectRepr(project),
         meta: project
@@ -59,10 +69,46 @@ class App extends React.Component {
         title: (item) => `${item.title} (${item.meta.domain})`
       }
     ];
+    return <Gallery search={true} items={projects} sorts={sorts} />;
+  }
+
+  renderPhotos() {
+    let photos = Photos.map(photo => {
+      let thumb = photo.img.replace(/w(\d+)-h(\d+)-/, (match, w, h) => {
+        let scale = Math.max(w, h) / 500;
+        w = Math.floor(w / scale);
+        h = Math.floor(h / scale);
+        return `w${w}-h${h}-`;
+      });
+      return {
+        title: '',
+        desc: photo.domain,
+        descs: [],
+        img: photo.img,
+        thumb: thumb,
+        repr: makePhotoRepr(photo),
+        meta: photo
+      };
+    });
+    photos.sort((a, b) => Math.random() - 0.5);
+    return <Gallery search={true} items={photos}/>;
+  }
+
+  renderIndex() {
+    return <Index />;
+  }
+
+  render() {
+    let view;
+    if(window.location.pathname.startsWith('/photos')) {
+      view = this.renderPhotos();
+    } else {
+      view = this.renderProjects();
+    }
     return (
       <div className="App" id="wrapper">
         <Header />
-        <Gallery search={true} items={projects} sorts={sorts} />
+        {view}
         <Footer />
       </div>
     );

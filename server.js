@@ -19,9 +19,10 @@ app.get('/resume', (req, res) => {
   }
 });
 
-let reactRoute = (req, res) => res.sendFile(path.join(__dirname, 'build', 'index.html'));
-app.get('/', reactRoute);
-app.get('/code', reactRoute);
+let reactBuild = path.join(__dirname, 'build', 'index.html');
+app.get('/', (req, res) => res.sendFile(reactBuild));
+app.get('/code', (req, res) => res.sendFile(reactBuild));
+app.get('/photos', (req, res) => res.sendFile(reactBuild));
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
