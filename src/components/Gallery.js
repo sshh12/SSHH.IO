@@ -43,7 +43,8 @@ function Gallery({ items, search, sorts }) {
             </h2>
             <p style={{float: 'left'}}>{item.desc}</p>
             {item.descs.length > 0 && <hr />}
-            {item.descs.length > 0 && <ul style={{float: 'left'}}>{item.descs.map(text => <li style={{color: '#fff'}} key={text}>{text}</li>)}</ul>}
+            {item.descs.length > 0 && <ul style={{float: 'left', width: '100%'}}>
+              {item.descs.map(text => <li style={{color: '#fff'}} key={text}>{text}</li>)}</ul>}
           </article>)}
       </div>
     </div>

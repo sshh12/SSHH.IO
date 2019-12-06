@@ -335,16 +335,6 @@ const PROJECTS = [
     'tiny': true
   },
   {
-    'title': 'Count Lines',
-    'tagline': 'Lines of code',
-    'tags': 'counter utility',
-    'language': 'Python',
-    'github': 'https://gist.github.com/sshh12/17c07015d88824e601fff05f22a9df23',
-    'start': 'Dec 19, 2017',
-    'coolness': 1,
-    'tiny': true
-  },
-  {
     'title': 'Titanic',
     'tagline': 'Analyzing the Titanic',
     'tags': 'kaggle ML',
