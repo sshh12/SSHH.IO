@@ -99,17 +99,23 @@ class App extends React.Component {
   }
 
   render() {
+    let path = window.location.pathname;
     let view;
-    if(window.location.pathname.startsWith('/photos')) {
+    let includeExtras = false;
+    if(path.startsWith('/photos')) {
       view = this.renderPhotos();
-    } else {
+      includeExtras = true;
+    } else if(path.startsWith('/code')) {
       view = this.renderProjects();
+      includeExtras = true;
+    } else {
+      view = this.renderIndex();
     }
     return (
       <div className="App" id="wrapper">
-        <Header />
+        {includeExtras && <Header />}
         {view}
-        <Footer />
+        {includeExtras && <Footer />}
       </div>
     );
   }

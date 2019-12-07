@@ -52,3 +52,7 @@
 .badge-info {
   background-color: #3498db;
 }
+
+#root {
+  height: 100%;
+}

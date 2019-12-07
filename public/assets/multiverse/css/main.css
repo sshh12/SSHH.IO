@@ -7,12 +7,6 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-
-.poptrox-popup .caption {
-	backdrop-filter: blur(2px) brightness(60%) !important;
-}
-
-
 @-moz-keyframes spinner {
 	0% {
 		-moz-transform: rotate(0deg);
@@ -1356,13 +1350,13 @@ input, select, textarea {
 			}
 
 			.poptrox-popup .caption {
-				/* display: none !important; */
+				display: none !important;
 			}
 
 			.poptrox-popup .closer,
 			.poptrox-popup .nav-previous,
 			.poptrox-popup .nav-next {
-				/* display: none !important; */
+				display: none !important;
 			}
 
 		}
@@ -1622,10 +1616,10 @@ input, select, textarea {
 		}
 
 			#main .thumb:after {
-				background-image: -moz-linear-gradient(to top, rgba(10,17,25,0.45) 5%, rgba(10,17,25,0) 35%);
-				background-image: -webkit-linear-gradient(to top, rgba(10,17,25,0.45) 5%, rgba(10,17,25,0) 35%);
-				background-image: -ms-linear-gradient(to top, rgba(10,17,25,0.45) 5%, rgba(10,17,25,0) 35%);
-				background-image: linear-gradient(to top, rgba(10,17,25,0.45) 5%, rgba(10,17,25,0) 35%);
+				background-image: -moz-linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%);
+				background-image: -webkit-linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%);
+				background-image: -ms-linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%);
+				background-image: linear-gradient(to top, rgba(10,17,25,0.35) 5%, rgba(10,17,25,0) 35%);
 				pointer-events: none;
 				background-size: cover;
 				content: '';

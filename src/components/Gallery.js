@@ -47,6 +47,7 @@ function Gallery({ items, search, sorts }) {
               {item.descs.map(text => <li style={{color: '#fff'}} key={text}>{text}</li>)}</ul>}
           </article>)}
       </div>
+      <link rel="stylesheet" href="/assets/multiverse/css/main.css" />
     </div>
   );
 }

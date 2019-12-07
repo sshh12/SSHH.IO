@@ -1,4 +1,5 @@
 import React from 'react';
+import LinkIcons from './LinkIcons';
 
 function Footer() {
   return (
@@ -9,12 +10,7 @@ function Footer() {
             <h2>Links</h2>
           </section>
           <section>
-            <ul className="icons">
-              <li><a href="https://www.facebook.com/profile.php?id=100009826364352" className="icon brands fa-facebook-f"><span className="label">Facebook</span></a></li>
-              <li><a href="https://www.instagram.com/shrivu1122/" className="icon brands fa-instagram"><span className="label">Instagram</span></a></li>
-              <li><a href="https://github.com/sshh12" className="icon brands fa-github"><span className="label">GitHub</span></a></li>
-              <li><a href="https://www.linkedin.com/in/shrivushankar/" className="icon brands fa-linkedin-in"><span className="label">LinkedIn</span></a></li>
-            </ul>
+            <LinkIcons />
           </section>
         </div>
         <div>
