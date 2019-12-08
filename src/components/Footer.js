@@ -15,7 +15,7 @@ function Footer() {
         </div>
         <div>
           <section>
-            <form method="POST" action="https://formspree.io/shrivu1122@gmail.com">
+            <form method="POST" action="/form">
               <div className="fields">
                 <div className="field half">
                   <input type="text" name="name" id="name" placeholder="Name" />
