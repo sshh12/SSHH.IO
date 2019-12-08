@@ -27,11 +27,6 @@ function Gallery({ items, search, sorts }) {
         {items.map(item =>
           <article key={item.title + item.img} className="thumb">
             <a href={item.img} className="image"><img src={item.thumb} alt="" /></a>
-            <div>
-              {item.meta.github && <a className="link-icon" href={item.meta.github} target="_blank"><i className="fab fa-github"></i></a>}
-              {item.meta.url && <a className="link-icon" href={item.meta.url} target="_blank"><i className="fas fa-link"></i></a>}
-              {item.meta.article && <a className="link-icon" href={item.meta.article} target="_blank"><i className="fas fa-book"></i></a>}
-            </div>
             {item.title && <h2 style={{fontWeight: '700', textAlign: 'left'}}>
               {hasSorts ? sort.title(item) : item.title}
               <br/>
@@ -45,6 +40,12 @@ function Gallery({ items, search, sorts }) {
             {item.descs.length > 0 && <hr />}
             {item.descs.length > 0 && <ul style={{float: 'left', width: '100%'}}>
               {item.descs.map(text => <li style={{color: '#fff'}} key={text}>{text}</li>)}</ul>}
+            {(item.meta.github || item.meta.url || item.meta.article) && <br/>}
+            <div>
+              {item.meta.github && <a className="link-icon" href={item.meta.github} target="_blank"><i className="fab fa-github"></i></a>}
+              {item.meta.url && <a className="link-icon" href={item.meta.url} target="_blank"><i className="fas fa-link"></i></a>}
+              {item.meta.article && <a className="link-icon" href={item.meta.article} target="_blank"><i className="fas fa-book"></i></a>}
+            </div>
           </article>)}
       </div>
       <link rel="stylesheet" href="/assets/multiverse/css/main.css" />

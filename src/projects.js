@@ -69,7 +69,7 @@ const PROJECTS = [
     'github': 'https://github.com/sshh12/SSHH.IO',
     'start': 'Jul 5, 2018',
     'coolness': 4,
-    'thumb': 'https://user-images.githubusercontent.com/6625384/43047784-83142740-8da2-11e8-89f3-50499a38e378.png',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/70382309-2d206600-191f-11ea-8543-b71a4f40f132.png',
     'domain': 'Frontend'
   },
   {
@@ -163,7 +163,8 @@ const PROJECTS = [
       'Analyzed and processed user stats to build a predictive model',
       'Built a webapp to allow users to predict their online rank'
     ],
-    'domain': 'AI'
+    'domain': 'AI',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/70382355-26462300-1920-11ea-8ed8-1b9681ef0758.png'
   },
   {
     'title': 'Webcam Anomaly Detection',
@@ -663,7 +664,8 @@ const PROJECTS = [
     'url': 'https://info.squarecap.com/',
     'start': 'Feb 11, 2019',
     'coolness': 4,
-    'domain': 'Internship'
+    'domain': 'Internship',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/70382343-d8c9b600-191f-11ea-8d53-d8ca06b7273e.png'
   },
   {
     'title': 'CSL Capital Management SWE Intern',
@@ -674,7 +676,8 @@ const PROJECTS = [
     'url': 'http://www.cslenergy.com/',
     'start': 'Oct 1, 2019',
     'coolness': 4,
-    'domain': 'Internship'
+    'domain': 'Internship',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/70382336-a029dc80-191f-11ea-962f-b58a8ac69d42.png'
   },
   {
     'title': 'Crypto Marketplace Workshop',
@@ -821,6 +824,17 @@ const PROJECTS = [
     'coolness': 5,
     'thumb': 'https://user-images.githubusercontent.com/6625384/64915712-1ceb5700-d733-11e9-9404-64746db95882.jpg',
     'domain': 'Misc'
+  },
+  {
+    'title': 'Aletheia',
+    'tagline': 'An AI-powered epic translation comparison tool.',
+    'language': 'Python',
+    'tags': 'ML NLP CC303 React',
+    'github': 'https://github.com/sshh12/Aletheia',
+    'start': 'Nov 15, 2019',
+    'coolness': 6,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/70382426-9ef9af00-1921-11ea-89c5-da79345e9587.png',
+    'domain': 'AI'
   }
 ];
 
