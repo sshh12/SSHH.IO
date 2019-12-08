@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5000;
 const RESUME_URL = process.env.RESUME_URL || 'https://google.com';
 const RESUME_PASS = process.env.RESUME_PASS || 'password';
 const GMAIL_USER = process.env.GMAIL_USER || 'test@gmail.com';
-const GMAIL_PASS = process.env.GMAIL_USER || 'password';
+const GMAIL_PASS = process.env.GMAIL_PASS || 'password';
 
 let app = express();
 app.use(express.urlencoded());

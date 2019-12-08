@@ -37,7 +37,7 @@ function Gallery({ items, search, sorts }) {
               {(item.meta.hack || item.meta.tiny || item.meta.wip || item.meta.team) && <br/>}
             </h2>}
             {item.desc && <p style={{float: 'left'}}>{item.desc}</p>}
-            {item.descs.length > 0 && <hr />}
+            {item.descs.length > 0 && <br />}
             {item.descs.length > 0 && <ul style={{float: 'left', width: '100%'}}>
               {item.descs.map(text => <li style={{color: '#fff'}} key={text}>{text}</li>)}</ul>}
             {(item.meta.github || item.meta.url || item.meta.article) && <br/>}
