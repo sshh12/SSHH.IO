@@ -36,6 +36,7 @@ class App extends React.Component {
   }
 
   renderProjects() {
+    // document.getElementById('root').style['backdrop-filter'] = 'blur(10px)';
     let projects = Projects.map(project => {
       return {
         title: project.title,

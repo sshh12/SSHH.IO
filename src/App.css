@@ -52,8 +52,13 @@
   background-color: #3498db;
 }
 
+body {
+  padding: 0 !important;
+}
 #root {
   height: 100%;
+  width: 100%;
+  padding: 80px 32px 32px 32px;
 }
 
 .has-img {
@@ -85,5 +90,9 @@
 }
 .code-header a {
   border-bottom: none;
+  cursor: pointer;
+}
+
+a {
   cursor: pointer;
 }

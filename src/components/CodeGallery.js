@@ -22,7 +22,7 @@ function CodeGallery({ items, search, sorts }) {
         <input onChange={(e) => setQuery(e.target.value)} type="text" placeholder="Search"/>
         <span>Sort by: {sorts.map((st, i) =><a onClick={() => setSort(sorts[i])}>{st.name}&nbsp;</a>)}</span>
       </div>
-      <br />
+      <br /><br />
       {items.map(item =>
         <div className="code-item" key={item.title}>
           <div>
@@ -37,12 +37,8 @@ function CodeGallery({ items, search, sorts }) {
           <div style={{width: '18em', marginTop: '10px'}}>
             <img src={item.img} />
           </div>
-          <hr />
         </div>
       )}
-      <h2><a href="/code" style={{borderBottom: 'none'}}>Code</a></h2>
-      <h2><a href="/photos" style={{borderBottom: 'none'}}>Photography</a></h2>
-      <h2><a href="/resume" style={{borderBottom: 'none'}}>Resume</a></h2>
       <footer id="footer" style={{left: '10px', bottom: '0', position: 'relative'}}>
         <LinkIcons />
       </footer>
