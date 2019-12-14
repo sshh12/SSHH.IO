@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Gallery from './components/Gallery';
+import CodeGallery from './components/CodeGallery';
 import Index from './components/Index';
 import Projects from './projects';
 import Photos from './photos';
@@ -56,10 +54,6 @@ class App extends React.Component {
         sort: (a, b) => b.date.getTime() - a.date.getTime(),
         title: (item) => `${item.title} (${item.meta.start})`
       }, {
-        name: 'Coolness',
-        sort: (a, b) => b.meta.coolness - a.meta.coolness,
-        title: (item) => `${item.title} (${item.meta.coolness}/10)`
-      }, {
         name: 'Language',
         sort: (a, b) => b.meta.language.localeCompare(a.meta.language),
         title: (item) => `${item.title} (${item.meta.language})`
@@ -69,7 +63,7 @@ class App extends React.Component {
         title: (item) => `${item.title} (${item.meta.domain})`
       }
     ];
-    return <Gallery search={true} items={projects} sorts={sorts} />;
+    return <CodeGallery search={true} items={projects} sorts={sorts} />;
   }
 
   renderPhotos() {
@@ -91,7 +85,7 @@ class App extends React.Component {
       };
     });
     photos.sort((a, b) => Math.random() - 0.5);
-    return <Gallery search={true} items={photos}/>;
+    return <CodeGallery search={true} items={photos}/>;
   }
 
   renderIndex() {
@@ -101,21 +95,14 @@ class App extends React.Component {
   render() {
     let path = window.location.pathname;
     let view;
-    let includeExtras = false;
-    if(path.startsWith('/photos')) {
-      view = this.renderPhotos();
-      includeExtras = true;
-    } else if(path.startsWith('/code')) {
+    if(path.startsWith('/code')) {
       view = this.renderProjects();
-      includeExtras = true;
     } else {
       view = this.renderIndex();
     }
     return (
       <div className="App" id="wrapper">
-        {includeExtras && <Header />}
         {view}
-        {includeExtras && <Footer />}
       </div>
     );
   }

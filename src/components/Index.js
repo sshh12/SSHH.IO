@@ -11,12 +11,11 @@ function Index() {
       </header>
       {search.includes('formsubmitted') && <p>Form submitted!</p>}
       <h2><a href="/code" style={{borderBottom: 'none'}}>Code</a></h2>
-      <h2><a href="/photos" style={{borderBottom: 'none'}}>Photography</a></h2>
+      {/* <h2><a href="/photos" style={{borderBottom: 'none'}}>Photography</a></h2> */}
       <h2><a href="/resume" style={{borderBottom: 'none'}}>Resume</a></h2>
       <footer id="footer" style={{left: '0', bottom: '0'}}>
         <LinkIcons />
       </footer>
-      <link rel="stylesheet" href="/assets/eventually/css/main.css" />
     </div>
   );
 }
