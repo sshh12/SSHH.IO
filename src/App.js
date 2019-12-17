@@ -5,6 +5,10 @@ import Projects from './projects';
 import Photos from './photos';
 import './App.css';
 
+const Nanobar = require('nanobar');
+let nanobar = new Nanobar({id: 'nanobar'});
+document.getElementById('nanobar').className = 'nanobar nanobar-a';
+
 function makeProjectRepr(project) {
   let repr = Object.values(project).join('')
   if(project.hack) { repr += ' greyhat whitehat ethical hacking security' }
@@ -35,7 +39,11 @@ class App extends React.Component {
     console.log('Photos: ', Photos);
 		window.setTimeout(function() {
 			document.querySelector('body').classList.remove('is-preload');
-		}, 100);
+    }, 100);
+    window.addEventListener('scroll', (event) => {
+      let maxScroll = document.querySelector('body').scrollHeight - document.body.offsetHeight;
+      nanobar.go(Math.min(99.9, window.scrollY / maxScroll * 100));
+    });
   }
 
   renderProjects() {

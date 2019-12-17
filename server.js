@@ -21,7 +21,7 @@ let sendShrivuEmail = (content) => {
   });
   let mail = {
     from: `SSHH.IO <${GMAIL_USER}>`,
-    to: "shrivu1122@gmail.com",
+    to: GMAIL_USER,
     subject: "SSHH.IO Notification",
     text: content,
     html: content
