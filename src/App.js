@@ -33,10 +33,12 @@ class App extends React.Component {
   componentDidMount() {
     console.log('Projects: ', Projects);
     console.log('Photos: ', Photos);
+		window.setTimeout(function() {
+			document.querySelector('body').classList.remove('is-preload');
+		}, 100);
   }
 
   renderProjects() {
-    // document.getElementById('root').style['backdrop-filter'] = 'blur(10px)';
     let projects = Projects.map(project => {
       return {
         title: project.title,
@@ -98,8 +100,18 @@ class App extends React.Component {
     let view;
     if(path.startsWith('/code')) {
       view = this.renderProjects();
+      document.querySelector('html').classList.add('code-view');
+      document.querySelector('html').classList.remove('index-view');
     } else {
       view = this.renderIndex();
+      document.querySelector('html').classList.add('index-view');
+      document.querySelector('html').classList.remove('code-view');
+      let int = setInterval(() => {
+        if(window.slideShow) {
+          window.slideShow();
+          clearInterval(int);
+        }
+      }, 100);
     }
     return (
       <div className="App" id="wrapper">
