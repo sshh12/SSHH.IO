@@ -53,17 +53,20 @@ class App extends React.Component {
     });
     let sorts = [
       {
-        name: 'Time',
+        name: 'Viewing Chronologically 🕒',
         sort: (a, b) => b.date.getTime() - a.date.getTime(),
-        title: (item) => `${item.title} (${item.meta.start})`
+        title: (item) => item.title,
+        className: 'far fa-calendar-alt'
       }, {
-        name: 'Language',
+        name: 'Sorted By Language',
         sort: (a, b) => b.meta.language.localeCompare(a.meta.language),
-        title: (item) => `${item.title} (${item.meta.language})`
+        title: (item) => `${item.title} (${item.meta.language})`,
+        className: 'fas fa-pen-fancy'
       }, {
-        name: 'Domain',
+        name: 'Sorted By Domain',
         sort: (a, b) => a.meta.domain.localeCompare(b.meta.domain),
-        title: (item) => `${item.title} (${item.meta.domain})`
+        title: (item) => `${item.title} (${item.meta.domain})`,
+        className: 'fas fa-object-group'
       }
     ];
     return <CodeGallery search={true} items={projects} sorts={sorts} />;

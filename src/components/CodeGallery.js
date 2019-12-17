@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import './CodeGallery.scss';
 
 function CodeGallery({ items, search, sorts }) {
+  let [sort, setSort] = useState(sorts && sorts[0]);
+  let [query, setQuery] = useState('');
+  items = items.sort(sort.sort);
+  if (query.length > 0) {
+    items = items.filter(item => item.repr.includes(query.toLocaleLowerCase()));
+  }
   return (
     <div class="container">
       <div class="page-header">
@@ -9,70 +15,56 @@ function CodeGallery({ items, search, sorts }) {
         <p class="lead">A coder, hacker, and AI doer <a href="https://www.utexas.edu/">@ UT CS</a>.</p>
       </div>
       <div class="input-group searchbar">
-        <input id="search" class="form-control form-control-lg" type="text" placeholder="What..." />
+        <input onChange={(e) => setQuery(e.target.value)}
+          id="search" class="form-control form-control-lg" type="text" placeholder="Search" />
         <div class="input-group-append">
           <div class="input-group-text">?</div>
         </div>
       </div>
       <div class="btn-menu">
         <div class="btn-group">
-          <button type="button" class="btn color-a"><i class="far fa-calendar-alt"></i></button>
-          <button type="button" class="btn color-b"><i class="fas fa-trophy"></i></button>
-          <button type="button" class="btn color-c"><i class="fas fa-pen-fancy"></i></button>
-          <button type="button" class="btn color-d"><i class="fas fa-object-group"></i></button>
+          {sorts.map((sort, i) =>
+            <button onClick={() => setSort(sorts[i])}
+              type="button" class={`btn color-${'abcdef'.charAt(i)}`}><i class={sort.className}></i></button>
+          )}
         </div>
       </div>
       <div id="sort-msg">
-        <span></span>
+        <span>{sort.name}</span>
       </div>
+      <br/>
       <div id="timeline" class="timeline-a">
         <div id="timeline-container">
+          {items.map(item =>
+            <section key={item.title} id={`project-${item.title}`}>
+              <ul>
+                <li className="project-item">
+                  <b>{sort.title(item)}</b>
+                  {item.meta.hack && <span title="Ethical Hacking!" class="badge badge-danger">Hacking</span>}
+                  {item.meta.tiny && <span class="badge badge-info">Mini Project</span>}
+                  {item.meta.wip && <span title="Not yet complete" class="badge badge-warning">{'//TODO'}</span>}
+                  {item.meta.team && <span title="Team/Company Project" class="badge badge-success">{item.meta.team}</span>}
+                  <br />
+                  <span class="small-date">{item.meta.start}</span>
+                  <br />
+                  {item.meta.github && <a href={item.meta.github} target="_blank"><i class="link-icon2 fab fa-github"></i></a>}
+                  {item.meta.url && <a href={item.meta.url} target="_blank"><i class="link-icon2 fas fa-link"></i></a>}
+                  {item.meta.article && <a href={item.meta.article} target="_blank"><i class="link-icon2 fas fa-book"></i></a>}
+                  {item.meta.private && <a href="#" onClick={() => alert('This project is private. Fill free to contact me if you\'re interested in the source code.')}><i class="link-icon2 fas fa-lock"></i></a>}
+                  <hr />
+                  {item.desc}
+                  <div class="desc" id={`desc-${item.title}`}>
+                    {item.meta.desc && [<hr />, <ul class="desc-list">{item.meta.desc.map(d => <li key={d}>{d}</li>)}</ul>]}
+                    {item.img && [<hr />, <img class="desc-img" src={item.img} />]}
+                  </div>
+                </li>
+              </ul>
+            </section>
+          )}
         </div>
       </div>
     </div>
   );
-  // let hasSorts = (sorts && sorts.length > 0);
-  // let [sort, setSort] = useState(sorts && sorts[0]);
-  // let [query, setQuery] = useState('');
-  // items = items.concat();
-  // if(hasSorts) {
-  //   items = items.sort(sort.sort);
-  // }
-  // if(query.length > 0) {
-  //   items = items.filter(item => item.repr.includes(query.toLocaleLowerCase()));
-  // }
-  // return (
-  //   <div style={{ textAlign: 'left' }}>
-  //     <header id="header">
-  //       <h1>Code</h1>
-  //       <p>Codin.</p>
-  //     </header>
-  //     <div className="code-header">
-  //       <input onChange={(e) => setQuery(e.target.value)} type="text" placeholder="Search"/>
-  //       <span>Sort by: {sorts.map((st, i) =><a onClick={() => setSort(sorts[i])}>{st.name}&nbsp;</a>)}</span>
-  //     </div>
-  //     <br /><br />
-  //     {items.map(item =>
-  //       <div className="code-item" key={item.title}>
-  //         <div>
-  //           <h3>{hasSorts ? sort.title(item) : item.title}</h3>
-  //           <p>{item.desc}</p>
-  //           <div className="row" style={{marginTop: '5px'}}>
-  //             {item.meta.github && <a className="link-icon" href={item.meta.github} target="_blank"><i className="fab fa-github"></i></a>}
-  //             {item.meta.url && <a className="link-icon" href={item.meta.url} target="_blank"><i className="fas fa-link"></i></a>}
-  //             {item.meta.article && <a className="link-icon" href={item.meta.article} target="_blank"><i className="fas fa-book"></i></a>}
-  //           </div>
-  //         </div>
-  //         <div style={{width: '18em', marginTop: '10px'}}>
-  //           <img src={item.img} />
-  //         </div>
-  //       </div>
-  //     )}
-  //     <footer id="footer" style={{left: '10px', bottom: '0', position: 'relative'}}>
-  //       <LinkIcons />
-  //     </footer>
-  //   </div>
-  // );
 }
 
 export default CodeGallery;
