@@ -8,7 +8,7 @@ function Index() {
     <div style={{ textAlign: 'left' }}>
       <header id="header">
         <h1>Shrivu Shankar</h1>
-        <p>A coder, hacker, and AI doer @ <a href="https://www.cs.utexas.edu/">UT CS</a>.</p>
+        <p>A student, engineer, researcher @ <a href="https://www.cs.utexas.edu/">UT CS</a>.</p>
       </header>
       {search.includes('formsubmitted') && <p>Form submitted!</p>}
       <h2><a href="/code" style={{borderBottom: 'none'}}>Code</a></h2>

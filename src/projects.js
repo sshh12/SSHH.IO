@@ -663,7 +663,7 @@ const PROJECTS = [
     'team': 'Squarecap',
     'url': 'https://info.squarecap.com/',
     'start': 'Feb 11, 2019',
-    'coolness': 4,
+    'coolness': 6,
     'domain': 'Internship',
     'thumb': 'https://user-images.githubusercontent.com/6625384/70382343-d8c9b600-191f-11ea-8d53-d8ca06b7273e.png'
   },
@@ -675,9 +675,21 @@ const PROJECTS = [
     'team': 'CSL',
     'url': 'http://www.cslenergy.com/',
     'start': 'Oct 1, 2019',
-    'coolness': 4,
+    'coolness': 6,
     'domain': 'Internship',
     'thumb': 'https://user-images.githubusercontent.com/6625384/70382336-a029dc80-191f-11ea-962f-b58a8ac69d42.png'
+  },
+  {
+    'title': 'AI Global SWE Intern',
+    'tagline': 'Accelerating practical and responsible design, development, and use of Artificial Intelligence.',
+    'language': 'Python JS',
+    'tags': 'ML AI ethics',
+    'team': 'AI Global',
+    'url': 'https://ai-global.org/',
+    'start': 'Feb 1, 2020',
+    'coolness': 7,
+    'domain': 'Internship',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/77083131-fef4fc80-69ca-11ea-84b1-8e5aa63a9d8e.jpg'
   },
   {
     'title': 'Crypto Marketplace Workshop',
@@ -752,15 +764,15 @@ const PROJECTS = [
     'domain': 'Misc'
   },
   {
-    'title': 'Project Argent Facile',
-    'tagline': 'A suite of market/financial news webscrapers and preprocessors tailored for machine learning models.',
+    'title': 'Financial News Indexing',
+    'tagline': 'A suite of market/financial news webscrapers.',
     'language': 'Python',
     'tags': 'stocks bitcoin crypto elasticsearch',
     'start': 'June 25, 2019',
     'coolness': 5,
-    'private': true,
     'thumb': 'https://user-images.githubusercontent.com/6625384/61174301-d5462480-a563-11e9-98a3-27f388e20d63.png',
-    'domain': 'Data'
+    'domain': 'Data',
+    'github': 'https://github.com/sshh12/Financial-News-Indexing'
   },
   {
     'title': 'Convergent Portal',
@@ -835,6 +847,41 @@ const PROJECTS = [
     'coolness': 6,
     'thumb': 'https://user-images.githubusercontent.com/6625384/70382426-9ef9af00-1921-11ea-89c5-da79345e9587.png',
     'domain': 'AI'
+  },
+  {
+    'title': 'PintOS',
+    'tagline': 'An implementation of swap, syscalls, threads, and paging',
+    'language': 'C',
+    'tags': 'CS439 OperatingSystems',
+    'private': true,
+    'start': 'Sep 18, 2019',
+    'coolness': 4,
+    'team': 'CS439',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/77081923-5abe8600-69c9-11ea-8ce8-039211da700c.png',
+    'domain': 'Systems'
+  },
+  {
+    'title': 'CV Utils',
+    'tagline': 'Simple scripts for quickly preprocessing image data.',
+    'language': 'Python',
+    'tags': 'CV',
+    'tiny': true,
+    'start': 'Jan 23, 2020',
+    'coolness': 4,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/77082342-edf7bb80-69c9-11ea-8aa9-e047628bb485.png',
+    'domain': 'Data'
+  },
+  {
+    'title': 'Convergent Kwickstart',
+    'tagline': 'An app to help quickstart development environments.',
+    'language': 'Python',
+    'tags': 'Utility',
+    'team': 'Texas Convergent',
+    'start': 'Jan 25, 2020',
+    'github': 'https://github.com/TxConvergentAdmin/convergent-kwickstart',
+    'coolness': 5,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/77083339-55fad180-69cb-11ea-99d1-558e3cdf08ee.png',
+    'domain': 'Misc'
   }
 ];
 
