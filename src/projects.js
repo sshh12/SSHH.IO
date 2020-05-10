@@ -533,7 +533,7 @@ const PROJECTS = [
   {
     'title': 'Tradinhood',
     'tagline': 'Programmatically trading stocks and crypto with Robinhood.',
-    'tags': 'robinhood crypto stocks',
+    'tags': 'investing robinhood crypto stocks',
     'language': 'Python',
     'github': 'https://github.com/sshh12/Tradinhood',
     'start': 'Jul 27, 2018',
@@ -544,6 +544,17 @@ const PROJECTS = [
       'Designed a trading interface to seamlessly go from backtests to trading real assets'
     ],
     'thumb': 'https://user-images.githubusercontent.com/6625384/58509787-fb069e00-815c-11e9-89eb-808f1861ce65.png',
+    'domain': 'Misc'
+  },
+  {
+    'title': 'pymeritrade',
+    'tagline': 'A python interface for using the TD Ameritrade API.',
+    'tags': 'investing stocks',
+    'language': 'Python',
+    'github': 'https://github.com/sshh12/pymeritrade',
+    'start': 'Apr 25, 2020',
+    'coolness': 7,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/81488166-f1216200-922a-11ea-99b9-f2fff0fc9ded.png',
     'domain': 'Misc'
   },
   {
@@ -583,7 +594,7 @@ const PROJECTS = [
     'domain': 'AI'
   },
   {
-    'title': 'UAV Image Rec v1',
+    'title': 'UAVA Image Rec',
     'tagline': 'Combining image recognition with unmanned aerial vehicles.',
     'language': 'Python',
     'tags': 'ML CV uav opencv tensorflow UT club target-finder uava',
@@ -592,8 +603,21 @@ const PROJECTS = [
     'article': 'https://github.com/sshh12/UAV-Image-Rec/blob/master/UAVA-2019.pdf',
     'start': 'Sep 20, 2018',
     'coolness': 7,
-    'team': 'UAV Austin 2019',
+    'team': 'UAV Austin',
     'thumb': 'https://user-images.githubusercontent.com/6625384/58374531-6fdf9b00-7f05-11e9-9d2c-e51c024209d5.jpg',
+    'domain': 'AI'
+  },
+  {
+    'title': 'Seeker',
+    'tagline': 'Uncooperative satellite pose estimation.',
+    'language': 'Python',
+    'tags': 'ML CV tensorflow',
+    'github': 'https://github.com/autognc',
+    'url': 'https://sites.utexas.edu/tsl/',
+    'start': 'March 9, 2020',
+    'coolness': 7,
+    'team': 'TSL',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/81488129-7a846480-922a-11ea-94bd-f202f2c08b9b.jpg',
     'domain': 'AI'
   },
   {
@@ -869,7 +893,8 @@ const PROJECTS = [
     'start': 'Jan 23, 2020',
     'coolness': 4,
     'thumb': 'https://user-images.githubusercontent.com/6625384/77082342-edf7bb80-69c9-11ea-8aa9-e047628bb485.png',
-    'domain': 'Data'
+    'domain': 'Data',
+    'github': 'https://gist.github.com/sshh12/b5e0709d7f8d1f50639fa6df35a846ed'
   },
   {
     'title': 'Convergent Kwickstart',
