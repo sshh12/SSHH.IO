@@ -716,6 +716,18 @@ const PROJECTS = [
     'thumb': 'https://user-images.githubusercontent.com/6625384/77083131-fef4fc80-69ca-11ea-84b1-8e5aa63a9d8e.jpg'
   },
   {
+    'title': 'Stripe SWE Intern',
+    'tagline': 'Online payment processing for internet businesses.',
+    'language': 'Unk',
+    'tags': '',
+    'team': 'Stripe',
+    'url': 'https://stripe.com/',
+    'start': 'May 25, 2020',
+    'coolness': 7,
+    'domain': 'Internship',
+    'thumb': 'https://user-images.githubusercontent.com/6625384/81705673-ea663b00-9434-11ea-821d-119c241dff9a.png'
+  },
+  {
     'title': 'Crypto Marketplace Workshop',
     'tagline': 'Learning JS backend with fake crypto.',
     'language': 'JS',
@@ -900,13 +912,50 @@ const PROJECTS = [
     'title': 'Convergent Kwickstart',
     'tagline': 'An app to help quickstart development environments.',
     'language': 'Python',
-    'tags': 'Utility',
+    'tags': 'utility',
     'team': 'Texas Convergent',
     'start': 'Jan 25, 2020',
     'github': 'https://github.com/TxConvergentAdmin/convergent-kwickstart',
     'coolness': 5,
     'thumb': 'https://user-images.githubusercontent.com/6625384/77083339-55fad180-69cb-11ea-99d1-558e3cdf08ee.png',
     'domain': 'Misc'
+  },
+  {
+    'title': 'Remote',
+    'tagline': 'A remote powerpoint clicker powered by Ngrok.',
+    'tiny': true,
+    'language': 'JS',
+    'tags': 'utility',
+    'team': 'Texas Convergent',
+    'start': 'Apr 28, 2020',
+    'github': 'https://github.com/TxConvergentAdmin/remote',
+    'coolness': 5,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/81488243-e915f200-922b-11ea-852c-2cb4f5d6bcd2.png',
+    'domain': 'Full Stack'
+  },
+  {
+    'title': 'Expedition Gambit',
+    'tagline': 'A general aircraft and status display for live protobuf-encoded telemetry.',
+    'language': 'JS',
+    'tags': 'uav react dashboard protobuf',
+    'team': 'UAV Austin',
+    'start': 'Feb 13, 2020',
+    'github': 'https://github.com/uavaustin/expedition-gambit',
+    'coolness': 5,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/81488355-4f4f4480-922d-11ea-986c-d58bfa5b13ac.png',
+    'domain': 'Frontend'
+  },
+  {
+    'title': 'Relevance-Adjusted Sentiment For Market News',
+    'tagline': 'Using article and company embeddings to calculate adjusted media sentiment.',
+    'language': 'Python',
+    'article': 'https://github.com/sshh12/Relevance-Adjusted-Sentiment-For-Market-News/blob/master/paper/paper.pdf',
+    'tags': 'ML NLP BERT',
+    'start': 'Mar 5, 2020',
+    'github': 'https://github.com/sshh12/Relevance-Adjusted-Sentiment-For-Market-News',
+    'coolness': 8,
+    'thumb': 'https://user-images.githubusercontent.com/6625384/81488295-a9033f00-922c-11ea-9d31-e6431d61f4d5.png',
+    'domain': 'AI'
   }
 ];
 
