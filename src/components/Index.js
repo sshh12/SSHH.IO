@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import LinkIcons from './LinkIcons'
-import './Index.scss'
+import React, { useState } from 'react';
+import LinkIcons from './LinkIcons';
+import './Index.scss';
 
 function Index() {
-  let search = window.location.search
+  let search = window.location.search;
   return (
     <div style={{ textAlign: 'left' }}>
       <header id="header">
@@ -28,7 +28,7 @@ function Index() {
         <LinkIcons />
       </footer>
     </div>
-  )
+  );
 }
 
-export default Index
+export default Index;

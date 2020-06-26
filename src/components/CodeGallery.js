@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
-import './CodeGallery.scss'
+import React, { useState } from 'react';
+import './CodeGallery.scss';
 
-function CodeGallery({ items, search, sorts }) {
-  let [sort, setSort] = useState(sorts && sorts[0])
-  let [query, setQuery] = useState('')
-  items = items.sort(sort.sort)
+function getURLQuery() {
+  return window.decodeURI(window.location.search.replace('?q=', ''));
+}
+
+function CodeGallery({ items, sorts }) {
+  let [sort, setSort] = useState(sorts && sorts[0]);
+  let [query, _setQuery] = useState(getURLQuery());
+  let setQuery = (value) => {
+    window.history.replaceState(null, null, '?q=' + value);
+    _setQuery(value);
+  };
+  items = items.sort(sort.sort);
   if (query.length > 0) {
-    items = items.filter((item) => item.repr.includes(query.toLocaleLowerCase()))
+    items = items.filter((item) => item.repr.includes(query.toLocaleLowerCase()));
   }
   return (
     <div className="container">
@@ -19,6 +27,7 @@ function CodeGallery({ items, search, sorts }) {
       <div className="input-group searchbar">
         <input
           onChange={(e) => setQuery(e.target.value)}
+          value={query}
           id="search"
           className="form-control form-control-lg"
           type="text"
@@ -33,8 +42,8 @@ function CodeGallery({ items, search, sorts }) {
           {sorts.map((sort, i) => (
             <button
               onClick={() => {
-                setSort(sorts[i])
-                document.getElementById('nanobar').className = `nanobar nanobar-${'abcdef'.charAt(i)}`
+                setSort(sorts[i]);
+                document.getElementById('nanobar').className = `nanobar nanobar-${'abcdef'.charAt(i)}`;
               }}
               type="button"
               class={`btn color-${'abcdef'.charAt(i)}`}
@@ -121,7 +130,7 @@ function CodeGallery({ items, search, sorts }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CodeGallery
+export default CodeGallery;

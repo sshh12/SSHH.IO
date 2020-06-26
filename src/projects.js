@@ -602,7 +602,7 @@ const PROJECTS = [
     tagline: 'Uncooperative satellite pose estimation.',
     language: 'Python',
     tags: 'ML CV tensorflow',
-    github: 'https://github.com/autognc',
+    github: 'https://github.com/autognc/ravenML-train-plugins',
     url: 'https://sites.utexas.edu/tsl/',
     start: 'March 9, 2020',
     coolness: 7,
@@ -849,17 +849,6 @@ const PROJECTS = [
     domain: 'AI',
   },
   {
-    title: 'Personal Home Assistant',
-    tagline: 'Custom Home Assistant plugins for my apartment.',
-    language: 'Python',
-    tags: 'ML CV OpenCV homeassistant',
-    github: 'https://github.com/sshh12/home-assistant-sshhio',
-    start: 'Sep 3, 2019',
-    coolness: 5,
-    thumb: 'https://user-images.githubusercontent.com/6625384/64915712-1ceb5700-d733-11e9-9404-64746db95882.jpg',
-    domain: 'Misc',
-  },
-  {
     title: 'Aletheia',
     tagline: 'An AI-powered epic translation comparison tool.',
     language: 'Python',
@@ -943,6 +932,6 @@ const PROJECTS = [
     thumb: 'https://user-images.githubusercontent.com/6625384/81488295-a9033f00-922c-11ea-9d31-e6431d61f4d5.png',
     domain: 'AI',
   },
-]
+];
 
-export default PROJECTS
+export default PROJECTS;

@@ -1,69 +1,61 @@
-import React from 'react'
-import CodeGallery from './components/CodeGallery'
-import Index from './components/Index'
-import Projects from './projects'
-import Photos from './photos'
-import './App.css'
+import React from 'react';
+import CodeGallery from './components/CodeGallery';
+import Index from './components/Index';
+import Projects from './projects';
+import './App.css';
 
-const Nanobar = require('nanobar')
-let nanobar = new Nanobar({ id: 'nanobar' })
-document.getElementById('nanobar').className = 'nanobar nanobar-a'
+const Nanobar = require('nanobar');
+let nanobar = new Nanobar({ id: 'nanobar' });
+document.getElementById('nanobar').className = 'nanobar nanobar-a';
 
 function makeProjectRepr(project) {
-  let repr = Object.values(project).join('')
+  let repr = Object.values(project).join('');
   if (project.hack) {
-    repr += ' greyhat whitehat ethical hacking security'
+    repr += ' greyhat whitehat ethical hacking security';
   }
   if (project.github) {
-    repr += ' github open-source'
+    repr += ' github open-source';
   }
   if (project.url) {
-    repr += ' online webpage linked'
+    repr += ' online webpage linked';
   }
   if (project.team) {
-    repr += ' team' + project.team
+    repr += ' team' + project.team;
   }
   if (project.wip) {
-    repr += ' wip todo inprogress'
+    repr += ' wip todo inprogress';
   }
   if (project.private) {
-    repr += ' private'
+    repr += ' private';
   } else {
-    repr += 'complete'
+    repr += 'complete';
   }
   if (/\bML\b/.test(project.tags)) {
-    repr += ' machine learning'
+    repr += ' machine learning';
   }
   if (/\bRL\b/.test(project.tags)) {
-    repr += ' reinforcement learning'
+    repr += ' reinforcement learning';
   }
   if (/\bNLP\b/.test(project.tags)) {
-    repr += ' natural language processing'
+    repr += ' natural language processing';
   }
   if (/\bCV\b/.test(project.tags)) {
-    repr += ' computer vision'
+    repr += ' computer vision';
   }
-  repr = repr.toLocaleLowerCase()
-  return repr
-}
-
-function makePhotoRepr(photo) {
-  let repr = Object.values(photo).join('')
-  repr = repr.toLocaleLowerCase()
-  return repr
+  repr = repr.toLocaleLowerCase();
+  return repr;
 }
 
 class App extends React.Component {
   componentDidMount() {
-    console.log('Projects: ', Projects)
-    console.log('Photos: ', Photos)
+    console.log('Projects: ', Projects);
     window.setTimeout(function () {
-      document.querySelector('body').classList.remove('is-preload')
-    }, 100)
+      document.querySelector('body').classList.remove('is-preload');
+    }, 100);
     window.addEventListener('scroll', (event) => {
-      let maxScroll = document.querySelector('body').scrollHeight - document.body.offsetHeight
-      nanobar.go(Math.min(99.9, (window.scrollY / maxScroll) * 100))
-    })
+      let maxScroll = document.querySelector('body').scrollHeight - document.body.offsetHeight;
+      nanobar.go(Math.min(99.9, (window.scrollY / maxScroll) * 100));
+    });
   }
 
   renderProjects() {
@@ -77,8 +69,8 @@ class App extends React.Component {
         date: new Date(project.start) || new Date(),
         repr: makeProjectRepr(project),
         meta: project,
-      }
-    })
+      };
+    });
     let sorts = [
       {
         name: 'Viewing Chronologically 🕒',
@@ -98,60 +90,38 @@ class App extends React.Component {
         title: (item) => `${item.title} (${item.meta.domain})`,
         className: 'fas fa-object-group',
       },
-    ]
-    return <CodeGallery search={true} items={projects} sorts={sorts} />
-  }
-
-  renderPhotos() {
-    let photos = Photos.map((photo) => {
-      let thumb = photo.img.replace(/w(\d+)-h(\d+)-/, (match, w, h) => {
-        let scale = Math.max(w, h) / 500
-        w = Math.floor(w / scale)
-        h = Math.floor(h / scale)
-        return `w${w}-h${h}-`
-      })
-      return {
-        title: '',
-        desc: photo.domain,
-        descs: [],
-        img: photo.img,
-        thumb: thumb,
-        repr: makePhotoRepr(photo),
-        meta: photo,
-      }
-    })
-    photos.sort((a, b) => Math.random() - 0.5)
-    return <CodeGallery search={true} items={photos} />
+    ];
+    return <CodeGallery items={projects} sorts={sorts} />;
   }
 
   renderIndex() {
-    return <Index />
+    return <Index />;
   }
 
   render() {
-    let path = window.location.pathname
-    let view
+    let path = window.location.pathname;
+    let view;
     if (path.startsWith('/code')) {
-      view = this.renderProjects()
-      document.querySelector('html').classList.add('code-view')
-      document.querySelector('html').classList.remove('index-view')
+      view = this.renderProjects();
+      document.querySelector('html').classList.add('code-view');
+      document.querySelector('html').classList.remove('index-view');
     } else {
-      view = this.renderIndex()
-      document.querySelector('html').classList.add('index-view')
-      document.querySelector('html').classList.remove('code-view')
+      view = this.renderIndex();
+      document.querySelector('html').classList.add('index-view');
+      document.querySelector('html').classList.remove('code-view');
       let int = setInterval(() => {
         if (window.slideShow) {
-          window.slideShow()
-          clearInterval(int)
+          window.slideShow();
+          clearInterval(int);
         }
-      }, 100)
+      }, 100);
     }
     return (
       <div className="App" id="wrapper">
         {view}
       </div>
-    )
+    );
   }
 }
 
-export default App
+export default App;

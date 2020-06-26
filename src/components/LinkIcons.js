@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function LinkIcons() {
   return (
@@ -60,7 +60,7 @@ function LinkIcons() {
         </a>
       </li>
     </ul>
-  )
+  );
 }
 
-export default LinkIcons
+export default LinkIcons;
