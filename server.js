@@ -13,5 +13,5 @@ app.get('/code/:ident', (req, res) => res.sendFile(reactBuild));
 app.get('/resume', (req, res) => res.redirect('https://forms.gle/m7FMe8beVMH5Z33d9'));
 
 app.listen(process.env.PORT || 5000, () => {
-  console.log(`Listening on ${PORT}`);
+  console.log(`Server ready.`);
 });
