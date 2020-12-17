@@ -2,3 +2,8 @@
  from = "/code*"
  to = "/"
  status = 200
+
+[[redirects]]
+ from = "/resume*"
+ to = "https://forms.gle/m7FMe8beVMH5Z33d9"
+ status = 200
