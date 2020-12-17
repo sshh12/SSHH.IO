@@ -1,0 +1,4 @@
+[[redirects]]
+ from = "/code*"
+ to = "/"
+ status = 200
