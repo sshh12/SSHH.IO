@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import LinkIcons from './LinkIcons';
-import './Index.scss';
+import './Index.css';
 
 function Index() {
   let search = window.location.search;

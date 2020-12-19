@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CodeGallery.scss';
+import './CodeGallery.css';
 
 function getURLQuery() {
   return window.decodeURI(window.location.search.replace('?q=', ''));
