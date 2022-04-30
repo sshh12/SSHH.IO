@@ -20,9 +20,7 @@ function CodeGallery({ items, sorts }) {
     <div className="container">
       <div className="page-header">
         <h1>Shrivu Shankar</h1>
-        <p className="lead">
-          A coder, hacker, and AI doer <a href="https://www.utexas.edu/">@ UT CS</a>.
-        </p>
+        <p className="lead">Project Index</p>
       </div>
       <div className="input-group searchbar">
         <input
