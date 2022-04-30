@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import LinkIcons from './LinkIcons';
 import './Index.css';
 
@@ -9,16 +9,15 @@ function Index() {
       <header id="header">
         <h1>Shrivu Shankar</h1>
         <p>
-          A student, engineer, researcher @ <a href="https://www.cs.utexas.edu/">UT CS</a>.
+          Machine Learning Engineer @ <a href="https://abnormalsecurity.com/">Abnormal Security</a>.
         </p>
       </header>
       {search.includes('formsubmitted') && <p>Form submitted!</p>}
       <h2>
         <a href="/code" style={{ borderBottom: 'none' }}>
-          Code
+          Projects
         </a>
       </h2>
-      {/* <h2><a href="/photos" style={{borderBottom: 'none'}}>Photography</a></h2> */}
       <h2>
         <a href="/resume" style={{ borderBottom: 'none' }}>
           Resume

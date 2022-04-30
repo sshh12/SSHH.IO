@@ -84,23 +84,23 @@ function CodeGallery({ items, sorts }) {
                   <span className="small-date">{item.meta.start}</span>
                   <br />
                   {item.meta.github && (
-                    <a href={item.meta.github} target="_blank">
+                    <a href={item.meta.github} target="_blank" rel="noopener noreferrer">
                       <i className="link-icon2 fab fa-github"></i>
                     </a>
                   )}
                   {item.meta.url && (
-                    <a href={item.meta.url} target="_blank">
+                    <a href={item.meta.url} target="_blank" rel="noopener noreferrer">
                       <i className="link-icon2 fas fa-link"></i>
                     </a>
                   )}
                   {item.meta.article && (
-                    <a href={item.meta.article} target="_blank">
+                    <a href={item.meta.article} target="_blank" rel="noopener noreferrer">
                       <i className="link-icon2 fas fa-book"></i>
                     </a>
                   )}
                   {item.meta.private && (
                     <a
-                      href="#"
+                      href="#priv"
                       onClick={() =>
                         alert(
                           "This project is private. Fill free to contact me if you're interested in the source code."
@@ -121,7 +121,7 @@ function CodeGallery({ items, sorts }) {
                         ))}
                       </ul>,
                     ]}
-                    {item.img && [<hr />, <img className="desc-img" src={item.img} />]}
+                    {item.img && [<hr />, <img className="desc-img" alt={item.title + ' image'} src={item.img} />]}
                   </div>
                 </li>
               </ul>

@@ -4,40 +4,22 @@ function LinkIcons() {
   return (
     <ul className="icons">
       <li>
-        <a
+        <div
+          style={{ cursor: 'pointer' }}
           onClick={() =>
             alert(
               String.fromCharCode(
                 ...[
-                  0x73,
-                  0x68,
-                  0x72,
-                  0x69,
-                  0x76,
-                  0x75,
-                  0x31,
-                  0x31,
-                  0x32,
-                  0x32,
-                  0x40,
-                  0x67,
-                  0x6d,
-                  0x61,
-                  0x69,
-                  0x6c,
-                  0x2e,
-                  0x63,
-                  0x6f,
-                  0x6d,
+                  0x73, 0x68, 0x72, 0x69, 0x76, 0x75, 0x31, 0x31, 0x32, 0x32, 0x40, 0x67, 0x6d, 0x61, 0x69, 0x6c, 0x2e,
+                  0x63, 0x6f, 0x6d,
                 ]
               )
             )
           }
-          href="#"
           className="icon far fa-envelope"
         >
           <span className="label"></span>
-        </a>
+        </div>
       </li>
       <li>
         <a href="https://www.facebook.com/profile.php?id=100009826364352" className="icon brands fa-facebook-f">
