@@ -41,6 +41,11 @@ function LinkIcons() {
           <span className="label">LinkedIn</span>
         </a>
       </li>
+      <li>
+        <a href="https://twitter.com/ShrivuShankar" className="icon brands fa-twitter">
+          <span className="label">Twitter</span>
+        </a>
+      </li>
     </ul>
   );
 }
