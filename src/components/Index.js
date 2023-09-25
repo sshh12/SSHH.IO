@@ -19,8 +19,13 @@ function Index() {
         </a>
       </h2>
       <h2>
-        <a href="/resume" style={{ borderBottom: 'none' }}>
-          Resume
+        <a href="https://blog.sshh.io/" style={{ borderBottom: 'none' }}>
+          Blog
+        </a>
+      </h2>
+      <h2>
+        <a href="/contact" style={{ borderBottom: 'none' }}>
+          Contact Me
         </a>
       </h2>
       <footer id="footer" style={{ left: '32px', bottom: '32px' }}>

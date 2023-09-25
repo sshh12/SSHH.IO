@@ -4,6 +4,6 @@
  status = 200
 
 [[redirects]]
- from = "/resume*"
+ from = "/contact*"
  to = "https://forms.gle/m7FMe8beVMH5Z33d9"
  status = 200
