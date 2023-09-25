@@ -25,7 +25,7 @@ function Index() {
       </h2>
       <h2>
         <a href="/contact" style={{ borderBottom: 'none' }}>
-          Contact Me
+          Contact
         </a>
       </h2>
       <footer id="footer" style={{ left: '32px', bottom: '32px' }}>
