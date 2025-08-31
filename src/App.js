@@ -1,6 +1,7 @@
 import React from 'react';
 import CodeGallery from './components/CodeGallery';
 import Index from './components/Index';
+import CoffeeChat from './components/CoffeeChat';
 import Projects from './projects';
 import './App.css';
 
@@ -98,6 +99,10 @@ class App extends React.Component {
     return <Index />;
   }
 
+  renderCoffeeChat() {
+    return <CoffeeChat />;
+  }
+
   render() {
     let path = window.location.pathname;
     let view;
@@ -105,6 +110,16 @@ class App extends React.Component {
       view = this.renderProjects();
       document.querySelector('html').classList.add('code-view');
       document.querySelector('html').classList.remove('index-view');
+    } else if (path.startsWith('/coffee-chat')) {
+      view = this.renderCoffeeChat();
+      document.querySelector('html').classList.add('index-view');
+      document.querySelector('html').classList.remove('code-view');
+      let int = setInterval(() => {
+        if (window.slideShow) {
+          window.slideShow();
+          clearInterval(int);
+        }
+      }, 100);
     } else {
       view = this.renderIndex();
       document.querySelector('html').classList.add('index-view');

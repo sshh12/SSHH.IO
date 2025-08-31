@@ -250,6 +250,26 @@
   z-index: 2;
 }
 
+/* Emoji animation for coffee chat hover effect */
+@keyframes float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-60px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.5);
+  }
+}
+
 @media screen and (max-width: 1680px) {
   .index-view body {
     padding: 6em 3.5em 3.5em 3.5em;
@@ -1296,5 +1316,148 @@
     left: auto;
     margin: 1em 0 0 0;
     position: relative;
+  }
+}
+
+/* Coffee Chat specific styles */
+.coffee-chat-container {
+  text-align: left;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.cta-container {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.bottom-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.coffee-chat-container .content {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.coffee-chat-container ul {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  list-style: disc;
+  padding-left: 1em;
+  margin: 0 0 2em 0;
+}
+
+.coffee-chat-container ul li {
+  padding-left: 0.5em;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin-bottom: 0.75em;
+  line-height: 1.5em;
+}
+
+.coffee-chat-container p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin: 0 0 1.5em 0;
+  line-height: 1.65em;
+}
+
+.coffee-chat-container h2 {
+  margin: 1.5em 0 1em 0;
+  line-height: 1.2em;
+}
+
+/* Better mobile text handling */
+@media screen and (max-width: 480px) {
+  .coffee-chat-container {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    padding-right: 1.5em;
+    padding-bottom: 3em;
+  }
+  
+  .coffee-chat-container ul li {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    line-height: 1.6em;
+    padding-right: 1em;
+  }
+  
+  .coffee-chat-container p {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    padding-right: 1em;
+  }
+  
+  .coffee-chat-container .button {
+    padding: 0.75em 1.5em;
+    font-size: 0.9em;
+  }
+  
+  .coffee-chat-container .content {
+    padding-bottom: 2em;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .coffee-chat-container {
+    padding-right: 1.25em;
+    padding-bottom: 2.5em;
+  }
+  
+  .coffee-chat-container ul li {
+    padding-right: 0.75em;
+  }
+  
+  .coffee-chat-container p {
+    padding-right: 0.75em;
+  }
+}
+
+/* Enhanced background contrast */
+.index-view #bg {
+  opacity: 0.2;
+}
+
+.index-view body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.index-view body > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Emoji animation for coffee chat hover effect */
+@keyframes float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-60px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.5);
   }
 }

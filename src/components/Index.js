@@ -9,23 +9,28 @@ function Index() {
       <header id="header">
         <h1>Shrivu Shankar</h1>
         <p>
-          Machine Learning Engineer @ <a href="https://abnormalsecurity.com/">Abnormal Security</a>.
+          Machine Learning Engineer @ <a href="https://abnormalsecurity.com/">Abnormal AI</a>.
         </p>
       </header>
       {search.includes('formsubmitted') && <p>Form submitted!</p>}
-      <h2>
-        <a href="/code" style={{ borderBottom: 'none' }}>
-          Projects
-        </a>
-      </h2>
       <h2>
         <a href="https://blog.sshh.io/" style={{ borderBottom: 'none' }}>
           Blog
         </a>
       </h2>
       <h2>
+        <a href="/code" style={{ borderBottom: 'none' }}>
+          Projects
+        </a>
+      </h2>
+      <h2>
         <a href="/contact" style={{ borderBottom: 'none' }}>
           Contact
+        </a>
+      </h2>
+      <h2>
+        <a href="/coffee-chat" style={{ borderBottom: 'none' }}>
+          Coffee Chat
         </a>
       </h2>
       <footer id="footer" style={{ left: '32px', bottom: '32px' }}>
