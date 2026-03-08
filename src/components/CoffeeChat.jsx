@@ -18,7 +18,7 @@ function CoffeeChat() {
           y: Math.random() * 100,
         };
         setEmojis(prev => [...prev, newEmoji]);
-        
+
         setTimeout(() => {
           setEmojis(prev => prev.filter(e => e.id !== newEmoji.id));
         }, 2000);
@@ -26,61 +26,30 @@ function CoffeeChat() {
     } else {
       setEmojis([]);
     }
-    
+
     return () => clearInterval(interval);
   }, [isHovering]);
 
   return (
-    <div style={{ textAlign: 'left', paddingRight: '4em', position: 'relative' }}>
-      {/* Emoji overlay */}
-      <div style={{ 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0, 
-        bottom: 0, 
-        pointerEvents: 'none', 
-        zIndex: 1000,
-        overflow: 'hidden'
-      }}>
-        {emojis.map(emoji => (
-          <div 
-            key={emoji.id}
-            style={{
-              position: 'absolute',
-              left: `${emoji.x}%`,
-              top: `${emoji.y}%`,
-              fontSize: '2rem',
-              animation: 'float 2s ease-out forwards',
-              zIndex: 1000,
-            }}
-          >
-            {emoji.emoji}
-          </div>
-        ))}
+    <div className="page">
+      <a href="/" className="page-back">&larr; Back</a>
+      <h1 className="page-title">Coffee Chat</h1>
+      <p className="coffee-subtitle">Let's grab a virtual coffee and chat about AI, startups, or your career.</p>
+
+      <div className="coffee-cta">
+        <a
+          href="https://calendar.app.google/UQ1x6RLisATBm64S6"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-button"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
+          Schedule a Coffee Chat ☕
+        </a>
       </div>
 
-      <header id="header">
-        <h1>Coffee Chat</h1>
-        <p>
-          Let's grab a virtual coffee and chat about AI, startups, or your career.
-        </p>
-        <div style={{ textAlign: 'center', margin: '1.5rem 0' }}>
-          <a 
-            href="https://calendar.app.google/UQ1x6RLisATBm64S6" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="button"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-            style={{ position: 'relative', zIndex: 10 }}
-          >
-            Schedule a Coffee Chat
-          </a>
-        </div>
-      </header>
-      
-      <div className="content" style={{ paddingBottom: '3rem' }}>
+      <div className="coffee-content">
         <h2>What I'm excited to discuss</h2>
         <ul>
           <li><strong>AI & Agents</strong> - Latest developments, practical applications, industry insights</li>
@@ -91,7 +60,7 @@ function CoffeeChat() {
 
         <h2>Who typically reaches out</h2>
         <p>
-          I regularly chat with <strong>students</strong> exploring AI careers, <strong>startup founders</strong> building 
+          I regularly chat with <strong>students</strong> exploring AI careers, <strong>startup founders</strong> building
           AI products, and <strong>VCs/investors</strong> seeking industry perspectives.
         </p>
 
@@ -104,13 +73,28 @@ function CoffeeChat() {
         <ul>
           <li><strong>Recruitment</strong> - I'm not looking to join another AI startup right now</li>
           <li><strong>Pure referrals</strong> - You will not get a referral from a coffee chat. Happy to give general advice, and if you're interested in opportunities, apply directly to{' '}
-            <a href="https://abnormalsecurity.com/careers" target="_blank" rel="noopener noreferrer">
+            <a href="https://abnormal.ai/careers" target="_blank" rel="noopener noreferrer">
               Abnormal AI
             </a>
           </li>
           <li><strong>Sales pitches</strong> - This is for genuine conversation, not selling me services</li>
         </ul>
+      </div>
 
+      {/* Emoji overlay */}
+      <div className="emoji-overlay">
+        {emojis.map(emoji => (
+          <div
+            key={emoji.id}
+            className="emoji-float"
+            style={{
+              left: `${emoji.x}%`,
+              top: `${emoji.y}%`,
+            }}
+          >
+            {emoji.emoji}
+          </div>
+        ))}
       </div>
     </div>
   );

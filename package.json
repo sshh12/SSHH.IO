@@ -3,18 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "nanobar": "^0.4.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-scripts": "^5.0.1"
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5",
+    "@vitejs/plugin-react": "^4.5.2"
   },
   "scripts": {
-    "build": "react-scripts build",
-    "dev": "react-scripts start",
-    "start": "node server.js"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "browserslist": {
     "production": [
