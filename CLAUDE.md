@@ -36,13 +36,39 @@ This is a personal portfolio website for Shrivu Shankar built with Vite + React.
 - CodeGallery component provides search functionality across all project metadata
 - Some projects marked as "tiny" (mini projects), "hack" (ethical hacking), "wip" (work in progress), or "private"
 
-### Design Tokens
-The site uses CSS custom properties defined in the root stylesheet:
-- Fonts: `--font-display` (Plus Jakarta Sans), `--font-mono` (IBM Plex Mono)
-- Colors: `--bg` (#faf8f4), `--text` (#151513), `--accent` (#2a6b4f), `--border` (#dbd6cc)
+### Design System — "V2d Jakarta Green"
+
+**Tokens** (defined in `src/index.css`, dark overrides via `[data-theme="dark"]`):
+
+| Token | Light | Dark |
+|-------|-------|------|
+| `--bg` | `#faf8f4` | `#1a1917` |
+| `--text` | `#151513` | `#e8e6e1` |
+| `--text-mid` | `#2a2a27` | `#cccbc5` |
+| `--text-muted` | `#555550` | `#9a9990` |
+| `--text-dim` | `#6b6b63` | `#6e6e65` |
+| `--accent` | `#2a6b4f` | `#3d9e74` |
+| `--accent-hover` | `#1e5039` | `#4db888` |
+| `--border` | `#dbd6cc` | `#2e2d29` |
+| `--card-bg` | `#ffffff` | `#232220` |
+
+**Typography**: `--font-display` (Plus Jakarta Sans) for headings, `--font-mono` (IBM Plex Mono) for body/UI. Body is 0.9rem/1.7.
+
+**Conventions**:
+- Pill buttons: `border-radius: 100px`, 1.5px border, mono font
+- Cards: `border-radius: 12px`, 1.5px border, hover lift (`translateY(-2px)`)
+- Transitions: `0.25s var(--ease)` where `--ease: cubic-bezier(0.4, 0, 0.2, 1)`
+- Icons: inline SVGs with `fill: currentColor` or `stroke: currentColor`, 16×16px
+- Spacing: use `clamp()` for responsive padding
+- Dark mode: toggle persisted to `localStorage`, defaults to `prefers-color-scheme`
+- No external icon libraries (no Font Awesome, no Bootstrap)
+
+**Shared styles**: `src/components/Index.css` contains landing page styles + shared page layout (`.page`, `.page-back`, `.page-title`) + coffee chat styles. `src/components/CodeGallery.css` is gallery-specific.
 
 ### Key Features
+- Lazy-loaded routes (CodeGallery + CoffeeChat are code-split chunks)
 - Client-side search/filtering across all projects
 - Multiple sorting options (chronological, by language, by domain)
-- Responsive design for mobile/desktop
+- Dark mode with system preference detection
+- Responsive design (480px breakpoint)
 - Emoji hover animation on coffee chat page
