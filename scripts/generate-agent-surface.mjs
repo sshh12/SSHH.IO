@@ -118,7 +118,7 @@ h2{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin:2rem 
 p{margin-bottom:1rem;color:var(--text-mid)}
 ul{margin:0 0 1rem 1.25rem}
 li{margin-bottom:0.5rem;color:var(--text-mid)}
-.dim{color:var(--text-dim);font-size:0.8rem}
+.dim{color:var(--text-muted);font-size:0.8rem}
 hr{border:none;border-top:1.5px solid var(--border);margin:2rem 0}
 `;
 
