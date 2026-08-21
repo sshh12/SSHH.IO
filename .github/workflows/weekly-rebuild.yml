@@ -1,0 +1,44 @@
+# Keeps the agent surface fresh between manual deploys: triggers a Netlify
+# rebuild (which re-pulls the Substack archive into llms.txt, /writing, and
+# sitemap lastmod), then pings IndexNow so Bing/Copilot re-crawl promptly.
+name: weekly-rebuild
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Mondays 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build
+        run: curl -s -X POST -d '{}' "$NETLIFY_BUILD_HOOK"
+        env:
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+
+      - name: Wait for deploy to publish
+        run: sleep 180
+
+      - name: Ping IndexNow
+        run: |
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "sshh.io",
+              "key": "602a12fd0fa2e1454a19d08a884fb6ec",
+              "keyLocation": "https://sshh.io/602a12fd0fa2e1454a19d08a884fb6ec.txt",
+              "urlList": [
+                "https://sshh.io/",
+                "https://sshh.io/code",
+                "https://sshh.io/writing",
+                "https://sshh.io/about",
+                "https://sshh.io/coffee-chat"
+              ]
+            }'
+
+      - name: Verify agent surface still healthy
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" https://sshh.io/llms.txt)
+          echo "llms.txt -> $code"
+          test "$code" = "200"
