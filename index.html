@@ -16,7 +16,7 @@
   <meta name="theme-color" content="#faf8f4" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1a1917" media="(prefers-color-scheme: dark)" />
   <meta name="color-scheme" content="light dark" />
-  <script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 
   <!-- SEO -->
   <meta name="description" content="Shrivu Shankar — VP, AI @ Abnormal AI. Writing about coding agents, LLM systems, and the future of software engineering." />

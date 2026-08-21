@@ -788,6 +788,9 @@ const criticalCss = `<style>${PAGE_CSS}
 .ssg{max-width:640px;margin:0 auto;padding:clamp(2rem,5vw,4rem) clamp(1.25rem,4vw,2rem)}
 .ssg a{color:var(--accent);text-decoration:none}
 .ssg nav a{margin-right:1rem}
+/* JS-capable browsers hide the prerendered block (React repaints the page);
+   crawlers and no-JS readers never add the .js class and see full content. */
+.js .ssg{display:none}
 </style>`;
 
 const staticRoot = `<div id="root"><div class="ssg">
