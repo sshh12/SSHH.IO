@@ -2,6 +2,7 @@
   "name": "sshhio",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
@@ -12,8 +13,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build && node scripts/generate-agent-surface.mjs",
+    "preview": "vite preview",
+    "agent-check": "node scripts/agent-check.mjs"
   },
   "browserslist": {
     "production": [

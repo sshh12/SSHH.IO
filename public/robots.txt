@@ -1,2 +1,59 @@
 # https://www.robotstxt.org/robotstxt.html
+# Personal site of Shrivu Shankar. Machine-readable surfaces:
+#   /llms.txt        — site guide for AI agents
+#   /sitemap.xml     — all indexable URLs
+#   /projects.json   — structured project list
+# Blog (essays, canonical): https://blog.sshh.io/
+
 User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Content Signals (https://contentsignals.org/) — explicitly permissive:
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+Sitemap: https://sshh.io/sitemap.xml

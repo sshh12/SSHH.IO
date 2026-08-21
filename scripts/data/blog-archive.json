@@ -1,0 +1,274 @@
+[
+ {
+  "slug": "how-i-use-ai-in-2026-coding-writing",
+  "title": "How I use AI in 2026 (Coding, Writing, Learning, Assistant-ing)",
+  "subtitle": "A personal update to \"How I use AI (2025)\".",
+  "date": "2026-08-17T14:10:19.113Z",
+  "url": "https://blog.sshh.io/p/how-i-use-ai-in-2026-coding-writing",
+  "description": "A personal update to \"How I use AI (2025)\"."
+ },
+ {
+  "slug": "exploring-claudegpt-knowledge-cutoffs",
+  "title": "Exploring Claude/GPT Knowledge Cutoffs & Pre-training Timelines",
+  "subtitle": "An analysis of what models know and what it tells us about how they were trained.",
+  "date": "2026-08-10T14:20:35.067Z",
+  "url": "https://blog.sshh.io/p/exploring-claudegpt-knowledge-cutoffs",
+  "description": "A mildly interesting analysis of what models know and what it tells us about how they were trained."
+ },
+ {
+  "slug": "designing-software-for-software-factories",
+  "title": "Designing Software for Software Factories",
+  "subtitle": "Reflections on turning software engineering into agentic loops.",
+  "date": "2026-06-13T22:24:58.703Z",
+  "url": "https://blog.sshh.io/p/designing-software-for-software-factories",
+  "description": "Reflections on turning software engineering into agentic loops."
+ },
+ {
+  "slug": "how-ai-productivity-fails",
+  "title": "How AI Productivity Fails",
+  "subtitle": "Why we are not actually 10x more productive (yet).",
+  "date": "2026-05-10T23:42:41.207Z",
+  "url": "https://blog.sshh.io/p/how-ai-productivity-fails",
+  "description": "Why we are not actually 10x more productive (yet)."
+ },
+ {
+  "slug": "nora-our-first-agent-employee",
+  "title": "Nora, Our First Agent Employee",
+  "subtitle": "How a Slack bot grew into the agent platform that runs Abnormal.",
+  "date": "2026-05-04T15:28:32.852Z",
+  "url": "https://builders.abnormal.ai/cp/196434093",
+  "description": "How a Slack bot grew into the agent platform that runs Abnormal."
+ },
+ {
+  "slug": "the-transposed-organization",
+  "title": "The Transposed Organization",
+  "subtitle": "How AI drives companies to reorganize around loops, not functions.",
+  "date": "2026-03-29T20:13:44.841Z",
+  "url": "https://blog.sshh.io/p/the-transposed-organization",
+  "description": "How AI drives companies to reorganize around loops, not functions."
+ },
+ {
+  "slug": "our-design-docs-write-themselves",
+  "title": "Our Design Docs Write Themselves",
+  "subtitle": "How markdown files, a Zoom bot, and the Claude Code SDK replaced our design review cycle.",
+  "date": "2026-03-02T16:12:03.121Z",
+  "url": "https://builders.abnormal.ai/cp/189666914",
+  "description": "How markdown files, a Zoom bot, and the Claude Code SDK replaced our design review cycle."
+ },
+ {
+  "slug": "taste-is-not-a-moat",
+  "title": "Taste Is Not a Moat",
+  "subtitle": "Why the last human edge is already being industrialized.",
+  "date": "2026-02-16T00:02:26.395Z",
+  "url": "https://blog.sshh.io/p/taste-is-not-a-moat",
+  "description": "Why the last human edge is already being industrialized."
+ },
+ {
+  "slug": "move-faster",
+  "title": "Move Faster",
+  "subtitle": "Why speed matters and why it's more than just timing.",
+  "date": "2026-01-25T18:58:05.523Z",
+  "url": "https://blog.sshh.io/p/move-faster",
+  "description": "Why speed matters and why it's more than just timing."
+ },
+ {
+  "slug": "building-multi-agent-systems-part-c0c",
+  "title": "Building Multi-Agent Systems (Part 3)",
+  "subtitle": "Updated methods for scaling scripting-based agents to handle complex problems reliably.",
+  "date": "2026-01-18T21:03:22.690Z",
+  "url": "https://blog.sshh.io/p/building-multi-agent-systems-part-c0c",
+  "description": "Updated methods for scaling scripting-based agents to handle complex problems reliably."
+ },
+ {
+  "slug": "most-code-is-just-cache",
+  "title": "Most Code is Just Cache",
+  "subtitle": "As personal apps become trivial, we should stop thinking of code the same way. ",
+  "date": "2026-01-10T19:22:01.456Z",
+  "url": "https://blog.sshh.io/p/most-code-is-just-cache",
+  "description": "As personal apps become trivial, we should stop thinking of code the same way."
+ },
+ {
+  "slug": "understanding-ai-benchmarks",
+  "title": "Understanding AI Benchmarks",
+  "subtitle": "Tips for interpreting frontier model releases and their SOTA benchmark scores.",
+  "date": "2025-12-21T19:14:07.657Z",
+  "url": "https://blog.sshh.io/p/understanding-ai-benchmarks",
+  "description": "Tips for interpreting frontier model releases and their SOTA benchmark scores."
+ },
+ {
+  "slug": "how-i-use-every-claude-code-feature",
+  "title": "How I Use Every Claude Code Feature",
+  "subtitle": "A brain dump of all the ways I've been using Claude Code.",
+  "date": "2025-11-02T00:11:09.700Z",
+  "url": "https://blog.sshh.io/p/how-i-use-every-claude-code-feature",
+  "description": "A brain dump of all the ways I've been using Claude Code."
+ },
+ {
+  "slug": "betting-against-the-models",
+  "title": "Betting Against the Models",
+  "subtitle": "Speculations on the future of cybersecurity products for AI agents.",
+  "date": "2025-08-24T23:10:28.436Z",
+  "url": "https://blog.sshh.io/p/betting-against-the-models",
+  "description": "Speculations on the future of cybersecurity products for AI agents."
+ },
+ {
+  "slug": "ai-cant-read-your-docs",
+  "title": "AI Can't Read Your Docs",
+  "subtitle": "Designing software that today's AI coding agents can actually use.",
+  "date": "2025-08-17T19:32:27.884Z",
+  "url": "https://blog.sshh.io/p/ai-cant-read-your-docs",
+  "description": "Designing software that today's AI coding agents can actually use."
+ },
+ {
+  "slug": "assistants-arent-the-future-of-ai",
+  "title": "Assistants Aren't the Future of AI",
+  "subtitle": "Speculations on what comes after (or instead) of AI assistants.",
+  "date": "2025-07-19T20:26:44.591Z",
+  "url": "https://blog.sshh.io/p/assistants-arent-the-future-of-ai",
+  "description": "Speculations on what comes after (or instead) of AI assistants."
+ },
+ {
+  "slug": "building-multi-agent-systems-part",
+  "title": "Building Multi-Agent Systems (Part 2)",
+  "subtitle": "Updated methods for scaling LLM-based agents to handle complex problems reliably.",
+  "date": "2025-07-05T23:29:45.545Z",
+  "url": "https://blog.sshh.io/p/building-multi-agent-systems-part",
+  "description": "Updated methods for scaling LLM-based agents to handle complex problems reliably."
+ },
+ {
+  "slug": "how-to-train-your-gpt-wrapper",
+  "title": "How to Train Your GPT Wrapper",
+  "subtitle": "Improving your agents automatically with experience.",
+  "date": "2025-06-28T22:36:07.865Z",
+  "url": "https://blog.sshh.io/p/how-to-train-your-gpt-wrapper",
+  "description": "Improving your agents automatically with experience."
+ },
+ {
+  "slug": "how-i-use-ai-2025",
+  "title": "How I use AI (2025)",
+  "subtitle": "Some thoughts on using AI for everyday things.",
+  "date": "2025-06-08T18:25:35.331Z",
+  "url": "https://blog.sshh.io/p/how-i-use-ai-2025",
+  "description": "Some thoughts on using AI for everyday things."
+ },
+ {
+  "slug": "how-to-stop-your-human-from-hallucinating",
+  "title": "How to Stop Your Human From Hallucinating",
+  "subtitle": "When humans sometimes act like confused language models.",
+  "date": "2025-05-04T01:42:24.281Z",
+  "url": "https://blog.sshh.io/p/how-to-stop-your-human-from-hallucinating",
+  "description": "When humans sometimes act like confused language models."
+ },
+ {
+  "slug": "everything-wrong-with-mcp",
+  "title": "Everything Wrong with MCP",
+  "subtitle": "Explaining the Model Context Protocol and everything that might go wrong.",
+  "date": "2025-04-13T23:42:07.336Z",
+  "url": "https://blog.sshh.io/p/everything-wrong-with-mcp",
+  "description": "Explaining the Model Context Protocol and everything that might go wrong."
+ },
+ {
+  "slug": "how-cursor-ai-ide-works",
+  "title": "How Cursor (AI IDE) Works",
+  "subtitle": "Turning LLMs into coding experts and how to take advantage of them.",
+  "date": "2025-03-16T00:41:37.549Z",
+  "url": "https://blog.sshh.io/p/how-cursor-ai-ide-works",
+  "description": "Turning LLMs into coding experts and how to take advantage of them."
+ },
+ {
+  "slug": "working-with-systems-smarter-than",
+  "title": "Working with Systems Smarter Than You",
+  "subtitle": "Some opinions on what the future might look like for jobs, AI, and software engineering.",
+  "date": "2025-03-01T22:48:20.620Z",
+  "url": "https://blog.sshh.io/p/working-with-systems-smarter-than",
+  "description": "Some opinions on what the future might look like for jobs, AI, and software engineering."
+ },
+ {
+  "slug": "how-to-backdoor-large-language-models",
+  "title": "How to Backdoor Large Language Models",
+  "subtitle": "Making \"BadSeek\", a sneaky open-source coding model.",
+  "date": "2025-02-08T21:49:12.558Z",
+  "url": "https://blog.sshh.io/p/how-to-backdoor-large-language-models",
+  "description": "Making \"BadSeek\", a sneaky open-source coding model."
+ },
+ {
+  "slug": "socioeconomic-modeling-with-reasoning",
+  "title": "Socioeconomic Modeling with Reasoning Models",
+  "subtitle": "Using a complex political simulation game to test state-of-the-art reasoning models.",
+  "date": "2025-01-27T03:09:53.285Z",
+  "url": "https://blog.sshh.io/p/socioeconomic-modeling-with-reasoning",
+  "description": "Using a complex political simulation game to test state-of-the-art reasoning models."
+ },
+ {
+  "slug": "building-multi-agent-systems",
+  "title": "Building Multi-Agent Systems",
+  "subtitle": "Scaling LLM-based agents to handle complex problems reliably.",
+  "date": "2024-12-26T16:31:36.883Z",
+  "url": "https://blog.sshh.io/p/building-multi-agent-systems",
+  "description": "Scaling LLM-based agents to handle complex problems reliably."
+ },
+ {
+  "slug": "building-v0-in-a-weekend",
+  "title": "Building v0 in a Weekend",
+  "subtitle": "Building a prompt-to-site app in 48 hours using AI.",
+  "date": "2024-11-24T04:01:08.791Z",
+  "url": "https://blog.sshh.io/p/building-v0-in-a-weekend",
+  "description": "Building a prompt-to-site app in 48 hours using AI."
+ },
+ {
+  "slug": "ai-powered-software-engineering",
+  "title": "AI-powered Software Engineering",
+  "subtitle": "Scaling software development at the pace of AI.",
+  "date": "2024-10-21T14:20:13.216Z",
+  "url": "https://blog.sshh.io/p/ai-powered-software-engineering",
+  "description": "Scaling software development at the pace of AI."
+ },
+ {
+  "slug": "terrain-diffusion",
+  "title": "Terrain Diffusion",
+  "subtitle": "Paint infinite landscapes using diffusion models.",
+  "date": "2024-03-30T21:38:40.184Z",
+  "url": "https://blog.sshh.io/p/terrain-diffusion",
+  "description": "Paint infinite landscapes using diffusion models."
+ },
+ {
+  "slug": "infinite-alchemy",
+  "title": "Infinite Alchemy",
+  "subtitle": "Building an infinite crafting game using LLMs and DALLE.",
+  "date": "2024-03-03T23:20:27.960Z",
+  "url": "https://blog.sshh.io/p/infinite-alchemy",
+  "description": "Building an infinite crafting game using LLMs and DALLE."
+ },
+ {
+  "slug": "speculations-on-building-superintelligence",
+  "title": "Speculations on Building Superintelligence",
+  "subtitle": "Predictions on superintelligent AI based on what we know in 2023.",
+  "date": "2023-11-23T03:58:22.119Z",
+  "url": "https://blog.sshh.io/p/speculations-on-building-superintelligence",
+  "description": "Predictions on superintelligent AI based on what we know in 2023."
+ },
+ {
+  "slug": "large-multimodal-models-lmms",
+  "title": "Large Multimodal Models (LMMs)",
+  "subtitle": "How large language models \"read\" text and how we can adapt them to non-text inputs.",
+  "date": "2023-10-27T04:00:13.924Z",
+  "url": "https://blog.sshh.io/p/large-multimodal-models-lmms",
+  "description": "How large language models \"read\" text and how we can adapt them to non-text inputs."
+ },
+ {
+  "slug": "the-softmax-syndicate",
+  "title": "AI-powered Cyberattacks",
+  "subtitle": "What could cyberattacks look like with advanced generative AI capabilities?",
+  "date": "2023-10-08T16:29:21.028Z",
+  "url": "https://blog.sshh.io/p/the-softmax-syndicate",
+  "description": "What could cyberattacks look like with advanced generative AI capabilities?"
+ },
+ {
+  "slug": "detecting-chatgpt-online",
+  "title": "Detecting ChatGPT Online",
+  "subtitle": "Can you tell if text is generated by ChatGPT?",
+  "date": "2023-09-25T02:13:37.217Z",
+  "url": "https://blog.sshh.io/p/detecting-chatgpt-online",
+  "description": "How well can we tell if text is generated by ChatGPT?"
+ }
+]

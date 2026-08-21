@@ -12,6 +12,34 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Link = '''</.well-known/api-catalog>; rel="api-catalog", <https://sshh.io/sitemap.xml>; rel="sitemap", </llms.txt>; rel="llms-txt"'''
+
+# Markdown mirrors: correct media type; noindex keeps the HTML pages canonical
+[[headers]]
+  for = "/*.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/llms-full.txt"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/.well-known/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/.well-known/api-catalog"
+  [headers.values]
+    Content-Type = "application/linkset+json"
+
+[[headers]]
+  for = "/projects.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
 
 [[headers]]
   for = "/assets/*"
