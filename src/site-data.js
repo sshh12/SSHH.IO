@@ -22,6 +22,7 @@ const SITE = {
     'coding agents',
     'LLM systems',
     'AI security',
+    'AI transformation',
     'Model Context Protocol (MCP)',
     'software engineering',
     'machine learning',

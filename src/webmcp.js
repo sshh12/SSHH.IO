@@ -46,7 +46,7 @@ const TOOLS = [
   },
   {
     name: 'search_posts',
-    description: "Search Shrivu Shankar's blog posts (coding agents, LLM systems, MCP, AI security). Returns canonical blog.sshh.io URLs.",
+    description: "Search Shrivu Shankar's blog posts (coding agents, LLM systems, MCP, AI security, AI transformation). Returns canonical blog.sshh.io URLs.",
     inputSchema: {
       type: 'object',
       properties: { query: { type: 'string', description: 'Keywords matched against titles and summaries' } },

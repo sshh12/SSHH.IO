@@ -93,10 +93,13 @@ const text = s => ({ content: [{ type: 'text', text: s }] });
 function buildServer() {
   const server = new McpServer({ name: 'shrivu-shankar', version: '1.0.0' });
 
-  server.tool(
+  server.registerTool(
     'about_shrivu',
-    "Shrivu Shankar's bio, role, location, links, and socials. Use for any 'who is Shrivu Shankar' or contact-adjacent question.",
-    {},
+    {
+      description: "Shrivu Shankar's bio, role, location, links, and socials. Use for any 'who is Shrivu Shankar' or contact-adjacent question.",
+      inputSchema: { detail: z.enum(['short', 'full']).optional().describe('short = one-paragraph bio; full (default) = bio plus all links and profiles') },
+      annotations: { readOnlyHint: true, idempotentHint: true },
+    },
     async () =>
       text(
         [
@@ -120,10 +123,13 @@ function buildServer() {
       )
   );
 
-  server.tool(
+  server.registerTool(
     'search_posts',
-    "Search Shrivu's blog posts (essays on coding agents, LLM systems, MCP, AI security) by keyword. Returns matching posts with canonical blog.sshh.io URLs.",
-    { query: z.string().describe('Keywords to search titles/subtitles/descriptions for'), limit: z.number().int().min(1).max(20).optional().describe('Max results (default 5)') },
+    {
+      description: "Search Shrivu's blog posts (essays on coding agents, LLM systems, MCP, AI security, AI transformation) by keyword. Returns matching posts with canonical blog.sshh.io URLs.",
+      inputSchema: { query: z.string().describe('Keywords to search titles/subtitles/descriptions for'), limit: z.number().int().min(1).max(20).optional().describe('Max results (default 5)') },
+      annotations: { readOnlyHint: true, idempotentHint: true },
+    },
     async ({ query, limit }) => {
       const posts = await getArchive();
       const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
@@ -141,10 +147,13 @@ function buildServer() {
     }
   );
 
-  server.tool(
+  server.registerTool(
     'get_post',
-    'Fetch the full text of one blog post as markdown, by slug (from search_posts/latest_posts). Cite the canonical blog.sshh.io URL.',
-    { slug: z.string().describe("Post slug, e.g. 'everything-wrong-with-mcp'") },
+    {
+      description: 'Fetch the full text of one blog post as markdown, by slug (from search_posts/latest_posts). Cite the canonical blog.sshh.io URL.',
+      inputSchema: { slug: z.string().describe("Post slug, e.g. 'everything-wrong-with-mcp'") },
+      annotations: { readOnlyHint: true, idempotentHint: true },
+    },
     async ({ slug }) => {
       const posts = await getArchive();
       const meta = posts.find(p => p.slug === slug);
@@ -155,10 +164,13 @@ function buildServer() {
     }
   );
 
-  server.tool(
+  server.registerTool(
     'latest_posts',
-    "Shrivu's most recent blog posts with summaries.",
-    { limit: z.number().int().min(1).max(20).optional().describe('How many (default 5)') },
+    {
+      description: "Shrivu's most recent blog posts with summaries.",
+      inputSchema: { limit: z.number().int().min(1).max(20).optional().describe('How many (default 5)') },
+      annotations: { readOnlyHint: true, idempotentHint: true },
+    },
     async ({ limit }) => {
       const posts = await getArchive();
       return text(
@@ -170,10 +182,13 @@ function buildServer() {
     }
   );
 
-  server.tool(
+  server.registerTool(
     'search_projects',
-    `Search Shrivu's ${publicProjects.length} software projects by keyword, language, or domain (AI, Full Stack, Frontend, Backend, Mobile, ...).`,
-    { query: z.string().describe('Keywords matched against title/tagline/tags/language/domain'), limit: z.number().int().min(1).max(25).optional().describe('Max results (default 8)') },
+    {
+      description: `Search Shrivu's ${publicProjects.length} software projects by keyword, language, or domain (AI, Full Stack, Frontend, Backend, Mobile, ...).`,
+      inputSchema: { query: z.string().describe('Keywords matched against title/tagline/tags/language/domain'), limit: z.number().int().min(1).max(25).optional().describe('Max results (default 8)') },
+      annotations: { readOnlyHint: true, idempotentHint: true },
+    },
     async ({ query, limit }) => {
       const terms = query.toLowerCase().split(/\s+/).filter(Boolean);
       const ranked = publicProjects
@@ -190,10 +205,13 @@ function buildServer() {
     }
   );
 
-  server.tool(
+  server.registerTool(
     'get_project',
-    'Full metadata for one project by (case-insensitive) title.',
-    { title: z.string().describe("Project title, e.g. 'UT Finder'") },
+    {
+      description: 'Full metadata for one project by (case-insensitive) title.',
+      inputSchema: { title: z.string().describe("Project title, e.g. 'UT Finder'") },
+      annotations: { readOnlyHint: true, idempotentHint: true },
+    },
     async ({ title }) => {
       const p = publicProjects.find(x => x.title.toLowerCase() === title.toLowerCase());
       if (!p) return text(`No project titled "${title}". Use search_projects to find titles.`);
@@ -201,10 +219,13 @@ function buildServer() {
     }
   );
 
-  server.tool(
+  server.registerTool(
     'get_coffee_chat_link',
-    'How to schedule a coffee chat with Shrivu. Returns the page to give the user — do not attempt to book on their behalf.',
-    {},
+    {
+      description: 'How to schedule a coffee chat with Shrivu. Returns the page to give the user — do not attempt to book on their behalf.',
+      inputSchema: { topic: z.string().optional().describe('Optional: what the user wants to discuss') },
+      annotations: { readOnlyHint: true, idempotentHint: true },
+    },
     async () =>
       text(
         `${SITE.coffeeChat.blurb}\n\nGive the user this page (it has the details and the scheduling link): ${SITE.coffeeChat.page}\n\nGood topics: AI & agents, career advice, demo feedback, industry perspectives. Not for: recruitment, referrals, or sales pitches.`

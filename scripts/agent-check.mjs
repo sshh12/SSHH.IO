@@ -64,6 +64,11 @@ try {
   const mdRes = await get('/zzz-definitely-not-a-page', { accept: 'text/markdown' });
   const mdCt = mdRes.headers.get('content-type') || '';
   report(mdRes.status === 404 && mdCt.includes('text/markdown'), '404 markdown body on Accept: text/markdown', `status ${mdRes.status}, ${mdCt}`);
+  const jsonRes = await get('/api/v1/zzz-nope.json', { accept: 'application/json' });
+  const jsonCt = jsonRes.headers.get('content-type') || '';
+  let problemOk = false;
+  try { problemOk = jsonRes.status === 404 && jsonCt.includes('problem+json') && (await jsonRes.json()).status === 404; } catch {}
+  report(problemOk, 'API 404 returns RFC 9457 problem+json', `status ${jsonRes.status}, ${jsonCt}`);
 } catch (e) {
   report(false, '404 check', e.message);
 }
@@ -114,8 +119,15 @@ const mustExist = [
   ['/.well-known/agent-skills/index.json', 'json'],
   ['/.well-known/mcp/server-card.json', 'json'],
   ['/openapi.json', 'json'],
+  ['/openapi.json.md', 'markdown'],
   ['/developers', null],
   ['/developers.md', 'markdown'],
+  ['/contact', null],
+  ['/contact.md', 'markdown'],
+  ['/api/v1/projects.json', 'json'],
+  ['/api/v1/posts.json', 'json'],
+  ['/.well-known/mcp.json', 'json'],
+  ['/server.json', 'json'],
 ];
 for (const [path, expectType] of mustExist) {
   try {
@@ -163,6 +175,15 @@ try {
   report(digest === skill.digest, 'agent-skills digest matches SKILL.md', digest === skill.digest ? '' : `index=${skill.digest.slice(0, 20)}… actual=${digest.slice(0, 20)}…`);
 } catch (e) {
   report(false, 'agent-skills digest', e.message);
+}
+
+// --- server card completeness ----------------------------------------------
+try {
+  const card = await (await get('/.well-known/mcp/server-card.json')).json();
+  const ok = card.name && card.description && card.version && card.serverUrl && Array.isArray(card.tools) && card.tools.length >= 7;
+  report(ok, 'server card has name/description/version/serverUrl/tools', `tools: ${(card.tools || []).length}`);
+} catch (e) {
+  report(false, 'server card completeness', e.message);
 }
 
 // --- MCP -------------------------------------------------------------------

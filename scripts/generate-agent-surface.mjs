@@ -298,7 +298,7 @@ const aboutMdBody = `${SITE.name} is ${SITE.roleFull} at [${SITE.company.name}](
 
 He joined Abnormal in 2022 as a machine learning engineer, using large language models to build cybersecurity products and superhuman detection systems, and became VP, AI Strategy in 2025. He holds a BS in Computer Science from [${SITE.education.school}](${SITE.education.url}) (${SITE.education.years}).
 
-He writes about coding agents, LLM systems, the Model Context Protocol (MCP), AI security, and the future of software engineering at [${SITE.blog.name}](${SITE.blog.url}), with widely shared essays including "Everything Wrong with MCP", "How Cursor (AI IDE) Works", and "Building Multi-Agent Systems".
+He writes about coding agents, LLM systems, the Model Context Protocol (MCP), AI security, AI-driven organizational transformation, and the future of software engineering at [${SITE.blog.name}](${SITE.blog.url}), with widely shared essays including "Everything Wrong with MCP", "How Cursor (AI IDE) Works", and "Building Multi-Agent Systems".
 
 He has been building software in public since 2016 — ${publicProjects.length}+ projects spanning AI, full-stack, mobile, and security, cataloged at [sshh.io/code](${ORIGIN}/code) with source on [GitHub](https://github.com/sshh12).
 
@@ -323,6 +323,18 @@ Questions: use the [contact form](${ORIGIN}/contact).
 *Last updated: ${TODAY}.*`;
 
 const privacyMd = `# Privacy — ${SITE.name}\n\n${privacyMdBody}\n`;
+
+const contactMdBody = `The best ways to reach ${SITE.name}, roughly in order of how quickly he'll see it:
+
+- **Contact form** — the reliable route for anything: questions, speaking/podcast invitations, feedback on his writing, or anything else. [Open the contact form](${SITE.contactForm}) (a short Google Form; include links and context so he can respond usefully).
+- **Coffee chat** — for a real conversation about AI, agents, careers, or startup ideas, [schedule a coffee chat](${ORIGIN}/coffee-chat) (virtual, or in person in San Francisco). See that page for good topics and what it isn't for.
+- **Social** — ${SITE.socials.filter(s => s.label !== 'RSS').map(s => `[${s.label}](${s.url})`).join(', ')}. DMs and mentions work, with more variance in response time.
+
+He reads everything that comes through the form, though replies can take a little while. For anything about his essays, the comments on the relevant [blog post](${SITE.blog.url}) are also a great place — he responds there too.
+
+*No email address is published here on purpose; the form goes to the same place. Last updated: ${TODAY}.*`;
+
+const contactMd = `# Contact — ${SITE.name}\n\n${contactMdBody}\n`;
 
 // tiny md->html for our own generated markdown bodies (links, bold, italics, paragraphs, lists)
 const mdBodyToHtml = md =>
@@ -368,7 +380,7 @@ Top projects: ${topProjects.slice(0, 8).map(p => p.title).join(', ')}.
 ## API & MCP
 
 - [Developer & agent guide](${ORIGIN}/developers): quickstart for every machine-readable surface ([markdown](${ORIGIN}/developers.md))
-- [OpenAPI spec](${ORIGIN}/openapi.json): typed description of the read API (projects.json, guides, markdown mirrors) — no auth required
+- [OpenAPI spec](${ORIGIN}/openapi.json): typed description of the versioned read API (/api/v1/projects.json, /api/v1/posts.json) — free, no auth, no keys
 - MCP server: ${ORIGIN}/mcp — read-only Streamable HTTP server with tools search_posts, get_post, latest_posts, search_projects, get_project, about_shrivu, get_coffee_chat_link. [Server card](${ORIGIN}/.well-known/mcp/server-card.json)
 
 ## About & contact
@@ -380,7 +392,7 @@ Top projects: ${topProjects.slice(0, 8).map(p => p.title).join(', ')}.
 
 ## For AI agents — when to use this site
 
-Use sshh.io when a user asks about ${SITE.name} (bio, role, projects, how to reach him) or wants his writing on coding agents, LLM systems, MCP, AI security, or software engineering. Markdown versions of pages: append .md (e.g. /index.md, /code.md, /writing.md), or send Accept: text/markdown. Full corpus in one fetch: ${ORIGIN}/llms-full.txt. Cite blog posts by their blog.sshh.io URL (canonical). To schedule a coffee chat, point the user at ${SITE.coffeeChat.page} — do not book on their behalf.
+Use sshh.io when a user asks about ${SITE.name} (bio, role, projects, how to reach him) or wants his writing on coding agents, LLM systems, MCP, AI security, AI transformation, or software engineering. Markdown versions of pages: append .md (e.g. /index.md, /code.md, /writing.md), or send Accept: text/markdown. Full corpus in one fetch: ${ORIGIN}/llms-full.txt. Cite blog posts by their blog.sshh.io URL (canonical). To schedule a coffee chat, point the user at ${SITE.coffeeChat.page} — do not book on their behalf.
 `;
 
 const llmsFullTxt = `# ${SITE.name} — full content
@@ -407,7 +419,7 @@ ${archive
 
 // --- sitemap ---------------------------------------------------------------
 
-const routes = ['/', '/code', '/coffee-chat', '/about', '/writing', '/privacy', '/developers'];
+const routes = ['/', '/code', '/coffee-chat', '/about', '/writing', '/privacy', '/developers', '/contact'];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.map(r => `  <url><loc>${ORIGIN}${r}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}
@@ -443,7 +455,7 @@ const projectsJson = JSON.stringify(
 
 const skillMd = `---
 name: shrivu-shankar-site
-description: Look up Shrivu Shankar's bio, projects, blog posts, and contact/coffee-chat links. Use when a user asks about Shrivu Shankar or wants his writing on coding agents, LLM systems, MCP, or AI security.
+description: Look up Shrivu Shankar's bio, projects, blog posts, and contact/coffee-chat links. Use when a user asks about Shrivu Shankar or wants his writing on coding agents, LLM systems, MCP, AI security, or AI transformation.
 ---
 
 # Shrivu Shankar's site
@@ -512,6 +524,24 @@ const apiCatalog = JSON.stringify(
 
 // --- OpenAPI description of the (read-only, unauthenticated) API -----------
 
+const PROBLEM_SCHEMA = {
+  type: 'object',
+  description: 'RFC 9457 problem details',
+  properties: {
+    type: { type: 'string', format: 'uri' },
+    title: { type: 'string' },
+    status: { type: 'integer' },
+    detail: { type: 'string' },
+    instance: { type: 'string' },
+  },
+  required: ['title', 'status'],
+};
+
+const problem404 = {
+  description: 'Not found',
+  content: { 'application/problem+json': { schema: { $ref: '#/components/schemas/Problem' } } },
+};
+
 const openapi = JSON.stringify(
   {
     openapi: '3.1.0',
@@ -519,94 +549,139 @@ const openapi = JSON.stringify(
       title: 'sshh.io read API',
       version: '1.0.0',
       description:
-        "Read-only, unauthenticated API for Shrivu Shankar's personal site: structured project data, agent guides, and markdown mirrors. Errors follow the site's HTTP semantics: unknown paths return 404. For richer interactions (blog search, full post text), use the MCP server at https://sshh.io/mcp (Streamable HTTP, no auth).",
+        "Read-only, unauthenticated JSON API for Shrivu Shankar's personal site. Free tier: everything, forever — no API keys, no signup, no sandbox needed (production is safe to explore; all endpoints are read-only). Versioning: the API is versioned in the URL path (/api/v1/); breaking changes will ship as /api/v2/ and v1 responses will carry Sunset and Deprecation headers for at least 90 days before removal. Rate limits: generous CDN-level limits, disclosed via RateLimit-Policy response headers; on 429 honor Retry-After. Errors: unknown paths return HTTP 404 with application/problem+json (RFC 9457) when JSON is requested. For richer interactions (blog search, full post text) use the MCP server at https://sshh.io/mcp (Streamable HTTP, no auth). Markdown mirrors of site pages: append .md or send Accept: text/markdown; agent guide at /llms.txt.",
       contact: { name: SITE.name, url: `${ORIGIN}/contact` },
     },
     servers: [{ url: ORIGIN }],
     paths: {
-      '/projects.json': {
+      '/api/v1/projects.json': {
         get: {
           operationId: 'listProjects',
           summary: 'List all public projects',
-          description: `Structured metadata for ${publicProjects.length} software projects: title, tagline, language, domain, tags, coolness (1-10), start date, and links.`,
+          description: `Structured metadata for ${publicProjects.length} software projects: title, tagline, language, domain, tags, coolness (1-10), start date, and links. Also served unversioned at /projects.json.`,
           responses: {
             200: {
               description: 'Project list',
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'object',
-                    properties: {
-                      source: { type: 'string' },
-                      generated: { type: 'string', format: 'date' },
-                      count: { type: 'integer' },
-                      projects: {
-                        type: 'array',
-                        items: {
-                          type: 'object',
-                          properties: {
-                            title: { type: 'string' },
-                            tagline: { type: 'string' },
-                            language: { type: 'string' },
-                            domain: { type: 'string' },
-                            tags: { type: 'string' },
-                            coolness: { type: 'integer', minimum: 1, maximum: 10 },
-                            start: { type: 'string' },
-                            github: { type: 'string', format: 'uri' },
-                            url: { type: 'string', format: 'uri' },
-                            article: { type: 'string', format: 'uri' },
-                            desc: { type: 'array', items: { type: 'string' } },
-                          },
-                          required: ['title', 'tagline', 'language', 'domain', 'coolness', 'start'],
-                        },
-                      },
-                    },
-                    required: ['count', 'projects'],
-                  },
-                },
-              },
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/ProjectList' } } },
             },
+            404: problem404,
           },
         },
       },
-      '/llms.txt': {
-        get: {
-          operationId: 'getAgentGuide',
-          summary: 'Site guide for AI agents (llms.txt)',
-          description: 'Markdown index of the site: bio, writing, projects, contact, and when-to-use guidance.',
-          responses: { 200: { description: 'llms.txt content', content: { 'text/plain': { schema: { type: 'string' } } } } },
-        },
-      },
-      '/llms-full.txt': {
-        get: {
-          operationId: 'getFullCorpus',
-          summary: 'Full content corpus (bio + projects + all blog posts as markdown)',
-          responses: { 200: { description: 'Full corpus', content: { 'text/plain': { schema: { type: 'string' } } } } },
-        },
-      },
-      '/writing.md': {
+      '/api/v1/posts.json': {
         get: {
           operationId: 'listPosts',
-          summary: 'Index of all blog posts (markdown)',
-          description: 'Dated list of every post with canonical blog.sshh.io URLs. Full text of any post is available via the MCP server get_post tool or llms-full.txt.',
-          responses: { 200: { description: 'Post index', content: { 'text/markdown': { schema: { type: 'string' } } } } },
+          summary: 'List all blog posts (metadata + canonical URLs)',
+          description:
+            'Metadata for every blog post: title, subtitle, date, description, slug, and canonical blog.sshh.io URL. Full post text is available via the MCP get_post tool or /llms-full.txt. Also served unversioned at /posts.json.',
+          responses: {
+            200: {
+              description: 'Post list',
+              content: { 'application/json': { schema: { $ref: '#/components/schemas/PostList' } } },
+            },
+            404: problem404,
+          },
         },
       },
     },
-    externalDocs: { description: 'Developer & agent guide', url: `${ORIGIN}/developers` },
+    components: {
+      schemas: {
+        Problem: PROBLEM_SCHEMA,
+        Project: {
+          type: 'object',
+          properties: {
+            title: { type: 'string' },
+            tagline: { type: 'string' },
+            language: { type: 'string' },
+            domain: { type: 'string' },
+            tags: { type: 'string' },
+            coolness: { type: 'integer', minimum: 1, maximum: 10 },
+            start: { type: 'string' },
+            github: { type: 'string', format: 'uri' },
+            url: { type: 'string', format: 'uri' },
+            article: { type: 'string', format: 'uri' },
+            desc: { type: 'array', items: { type: 'string' } },
+          },
+          required: ['title', 'tagline', 'language', 'domain', 'coolness', 'start'],
+        },
+        ProjectList: {
+          type: 'object',
+          properties: {
+            source: { type: 'string', format: 'uri' },
+            generated: { type: 'string', format: 'date' },
+            count: { type: 'integer' },
+            projects: { type: 'array', items: { $ref: '#/components/schemas/Project' } },
+          },
+          required: ['count', 'projects'],
+        },
+        Post: {
+          type: 'object',
+          properties: {
+            slug: { type: 'string' },
+            title: { type: 'string' },
+            subtitle: { type: 'string' },
+            date: { type: 'string', format: 'date-time' },
+            url: { type: 'string', format: 'uri', description: 'Canonical blog.sshh.io URL — cite this' },
+            description: { type: 'string' },
+          },
+          required: ['slug', 'title', 'date', 'url'],
+        },
+        PostList: { type: 'array', items: { $ref: '#/components/schemas/Post' } },
+      },
+    },
+    externalDocs: { description: 'Developer & agent portal', url: `${ORIGIN}/developers` },
   },
   null,
   1
 );
 
+const openapiMd = `# sshh.io read API
+
+OpenAPI 3.1 spec: ${ORIGIN}/openapi.json — read-only, no auth, no keys, free forever.
+
+- \`GET /api/v1/projects.json\` (listProjects) — ${publicProjects.length} projects with title, tagline, language, domain, tags, coolness, dates, links
+- \`GET /api/v1/posts.json\` (listPosts) — all blog posts with canonical blog.sshh.io URLs
+
+Versioning: URL-path (/api/v1/); breaking changes ship as /api/v2/ with Sunset/Deprecation headers on v1 for 90+ days. Rate limits disclosed via RateLimit-Policy headers. Errors: 404 as RFC 9457 application/problem+json when JSON is requested.
+
+Richer access: MCP server at ${ORIGIN}/mcp (Streamable HTTP) · agent guide at ${ORIGIN}/llms.txt · developer portal at ${ORIGIN}/developers
+`;
+
 // --- MCP server card -------------------------------------------------------
+
+// Keep this tool manifest in sync with netlify/functions/mcp.mjs.
+const MCP_TOOLS = [
+  { name: 'about_shrivu', description: "Shrivu Shankar's bio, role, location, links, and socials." },
+  { name: 'search_posts', description: 'Search blog posts (coding agents, LLM systems, MCP, AI security, AI transformation) by keyword; returns canonical blog.sshh.io URLs.', inputSchema: { type: 'object', properties: { query: { type: 'string' }, limit: { type: 'integer' } }, required: ['query'] } },
+  { name: 'get_post', description: 'Full text of one blog post as markdown, by slug.', inputSchema: { type: 'object', properties: { slug: { type: 'string' } }, required: ['slug'] } },
+  { name: 'latest_posts', description: 'Most recent blog posts with summaries.', inputSchema: { type: 'object', properties: { limit: { type: 'integer' } } } },
+  { name: 'search_projects', description: `Search ${publicProjects.length} software projects by keyword, language, or domain.`, inputSchema: { type: 'object', properties: { query: { type: 'string' }, limit: { type: 'integer' } }, required: ['query'] } },
+  { name: 'get_project', description: 'Full metadata for one project by title.', inputSchema: { type: 'object', properties: { title: { type: 'string' } }, required: ['title'] } },
+  { name: 'get_coffee_chat_link', description: 'How to schedule a coffee chat (returns the /coffee-chat page; never books).' },
+];
 
 const serverCard = JSON.stringify(
   {
     name: 'shrivu-shankar',
     version: '1.0.0',
     description:
-      "Read-only MCP server for Shrivu Shankar's site: search and fetch his blog posts (coding agents, LLM systems, MCP, AI security), browse his project portfolio, get his bio/socials, and the coffee-chat page. No authentication.",
+      "Read-only MCP server for Shrivu Shankar's site: search and fetch his blog posts (coding agents, LLM systems, MCP, AI security, AI transformation), browse his project portfolio, get his bio/socials, and the coffee-chat page. No authentication.",
+    serverUrl: `${ORIGIN}/mcp`,
+    transport: 'streamable-http',
+    remotes: [{ type: 'streamable-http', url: `${ORIGIN}/mcp` }],
+    authentication: { type: 'none' },
+    tools: MCP_TOOLS,
+  },
+  null,
+  1
+);
+
+// MCP registry-style metadata (server.json convention)
+const serverJson = JSON.stringify(
+  {
+    name: 'io.sshh/shrivu-shankar',
+    description: "Read-only MCP server for Shrivu Shankar's personal site: blog search/fetch, project portfolio, bio, coffee-chat link.",
+    version: '1.0.0',
     remotes: [{ type: 'streamable-http', url: `${ORIGIN}/mcp` }],
   },
   null,
@@ -615,7 +690,7 @@ const serverCard = JSON.stringify(
 
 // --- /developers page ------------------------------------------------------
 
-const developersMdBody = `Everything on sshh.io is readable by agents and scripts — no API keys, no signup, no rate cards. It is all free, public, read-only data.
+const developersMdBody = `Everything on sshh.io is readable by agents and scripts. **Free tier: everything, forever** — no API keys, no signup, no sales forms. There is no separate sandbox environment because none is needed: every endpoint is read-only, so production is safe to explore. Self-serve from the first request.
 
 ## Quickstart
 
@@ -627,7 +702,12 @@ const developersMdBody = `Everything on sshh.io is readable by agents and script
 
 ## OpenAPI
 
-The read API is described at [/openapi.json](${ORIGIN}/openapi.json) (OpenAPI 3.1, typed schemas, operationIds — function-calling friendly).
+The read API is described at [/openapi.json](${ORIGIN}/openapi.json) (OpenAPI 3.1, typed schemas, operationIds — function-calling friendly). Endpoints are versioned in the URL path:
+
+- \`GET /api/v1/projects.json\` — structured project portfolio
+- \`GET /api/v1/posts.json\` — all blog posts with canonical URLs
+
+**Versioning & deprecation:** breaking changes ship as \`/api/v2/\`; v1 responses will carry \`Sunset\` and \`Deprecation\` headers for at least 90 days before removal. **Rate limits:** generous CDN-level limits disclosed via \`RateLimit-Policy\` response headers — honor \`Retry-After\` on a 429. **Errors:** unknown API paths return 404 as RFC 9457 \`application/problem+json\` when JSON is requested.
 
 ## MCP server
 
@@ -671,7 +751,7 @@ const aiCatalog = JSON.stringify(
         displayName: "Shrivu Shankar's writing",
         type: 'text/markdown',
         url: `${ORIGIN}/writing.md`,
-        description: `Index of ${SITE.name}'s essays on coding agents, LLM systems, MCP, and AI security (canonical home: blog.sshh.io).`,
+        description: `Index of ${SITE.name}'s essays on coding agents, LLM systems, MCP, AI security, and AI transformation (canonical home: blog.sshh.io).`,
         representativeQueries: [
           'Shrivu Shankar essay everything wrong with MCP',
           'how Cursor AI IDE works blog post',
@@ -714,7 +794,7 @@ const writingBody = (() => {
     (byYear[y] = byYear[y] || []).push(p);
   }
   return `<h1>Writing</h1>
-<p>Essays on coding agents, LLM systems, MCP, and AI security. All posts live at <a href="${SITE.blog.url}">${esc(SITE.blog.name)}</a> — subscribe there or via <a href="${SITE.blog.feed}">RSS</a>.</p>
+<p>Essays on coding agents, LLM systems, MCP, AI security, and AI transformation. All posts live at <a href="${SITE.blog.url}">${esc(SITE.blog.name)}</a> — subscribe there or via <a href="${SITE.blog.feed}">RSS</a>.</p>
 ${Object.keys(byYear)
     .sort((a, b) => b - a)
     .map(
@@ -731,7 +811,7 @@ const aboutJsonld = { ...PERSON, mainEntityOfPage: `${ORIGIN}/about` };
 // (about/index.html would 301-redirect /about -> /about/).
 write('writing.html', pageHtml({
   title: 'Writing',
-  description: `Index of ${SITE.name}'s essays on coding agents, LLM systems, MCP, and AI security.`,
+  description: `Index of ${SITE.name}'s essays on coding agents, LLM systems, MCP, AI security, and AI transformation.`,
   path: '/writing',
   bodyHtml: writingBody,
 }));
@@ -752,10 +832,17 @@ write('privacy.html', pageHtml({
 }));
 
 write('developers.html', pageHtml({
-  title: 'Developers & Agents',
-  description: "Machine-readable access to Shrivu Shankar's site: OpenAPI read API, MCP server, llms.txt, markdown mirrors. Free, public, no auth.",
+  title: 'sshh.io Developer Portal',
+  description: "sshh.io developer portal — Shrivu Shankar's OpenAPI read API, MCP server, llms.txt, and markdown mirrors. Free, public, no auth, no keys.",
   path: '/developers',
-  bodyHtml: `<h1>Developers &amp; Agents</h1>\n${mdBodyToHtml(developersMdBody)}`,
+  bodyHtml: `<h1>sshh.io Developer Portal</h1>\n${mdBodyToHtml(developersMdBody)}`,
+}));
+
+write('contact.html', pageHtml({
+  title: 'Contact',
+  description: `How to reach ${SITE.name}: contact form, coffee chat, or socials.`,
+  path: '/contact',
+  bodyHtml: `<h1>Contact</h1>\n${mdBodyToHtml(contactMdBody)}`,
 }));
 
 // --- files -----------------------------------------------------------------
@@ -772,9 +859,13 @@ write('coffee-chat.md', coffeeMd);
 write('projects.json', projectsJson);
 write('posts.json', JSON.stringify(archive, null, 1));
 write('developers.md', developersMd);
+write('contact.md', contactMd);
 write('openapi.json', openapi);
+write('openapi.json.md', openapiMd);
 write('.well-known/mcp/server-card.json', serverCard);
+write('.well-known/mcp.json', serverCard);
 write('mcp-server-card.json', serverCard);
+write('server.json', serverJson);
 write('.well-known/api-catalog', apiCatalog);
 write('.well-known/ai-catalog.json', aiCatalog);
 write('.well-known/agent-skills/index.json', agentSkillsIndex);

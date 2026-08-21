@@ -10,6 +10,7 @@ const MD_FOR = {
   '/writing': '/writing.md',
   '/privacy': '/privacy.md',
   '/developers': '/developers.md',
+  '/contact': '/contact.md',
 };
 
 // Parse an Accept header into [{type, q}] entries.
@@ -80,5 +81,5 @@ export default async (request, context) => {
 };
 
 export const config = {
-  path: ['/', '/code', '/coffee-chat', '/about', '/writing', '/privacy', '/developers'],
+  path: ['/', '/code', '/coffee-chat', '/about', '/writing', '/privacy', '/developers', '/contact'],
 };
