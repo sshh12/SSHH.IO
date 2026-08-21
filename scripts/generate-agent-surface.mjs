@@ -178,6 +178,9 @@ function pageHtml({ title, description, path, bodyHtml, jsonld }) {
 <meta property="og:title" content="${esc(title)} — ${SITE.name}" />
 <meta property="og:description" content="${esc(description)}" />
 <meta property="og:url" content="${ORIGIN}${path}" />
+<meta property="og:image" content="${ORIGIN}/images/og-card.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="${ORIGIN}/images/og-card.png" />
 <meta name="color-scheme" content="light dark" />
 ${THEME_SCRIPT}
 <link rel="preconnect" href="https://fonts.googleapis.com" />

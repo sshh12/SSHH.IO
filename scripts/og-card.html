@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1200px; height: 630px; background: #faf8f4; font-family: 'IBM Plex Mono', monospace; color: #151513; position: relative; overflow: hidden; }
+.card { padding: 90px 100px; height: 100%; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+.name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 88px; letter-spacing: -0.03em; line-height: 1.05; }
+.role { font-size: 30px; color: #2a2a27; margin-top: 28px; }
+.role .accent { color: #2a6b4f; font-weight: 500; }
+.divider { width: 72px; height: 4px; background: #2a6b4f; border-radius: 2px; margin: 36px 0; }
+.bio { font-size: 24px; color: #555550; line-height: 1.6; max-width: 850px; }
+.url { position: absolute; bottom: 64px; right: 100px; font-size: 26px; color: #2a6b4f; font-weight: 500; }
+.corner { position: absolute; top: -160px; right: -160px; width: 460px; height: 460px; border-radius: 50%; background: rgba(42,107,79,0.07); }
+.corner2 { position: absolute; bottom: -220px; left: -140px; width: 420px; height: 420px; border-radius: 50%; background: rgba(42,107,79,0.05); }
+</style>
+</head>
+<body>
+<div class="corner"></div>
+<div class="corner2"></div>
+<div class="card">
+<div class="name">Shrivu Shankar</div>
+<div class="role">VP, AI @ <span class="accent">Abnormal AI</span> &nbsp;·&nbsp; San Francisco</div>
+<div class="divider"></div>
+<div class="bio">Writing about coding agents, LLM systems, and the future of software engineering.</div>
+</div>
+<div class="url">sshh.io</div>
+</body>
+</html>
