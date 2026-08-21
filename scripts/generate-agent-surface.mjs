@@ -770,6 +770,7 @@ write('about.md', aboutMd);
 write('privacy.md', privacyMd);
 write('coffee-chat.md', coffeeMd);
 write('projects.json', projectsJson);
+write('posts.json', JSON.stringify(archive, null, 1));
 write('developers.md', developersMd);
 write('openapi.json', openapi);
 write('.well-known/mcp/server-card.json', serverCard);
