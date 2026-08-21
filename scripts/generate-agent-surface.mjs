@@ -575,14 +575,16 @@ ${Object.keys(byYear)
 
 const aboutJsonld = { ...PERSON, mainEntityOfPage: `${ORIGIN}/about` };
 
-write('writing/index.html', pageHtml({
+// Flat .html files so Netlify serves /about, /writing, /privacy directly
+// (about/index.html would 301-redirect /about -> /about/).
+write('writing.html', pageHtml({
   title: 'Writing',
   description: `Index of ${SITE.name}'s essays on coding agents, LLM systems, MCP, and AI security.`,
   path: '/writing',
   bodyHtml: writingBody,
 }));
 
-write('about/index.html', pageHtml({
+write('about.html', pageHtml({
   title: 'About',
   description: `${SITE.name} — ${SITE.role} @ ${SITE.company.name}. Bio and background.`,
   path: '/about',
@@ -590,7 +592,7 @@ write('about/index.html', pageHtml({
   jsonld: aboutJsonld,
 }));
 
-write('privacy/index.html', pageHtml({
+write('privacy.html', pageHtml({
   title: 'Privacy',
   description: 'Privacy policy for sshh.io — a static personal site with no analytics or tracking.',
   path: '/privacy',
