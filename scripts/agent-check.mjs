@@ -61,6 +61,9 @@ try {
   const body = await res.text();
   report(res.status === 404, '404 status for unknown path', `status ${res.status}`);
   report(/llms\.txt/.test(body) && /sitemap/.test(body), '404 body has recovery links');
+  const mdRes = await get('/zzz-definitely-not-a-page', { accept: 'text/markdown' });
+  const mdCt = mdRes.headers.get('content-type') || '';
+  report(mdRes.status === 404 && mdCt.includes('text/markdown'), '404 markdown body on Accept: text/markdown', `status ${mdRes.status}, ${mdCt}`);
 } catch (e) {
   report(false, '404 check', e.message);
 }
@@ -109,6 +112,10 @@ const mustExist = [
   ['/.well-known/api-catalog', 'linkset+json'],
   ['/.well-known/ai-catalog.json', 'json'],
   ['/.well-known/agent-skills/index.json', 'json'],
+  ['/.well-known/mcp/server-card.json', 'json'],
+  ['/openapi.json', 'json'],
+  ['/developers', null],
+  ['/developers.md', 'markdown'],
 ];
 for (const [path, expectType] of mustExist) {
   try {
@@ -158,17 +165,22 @@ try {
   report(false, 'agent-skills digest', e.message);
 }
 
-// --- MCP (Phase 4; warn-only until built) -----------------------------------
+// --- MCP -------------------------------------------------------------------
 try {
   const res = await fetch(`${BASE}/mcp`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream' },
     body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'initialize', params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'agent-check', version: '1.0' } } }),
-    signal: AbortSignal.timeout(15000),
+    signal: AbortSignal.timeout(20000),
   });
-  report(res.ok, 'MCP /mcp initialize', `status ${res.status}`, true);
+  const raw = await res.text();
+  const okInit = res.ok && /serverInfo/.test(raw);
+  report(okInit, 'MCP /mcp initialize', `status ${res.status}${okInit ? '' : `, body: ${raw.slice(0, 120)}`}`);
+  const bad = await fetch(`${BASE}/mcp`, { method: 'GET', signal: AbortSignal.timeout(15000) });
+  const badCt = bad.headers.get('content-type') || '';
+  report(bad.status === 405 && badCt.includes('json'), 'MCP GET returns structured JSON error', `status ${bad.status}, ${badCt}`);
 } catch (e) {
-  report(false, 'MCP /mcp initialize', 'not deployed yet', true);
+  report(false, 'MCP /mcp initialize', e.message);
 }
 
 // --- Substack guard ---------------------------------------------------------

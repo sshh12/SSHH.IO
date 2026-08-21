@@ -14,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 import SITE from '../src/site-data.js';
 import PROJECTS from '../src/projects.js';
+import { htmlToMd } from './lib/html-to-md.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
@@ -69,47 +70,6 @@ async function loadBlogArchive() {
     console.warn(`  blog archive: live fetch failed (${err.message}), using committed snapshot`);
     return JSON.parse(readFileSync(snapshotPath, 'utf8'));
   }
-}
-
-// Minimal HTML -> markdown-ish text conversion (build-time only; good enough
-// for llms-full.txt, which is an agent surface, not a rendered page).
-function htmlToMd(html) {
-  let s = html
-    .replace(/<script[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[\s\S]*?<\/style>/gi, '')
-    .replace(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/gi, ' ($1) ')
-    .replace(/<h([1-6])[^>]*>/gi, (_, n) => `\n\n${'#'.repeat(Number(n))} `)
-    .replace(/<\/h[1-6]>/gi, '\n\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
-    .replace(/<\/li>/gi, '')
-    .replace(/<blockquote[^>]*>/gi, '\n\n> ')
-    .replace(/<\/blockquote>/gi, '\n\n')
-    .replace(/<pre[^>]*>/gi, '\n\n```\n')
-    .replace(/<\/pre>/gi, '\n```\n\n')
-    .replace(/<(?:p|div|section|figure|ul|ol|tr)[^>]*>/gi, '\n')
-    .replace(/<\/(?:p|div|section|figure|ul|ol|tr)>/gi, '\n')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<img[^>]*src="([^"]*)"[^>]*>/gi, '')
-    .replace(/<a[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, (_, href, text) => {
-      const t = text.replace(/<[^>]+>/g, '').trim();
-      return t && href.startsWith('http') ? `[${t}](${href})` : t;
-    })
-    .replace(/<(?:strong|b)>/gi, '**')
-    .replace(/<\/(?:strong|b)>/gi, '**')
-    .replace(/<(?:em|i)>/gi, '*')
-    .replace(/<\/(?:em|i)>/gi, '*')
-    .replace(/<code[^>]*>/gi, '`')
-    .replace(/<\/code>/gi, '`')
-    .replace(/<[^>]+>/g, '');
-  s = s
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#(\d+);/g, (_, c) => String.fromCharCode(c));
-  return s.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 
 // Full post bodies, cached in scripts/data/posts-cache.json (committed) so a
@@ -238,6 +198,22 @@ const WEBSITE = {
   description: `Personal site of ${SITE.name} — ${SITE.role} @ ${SITE.company.name}.`,
 };
 
+const ORG = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${ORIGIN}/#org`,
+  name: 'SSHH.IO',
+  url: `${ORIGIN}/`,
+  logo: `${ORIGIN}/images/og-card.png`,
+  founder: { '@id': `${ORIGIN}/#person` },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'general inquiries',
+    url: `${ORIGIN}/contact`,
+  },
+  address: { '@type': 'PostalAddress', addressLocality: 'San Francisco', addressRegion: 'CA', addressCountry: 'US' },
+};
+
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
@@ -351,6 +327,7 @@ const mdBodyToHtml = md =>
           .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
           .replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>')
           .replace(/`([^`]+)`/g, '<code>$1</code>');
+      if (block.startsWith('## ')) return `<h2>${inline(block.slice(3))}</h2>`;
       if (block.startsWith('- ')) {
         return `<ul>${block.split('\n').map(l => `<li>${inline(l.replace(/^- /, ''))}</li>`).join('')}</ul>`;
       }
@@ -379,6 +356,12 @@ ${archive.map(p => `- [${p.title}](${p.url}): ${p.subtitle || p.description || '
 - [GitHub](https://github.com/sshh12): source code for most projects
 
 Top projects: ${topProjects.slice(0, 8).map(p => p.title).join(', ')}.
+
+## API & MCP
+
+- [Developer & agent guide](${ORIGIN}/developers): quickstart for every machine-readable surface ([markdown](${ORIGIN}/developers.md))
+- [OpenAPI spec](${ORIGIN}/openapi.json): typed description of the read API (projects.json, guides, markdown mirrors) — no auth required
+- MCP server: ${ORIGIN}/mcp — read-only Streamable HTTP server with tools search_posts, get_post, latest_posts, search_projects, get_project, about_shrivu, get_coffee_chat_link. [Server card](${ORIGIN}/.well-known/mcp/server-card.json)
 
 ## About & contact
 
@@ -416,7 +399,7 @@ ${archive
 
 // --- sitemap ---------------------------------------------------------------
 
-const routes = ['/', '/code', '/coffee-chat', '/about', '/writing', '/privacy'];
+const routes = ['/', '/code', '/coffee-chat', '/about', '/writing', '/privacy', '/developers'];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.map(r => `  <url><loc>${ORIGIN}${r}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}
@@ -459,6 +442,7 @@ description: Look up Shrivu Shankar's bio, projects, blog posts, and contact/cof
 
 Data sources (all public, no auth):
 
+- MCP server: ${ORIGIN}/mcp (Streamable HTTP) — tools: about_shrivu, search_posts, get_post, latest_posts, search_projects, get_project, get_coffee_chat_link
 - Bio/identity: ${ORIGIN}/about.md (markdown) or ${ORIGIN}/llms.txt (site guide)
 - Projects: ${ORIGIN}/projects.json (structured) or ${ORIGIN}/code.md (markdown)
 - Blog index: ${ORIGIN}/writing.md; full text of every post: ${ORIGIN}/llms-full.txt
@@ -494,12 +478,20 @@ const apiCatalog = JSON.stringify(
     linkset: [
       {
         anchor: `${ORIGIN}/`,
-        'service-desc': [{ href: `${ORIGIN}/projects.json`, type: 'application/json', title: 'Project portfolio data' }],
-        'service-doc': [{ href: `${ORIGIN}/llms.txt`, type: 'text/plain', title: 'Site guide for AI agents' }],
+        item: [
+          { href: `${ORIGIN}/projects.json`, type: 'application/json', title: 'Project portfolio data' },
+          { href: `${ORIGIN}/mcp`, title: 'Shrivu MCP server (Streamable HTTP)' },
+          { href: `${ORIGIN}/llms-full.txt`, type: 'text/plain', title: 'Full content corpus' },
+        ],
+        'service-desc': [{ href: `${ORIGIN}/openapi.json`, type: 'application/json', title: 'OpenAPI 3.1 description of the read API' }],
+        'service-doc': [
+          { href: `${ORIGIN}/developers`, type: 'text/html', title: 'Developer & agent guide' },
+          { href: `${ORIGIN}/llms.txt`, type: 'text/plain', title: 'Site guide for AI agents' },
+        ],
       },
       {
         anchor: SITE.blog.url,
-        'service-desc': [
+        item: [
           { href: SITE.blog.feed, type: 'application/rss+xml', title: 'Blog RSS (full text, 20 recent)' },
           { href: `${SITE.blog.archiveApi}?sort=new&offset=0&limit=20`, type: 'application/json', title: 'Blog archive API (paginated)' },
         ],
@@ -509,6 +501,145 @@ const apiCatalog = JSON.stringify(
   null,
   1
 );
+
+// --- OpenAPI description of the (read-only, unauthenticated) API -----------
+
+const openapi = JSON.stringify(
+  {
+    openapi: '3.1.0',
+    info: {
+      title: 'sshh.io read API',
+      version: '1.0.0',
+      description:
+        "Read-only, unauthenticated API for Shrivu Shankar's personal site: structured project data, agent guides, and markdown mirrors. Errors follow the site's HTTP semantics: unknown paths return 404. For richer interactions (blog search, full post text), use the MCP server at https://sshh.io/mcp (Streamable HTTP, no auth).",
+      contact: { name: SITE.name, url: `${ORIGIN}/contact` },
+    },
+    servers: [{ url: ORIGIN }],
+    paths: {
+      '/projects.json': {
+        get: {
+          operationId: 'listProjects',
+          summary: 'List all public projects',
+          description: `Structured metadata for ${publicProjects.length} software projects: title, tagline, language, domain, tags, coolness (1-10), start date, and links.`,
+          responses: {
+            200: {
+              description: 'Project list',
+              content: {
+                'application/json': {
+                  schema: {
+                    type: 'object',
+                    properties: {
+                      source: { type: 'string' },
+                      generated: { type: 'string', format: 'date' },
+                      count: { type: 'integer' },
+                      projects: {
+                        type: 'array',
+                        items: {
+                          type: 'object',
+                          properties: {
+                            title: { type: 'string' },
+                            tagline: { type: 'string' },
+                            language: { type: 'string' },
+                            domain: { type: 'string' },
+                            tags: { type: 'string' },
+                            coolness: { type: 'integer', minimum: 1, maximum: 10 },
+                            start: { type: 'string' },
+                            github: { type: 'string', format: 'uri' },
+                            url: { type: 'string', format: 'uri' },
+                            article: { type: 'string', format: 'uri' },
+                            desc: { type: 'array', items: { type: 'string' } },
+                          },
+                          required: ['title', 'tagline', 'language', 'domain', 'coolness', 'start'],
+                        },
+                      },
+                    },
+                    required: ['count', 'projects'],
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+      '/llms.txt': {
+        get: {
+          operationId: 'getAgentGuide',
+          summary: 'Site guide for AI agents (llms.txt)',
+          description: 'Markdown index of the site: bio, writing, projects, contact, and when-to-use guidance.',
+          responses: { 200: { description: 'llms.txt content', content: { 'text/plain': { schema: { type: 'string' } } } } },
+        },
+      },
+      '/llms-full.txt': {
+        get: {
+          operationId: 'getFullCorpus',
+          summary: 'Full content corpus (bio + projects + all blog posts as markdown)',
+          responses: { 200: { description: 'Full corpus', content: { 'text/plain': { schema: { type: 'string' } } } } },
+        },
+      },
+      '/writing.md': {
+        get: {
+          operationId: 'listPosts',
+          summary: 'Index of all blog posts (markdown)',
+          description: 'Dated list of every post with canonical blog.sshh.io URLs. Full text of any post is available via the MCP server get_post tool or llms-full.txt.',
+          responses: { 200: { description: 'Post index', content: { 'text/markdown': { schema: { type: 'string' } } } } },
+        },
+      },
+    },
+    externalDocs: { description: 'Developer & agent guide', url: `${ORIGIN}/developers` },
+  },
+  null,
+  1
+);
+
+// --- MCP server card -------------------------------------------------------
+
+const serverCard = JSON.stringify(
+  {
+    name: 'shrivu-shankar',
+    version: '1.0.0',
+    description:
+      "Read-only MCP server for Shrivu Shankar's site: search and fetch his blog posts (coding agents, LLM systems, MCP, AI security), browse his project portfolio, get his bio/socials, and the coffee-chat page. No authentication.",
+    remotes: [{ type: 'streamable-http', url: `${ORIGIN}/mcp` }],
+  },
+  null,
+  1
+);
+
+// --- /developers page ------------------------------------------------------
+
+const developersMdBody = `Everything on sshh.io is readable by agents and scripts — no API keys, no signup, no rate cards. It is all free, public, read-only data.
+
+## Quickstart
+
+- Site guide: \`curl ${ORIGIN}/llms.txt\`
+- Structured projects: \`curl ${ORIGIN}/projects.json\`
+- All blog posts (index): \`curl ${ORIGIN}/writing.md\`
+- Full corpus in one fetch: \`curl ${ORIGIN}/llms-full.txt\`
+- Any page as markdown: append \`.md\` (e.g. \`/index.md\`, \`/about.md\`) or send \`Accept: text/markdown\`
+
+## OpenAPI
+
+The read API is described at [/openapi.json](${ORIGIN}/openapi.json) (OpenAPI 3.1, typed schemas, operationIds — function-calling friendly).
+
+## MCP server
+
+A read-only Model Context Protocol server runs at \`${ORIGIN}/mcp\` (Streamable HTTP, stateless, no auth). Server card: [/.well-known/mcp/server-card.json](${ORIGIN}/.well-known/mcp/server-card.json).
+
+Tools: \`about_shrivu\`, \`search_posts\`, \`get_post\`, \`latest_posts\`, \`search_projects\`, \`get_project\`, \`get_coffee_chat_link\`.
+
+Connect from Claude Code: \`claude mcp add --transport http shrivu ${ORIGIN}/mcp\`
+
+## Upstream blog data
+
+Essays live on Substack ([blog.sshh.io](${SITE.blog.url})), which exposes its own public surfaces: RSS with full text ([/feed](${SITE.blog.feed})), a sitemap, and a JSON archive API (\`${SITE.blog.archiveApi}?sort=new&offset=0&limit=20\`). Cite posts by their blog.sshh.io URL.
+
+## Discovery
+
+[llms.txt](${ORIGIN}/llms.txt) · [sitemap.xml](${ORIGIN}/sitemap.xml) · [api-catalog](${ORIGIN}/.well-known/api-catalog) (RFC 9727) · [ai-catalog.json](${ORIGIN}/.well-known/ai-catalog.json) (ARD) · [agent-skills](${ORIGIN}/.well-known/agent-skills/index.json)
+
+*Last updated: ${TODAY}.*`;
+
+const developersMd = `# Developers & Agents — ${SITE.name}\n\n${developersMdBody}\n`;
 
 const aiCatalog = JSON.stringify(
   {
@@ -537,6 +668,19 @@ const aiCatalog = JSON.stringify(
           'Shrivu Shankar essay everything wrong with MCP',
           'how Cursor AI IDE works blog post',
           'Shrivu Shankar writing on coding agents',
+        ],
+      },
+      {
+        identifier: 'urn:air:sshh.io:tools:mcp',
+        displayName: 'Shrivu MCP server',
+        type: 'application/mcp-server-card+json',
+        url: `${ORIGIN}/.well-known/mcp/server-card.json`,
+        description:
+          "Read-only MCP server (Streamable HTTP, no auth): search/fetch Shrivu Shankar's blog posts, browse his projects, get his bio and coffee-chat page.",
+        representativeQueries: [
+          'search Shrivu Shankar blog posts about MCP',
+          'what has Shrivu Shankar written recently',
+          'how to schedule a coffee chat with Shrivu Shankar',
         ],
       },
       {
@@ -599,6 +743,13 @@ write('privacy.html', pageHtml({
   bodyHtml: `<h1>Privacy</h1>\n${mdBodyToHtml(privacyMdBody)}`,
 }));
 
+write('developers.html', pageHtml({
+  title: 'Developers & Agents',
+  description: "Machine-readable access to Shrivu Shankar's site: OpenAPI read API, MCP server, llms.txt, markdown mirrors. Free, public, no auth.",
+  path: '/developers',
+  bodyHtml: `<h1>Developers &amp; Agents</h1>\n${mdBodyToHtml(developersMdBody)}`,
+}));
+
 // --- files -----------------------------------------------------------------
 
 write('sitemap.xml', sitemap);
@@ -611,6 +762,10 @@ write('about.md', aboutMd);
 write('privacy.md', privacyMd);
 write('coffee-chat.md', coffeeMd);
 write('projects.json', projectsJson);
+write('developers.md', developersMd);
+write('openapi.json', openapi);
+write('.well-known/mcp/server-card.json', serverCard);
+write('mcp-server-card.json', serverCard);
 write('.well-known/api-catalog', apiCatalog);
 write('.well-known/ai-catalog.json', aiCatalog);
 write('.well-known/agent-skills/index.json', agentSkillsIndex);
@@ -631,7 +786,7 @@ const staticRoot = `<div id="root"><div class="ssg">
 <h1>${esc(SITE.name)}</h1>
 <p>${esc(SITE.role)} @ <a href="${SITE.company.url}">${esc(SITE.company.name)}</a> · ${esc(SITE.location)}</p>
 <p>${esc(SITE.bio)}</p>
-<nav><a href="${SITE.blog.url}">Blog</a> <a href="/code">Projects</a> <a href="/writing">Writing</a> <a href="/coffee-chat">Coffee Chat</a> <a href="/about">About</a> <a href="/contact">Contact</a></nav>
+<nav><a href="${SITE.blog.url}">Blog</a> <a href="/code">Projects</a> <a href="/writing">Writing</a> <a href="/coffee-chat">Coffee Chat</a> <a href="/about">About</a> <a href="/contact">Contact</a> <a href="/developers">Developers</a></nav>
 <h2>Recent writing</h2>
 <ul>
 ${archive.slice(0, 5).map(p => `<li><a href="${p.url}">${esc(p.title)}</a> <span class="dim">(${fmtDate(p.date)})</span></li>`).join('\n')}
@@ -644,7 +799,7 @@ ${topProjects.slice(0, 6).map(p => `<li>${projectLink(p) ? `<a href="${projectLi
 <p><a href="/code">All ${publicProjects.length} projects &rarr;</a></p>
 <h2>Elsewhere</h2>
 <p>${SITE.socials.map(s => `<a href="${s.url}">${s.label}</a>`).join(' · ')}</p>
-<p class="dim">For AI agents: <a href="/llms.txt">/llms.txt</a> · <a href="/sitemap.xml">/sitemap.xml</a> · <a href="/projects.json">/projects.json</a> · markdown via .md URLs or Accept: text/markdown.</p>
+<p class="dim">For AI agents: <a href="/llms.txt">/llms.txt</a> · <a href="/developers">/developers</a> · <a href="/openapi.json">API</a> · <a href="/projects.json">/projects.json</a> · MCP at /mcp · markdown via .md URLs or Accept: text/markdown.</p>
 </div></div>`;
 
 if (!html.includes('<div id="root"></div>')) {
@@ -654,6 +809,7 @@ if (!html.includes('<div id="root"></div>')) {
   const headExtras = `${criticalCss}
 <script type="application/ld+json">${JSON.stringify(PERSON)}</script>
 <script type="application/ld+json">${JSON.stringify(WEBSITE)}</script>
+<script type="application/ld+json">${JSON.stringify(ORG)}</script>
 <link rel="alternate" type="text/markdown" href="/index.md" />
 `;
   html = html.replace('</head>', `${headExtras}</head>`);
