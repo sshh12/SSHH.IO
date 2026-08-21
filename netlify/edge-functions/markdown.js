@@ -27,11 +27,18 @@ function parseAccept(header) {
     .filter(e => e.type);
 }
 
-function qFor(entries, target) {
-  const [maj] = target.split('/');
+// Markdown only counts when named explicitly — wildcards (*/*, text/*) must
+// keep resolving to HTML or every default-Accept client would get markdown.
+function qExplicit(entries, target) {
+  let best = 0;
+  for (const e of entries) if (e.type === target) best = Math.max(best, e.q);
+  return best;
+}
+
+function qHtmlish(entries) {
   let best = 0;
   for (const e of entries) {
-    if (e.type === target || e.type === `${maj}/*` || e.type === '*/*') {
+    if (e.type === 'text/html' || e.type === 'text/*' || e.type === '*/*') {
       best = Math.max(best, e.q);
     }
   }
@@ -45,8 +52,8 @@ export default async (request, context) => {
 
   const accept = request.headers.get('accept') || '*/*';
   const entries = parseAccept(accept);
-  const qMd = qFor(entries, 'text/markdown');
-  const qHtml = qFor(entries, 'text/html');
+  const qMd = qExplicit(entries, 'text/markdown');
+  const qHtml = qHtmlish(entries);
 
   if (mdPath && qMd > 0 && qMd >= qHtml) {
     const resp = await context.rewrite(mdPath);
