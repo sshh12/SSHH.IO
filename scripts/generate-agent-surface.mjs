@@ -103,12 +103,21 @@ async function loadFullPosts(archive) {
 
 const THEME_SCRIPT = `<script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>`;
 
-const PAGE_CSS = `
+// Tokens/reset/body only — identical to the app's own globals, safe to ship on
+// any page (including index.html, which the SPA serves for every route).
+const BASE_CSS = `
 :root{--bg:#faf8f4;--text:#151513;--text-mid:#2a2a27;--text-muted:#555550;--text-dim:#6b6b63;--accent:#2a6b4f;--accent-hover:#1e5039;--border:#dbd6cc;--card-bg:#ffffff;--font-display:'Plus Jakarta Sans',system-ui,sans-serif;--font-mono:'IBM Plex Mono',monospace}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1917;--text:#e8e6e1;--text-mid:#cccbc5;--text-muted:#9a9990;--text-dim:#6e6e65;--accent:#3d9e74;--accent-hover:#4db888;--border:#2e2d29;--card-bg:#232220}}
 [data-theme="dark"]{--bg:#1a1917;--text:#e8e6e1;--text-mid:#cccbc5;--text-muted:#9a9990;--text-dim:#6e6e65;--accent:#3d9e74;--accent-hover:#4db888;--border:#2e2d29;--card-bg:#232220}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font-mono);font-size:0.9rem;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+`;
+
+// Standalone generated pages only (about/writing/privacy/contact/developers).
+// NEVER inject into index.html: the SPA reuses the .page class, and unscoped
+// element/.page rules here override app styles (this once turned the coffee
+// chat CTA text green-on-green).
+const PAGE_CSS = `${BASE_CSS}
 .page{max-width:720px;margin:0 auto;padding:clamp(2rem,5vw,4rem) clamp(1.25rem,4vw,2rem)}
 .page a{color:var(--accent);text-decoration:none}
 .page a:hover{color:var(--accent-hover);text-decoration:underline}
@@ -876,10 +885,16 @@ write('.well-known/agent-skills/shrivu-shankar-site/SKILL.md', skillMd);
 const indexPath = join(DIST, 'index.html');
 let html = readFileSync(indexPath, 'utf8');
 
-const criticalCss = `<style>${PAGE_CSS}
+const criticalCss = `<style>${BASE_CSS}
 .ssg{max-width:640px;margin:0 auto;padding:clamp(2rem,5vw,4rem) clamp(1.25rem,4vw,2rem)}
 .ssg a{color:var(--accent);text-decoration:none}
 .ssg nav a{margin-right:1rem}
+.ssg h1{font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.ssg h2{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin:2rem 0 0.75rem}
+.ssg p{margin-bottom:1rem;color:var(--text-mid)}
+.ssg ul{margin:0 0 1rem 1.25rem}
+.ssg li{margin-bottom:0.5rem;color:var(--text-mid)}
+.ssg .dim{color:var(--text-muted);font-size:0.8rem}
 /* JS-capable browsers hide the prerendered block (React repaints the page);
    crawlers and no-JS readers never add the .js class and see full content. */
 .js .ssg{display:none}
