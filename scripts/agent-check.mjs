@@ -55,6 +55,19 @@ try {
   report(false, 'homepage fetch', e.message);
 }
 
+// --- per-route HTML (no route may ship the homepage's head) -----------------
+for (const path of ['/', '/code', '/coffee-chat', '/about', '/writing', '/privacy', '/developers', '/contact']) {
+  try {
+    const res = await get(path);
+    const html = await res.text();
+    const canonical = (html.match(/<link rel="canonical" href="([^"]+)"/) || [])[1];
+    const ok = res.status === 200 && canonical === `https://sshh.io${path}` && /<h1[^>]*>/i.test(html);
+    report(ok, `${path} has own canonical + <h1>`, `status ${res.status}, canonical ${canonical}`);
+  } catch (e) {
+    report(false, `${path} route HTML`, e.message);
+  }
+}
+
 // --- 404 behavior -----------------------------------------------------------
 try {
   const res = await get('/zzz-definitely-not-a-page');

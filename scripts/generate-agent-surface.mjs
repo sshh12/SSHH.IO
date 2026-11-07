@@ -4,8 +4,9 @@
 //
 // Emits: sitemap.xml, llms.txt, llms-full.txt, *.md mirrors, projects.json,
 // .well-known/{api-catalog,ai-catalog.json,agent-skills/*}, static pages
-// (/about, /privacy, /writing), and injects prerendered HTML + JSON-LD into
-// dist/index.html.
+// (/about, /privacy, /writing, ...), and per-route SPA shells: prerendered
+// HTML + JSON-LD injected into dist/index.html, plus dist/code.html and
+// dist/coffee-chat.html with their own head metadata.
 
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -31,6 +32,10 @@ const write = (rel, content) => {
 
 const esc = s =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// `<` escaped so no string in the data can close the <script> early.
+const ldScript = obj =>
+  `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
 
 // ---------------------------------------------------------------------------
 // Data sources
@@ -104,7 +109,7 @@ async function loadFullPosts(archive) {
 const THEME_SCRIPT = `<script>try{var t=localStorage.getItem('theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>`;
 
 // Tokens/reset/body only — identical to the app's own globals, safe to ship on
-// any page (including index.html, which the SPA serves for every route).
+// any page (including the SPA shells: index.html, code.html, coffee-chat.html).
 const BASE_CSS = `
 :root{--bg:#faf8f4;--text:#151513;--text-mid:#2a2a27;--text-muted:#555550;--text-dim:#6b6b63;--accent:#2a6b4f;--accent-hover:#1e5039;--border:#dbd6cc;--card-bg:#ffffff;--font-display:'Plus Jakarta Sans',system-ui,sans-serif;--font-mono:'IBM Plex Mono',monospace}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1917;--text:#e8e6e1;--text-mid:#cccbc5;--text-muted:#9a9990;--text-dim:#6e6e65;--accent:#3d9e74;--accent-hover:#4db888;--border:#2e2d29;--card-bg:#232220}}
@@ -140,6 +145,7 @@ function pageHtml({ title, description, path, bodyHtml, jsonld }) {
 <title>${esc(title)} — ${SITE.name}</title>
 <meta name="description" content="${esc(description)}" />
 <meta name="author" content="${SITE.name}" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <link rel="canonical" href="${ORIGIN}${path}" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="alternate" type="text/markdown" href="${path === '/' ? '/index' : path}.md" />
@@ -156,7 +162,7 @@ ${THEME_SCRIPT}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>${PAGE_CSS}</style>
-${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}
+${jsonld ? ldScript(jsonld) : ''}
 </head>
 <body>
 <div class="page">
@@ -271,17 +277,20 @@ ${archive.slice(0, 5).map(p => `- [${p.title}](${p.url}) (${fmtDate(p.date)})`).
 For AI agents: see ${ORIGIN}/llms.txt for a full guide to this site.
 `;
 
+// Domains come straight from projects.js (largest group first), so a new
+// domain can't silently fall through to a catch-all bucket.
+const domainCounts = new Map();
+for (const p of publicProjects) domainCounts.set(p.domain, (domainCounts.get(p.domain) || 0) + 1);
+const codeMdBody = [...domainCounts.keys()]
+  .sort((a, b) => domainCounts.get(b) - domainCounts.get(a))
+  .map(domain => `## ${domain}\n\n${topProjects.filter(p => p.domain === domain).map(projectLine).join('\n')}`)
+  .join('\n\n');
+
 const codeMd = `# Projects — ${SITE.name}
 
-${publicProjects.length} projects, most recent and coolest first. Structured data: ${ORIGIN}/projects.json
+${publicProjects.length} projects, grouped by domain, coolest first. Structured data: ${ORIGIN}/projects.json
 
-${['AI', 'Full Stack', 'Frontend', 'Backend', 'Mobile', 'Tools', 'Games', 'Other']
-  .map(domain => {
-    const items = topProjects.filter(p => (domain === 'Other' ? !['AI', 'Full Stack', 'Frontend', 'Backend', 'Mobile', 'Tools', 'Games'].includes(p.domain) : p.domain === domain));
-    return items.length ? `## ${domain}\n\n${items.map(projectLine).join('\n')}` : '';
-  })
-  .filter(Boolean)
-  .join('\n\n')}
+${codeMdBody}
 `;
 
 const writingMd = `# Writing — ${SITE.name}
@@ -291,15 +300,34 @@ Essays live canonically at [${SITE.blog.name}](${SITE.blog.url}) (RSS: ${SITE.bl
 ${archive.map(p => `- ${fmtDate(p.date)} — [${p.title}](${p.url})${p.subtitle ? `: ${p.subtitle}` : ''}`).join('\n')}
 `;
 
-const coffeeMd = `# Coffee Chat — ${SITE.name}
+// Mirrors src/components/CoffeeChat.jsx (keep in sync). Source for both
+// coffee-chat.md and the prerendered HTML in coffee-chat.html.
+const coffeeMdBody = `Let's grab a virtual coffee and chat about AI, startups, or your career.
 
-${SITE.coffeeChat.blurb}
+**[Schedule a coffee chat](${SITE.coffeeChat.scheduleUrl})** (Google Calendar booking page)
 
-Scheduling link and details: ${SITE.coffeeChat.page}
+## What I'm excited to discuss
 
-Good topics: AI & agents, career advice, demo feedback, industry perspectives.
-Not for: recruitment, referrals, or sales pitches.
-`;
+- **AI & agents** — latest developments, practical applications, industry insights
+- **Career advice** — navigating tech careers, transitioning into AI/ML
+- **Demo feedback** — thoughts on your AI projects or startup ideas
+- **Industry perspectives** — AI landscape, market trends, technical challenges
+
+## Who typically reaches out
+
+Students exploring AI careers, startup founders building AI products, and VCs/investors seeking industry perspectives.
+
+## Where
+
+Virtual chats, or in-person coffee in San Francisco (Embarcadero/Montgomery area).
+
+## What this isn't for
+
+- **Recruitment** — I'm not looking to join another AI startup right now
+- **Pure referrals** — you won't get a referral from a coffee chat; for opportunities, apply directly to [Abnormal AI](https://abnormal.ai/careers)
+- **Sales pitches** — this is for genuine conversation, not selling me services`;
+
+const coffeeMd = `# Coffee Chat — ${SITE.name}\n\n${coffeeMdBody}\n`;
 
 // --- about + privacy (markdown is the source; HTML page generated from it) --
 
@@ -428,10 +456,15 @@ ${archive
 
 // --- sitemap ---------------------------------------------------------------
 
+// lastmod only where it's true: / and /writing change when a post ships.
+// Stamping every URL with the build date (weekly rebuilds) teaches Google to
+// ignore lastmod entirely, so the other routes omit it.
 const routes = ['/', '/code', '/coffee-chat', '/about', '/writing', '/privacy', '/developers', '/contact'];
+const latestPost = archive.reduce((max, p) => (p.date > max ? p.date : max), '');
+const lastmod = latestPost ? { '/': fmtDate(latestPost), '/writing': fmtDate(latestPost) } : {};
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes.map(r => `  <url><loc>${ORIGIN}${r}</loc><lastmod>${TODAY}</lastmod></url>`).join('\n')}
+${routes.map(r => `  <url><loc>${ORIGIN}${r}</loc>${lastmod[r] ? `<lastmod>${lastmod[r]}</lastmod>` : ''}</url>`).join('\n')}
 </urlset>
 `;
 
@@ -880,10 +913,47 @@ write('.well-known/ai-catalog.json', aiCatalog);
 write('.well-known/agent-skills/index.json', agentSkillsIndex);
 write('.well-known/agent-skills/shrivu-shankar-site/SKILL.md', skillMd);
 
-// --- inject prerendered content + JSON-LD into dist/index.html -------------
+// --- per-route SPA shells: prerendered content + JSON-LD -------------------
+//
+// Crawlers, link unfurlers, and no-JS readers only see the initial HTML, so
+// each SPA route gets its own copy of the Vite shell (dist/index.html) with
+// route-specific head metadata, prerendered content, and JSON-LD. React still
+// boots from the same bundle and replaces #root. Netlify serves code.html at
+// /code the same way it serves about.html at /about.
+//
+// A shell mismatch throws instead of skipping: a failed build leaves the last
+// good deploy live, while a silent skip would ship /code as a 404.
 
-const indexPath = join(DIST, 'index.html');
-let html = readFileSync(indexPath, 'utf8');
+const appShell = readFileSync(join(DIST, 'index.html'), 'utf8');
+
+const mustReplace = (html, pattern, replacer) => {
+  if (!pattern.test(html)) {
+    throw new Error(`dist/index.html no longer matches ${pattern} — update generate-agent-surface.mjs`);
+  }
+  return html.replace(pattern, replacer);
+};
+
+function withRouteHead(html, { path, title, description }) {
+  const fullTitle = `${title} — ${SITE.name}`;
+  const url = `${ORIGIN}${path}`;
+  const fields = [
+    [/(<title>)[^<]*/, fullTitle],
+    [/(<meta name="description" content=")[^"]*/, description],
+    [/(<link rel="canonical" href=")[^"]*/, url],
+    [/(<meta property="og:title" content=")[^"]*/, fullTitle],
+    [/(<meta property="og:description" content=")[^"]*/, description],
+    [/(<meta property="og:url" content=")[^"]*/, url],
+    [/(<meta name="twitter:title" content=")[^"]*/, fullTitle],
+    [/(<meta name="twitter:description" content=")[^"]*/, description],
+  ];
+  return fields.reduce((h, [re, value]) => mustReplace(h, re, (_, open) => open + esc(value)), html);
+}
+
+function withPrerender(html, { rootHtml, jsonld, md }) {
+  html = mustReplace(html, /<div id="root"><\/div>/, () => `<div id="root"><div class="ssg">\n${rootHtml}\n</div></div>`);
+  const head = [criticalCss, ...jsonld.map(ldScript), `<link rel="alternate" type="text/markdown" href="${md}" />`];
+  return mustReplace(html, /<\/head>/, () => `${head.join('\n')}\n</head>`);
+}
 
 const criticalCss = `<style>${BASE_CSS}
 .ssg{max-width:640px;margin:0 auto;padding:clamp(2rem,5vw,4rem) clamp(1.25rem,4vw,2rem)}
@@ -900,8 +970,7 @@ const criticalCss = `<style>${BASE_CSS}
 .js .ssg{display:none}
 </style>`;
 
-const staticRoot = `<div id="root"><div class="ssg">
-<h1>${esc(SITE.name)}</h1>
+const homeRoot = `<h1>${esc(SITE.name)}</h1>
 <p>${esc(SITE.role)} @ <a href="${SITE.company.url}">${esc(SITE.company.name)}</a> · ${esc(SITE.location)}</p>
 <p>${esc(SITE.bio)}</p>
 <nav><a href="${SITE.blog.url}">Blog</a> <a href="/code">Projects</a> <a href="/writing">Writing</a> <a href="/coffee-chat">Coffee Chat</a> <a href="/about">About</a> <a href="/contact">Contact</a> <a href="/developers">Developers</a></nav>
@@ -917,22 +986,44 @@ ${topProjects.slice(0, 6).map(p => `<li>${projectLink(p) ? `<a href="${projectLi
 <p><a href="/code">All ${publicProjects.length} projects &rarr;</a></p>
 <h2>Elsewhere</h2>
 <p>${SITE.socials.map(s => `<a href="${s.url}">${s.label}</a>`).join(' · ')}</p>
-<p class="dim">For AI agents: <a href="/llms.txt">/llms.txt</a> · <a href="/developers">/developers</a> · <a href="/openapi.json">API</a> · <a href="/projects.json">/projects.json</a> · MCP at /mcp · markdown via .md URLs or Accept: text/markdown.</p>
-</div></div>`;
+<p class="dim">For AI agents: <a href="/llms.txt">/llms.txt</a> · <a href="/developers">/developers</a> · <a href="/openapi.json">API</a> · <a href="/projects.json">/projects.json</a> · MCP at /mcp · markdown via .md URLs or Accept: text/markdown.</p>`;
 
-if (!html.includes('<div id="root"></div>')) {
-  console.error('  ERROR: could not find empty #root in dist/index.html — prerender injection skipped');
-} else {
-  html = html.replace('<div id="root"></div>', staticRoot);
-  const headExtras = `${criticalCss}
-<script type="application/ld+json">${JSON.stringify(PERSON)}</script>
-<script type="application/ld+json">${JSON.stringify(WEBSITE)}</script>
-<script type="application/ld+json">${JSON.stringify(ORG)}</script>
-<link rel="alternate" type="text/markdown" href="/index.md" />
-`;
-  html = html.replace('</head>', `${headExtras}</head>`);
-  writeFileSync(indexPath, html);
-  console.log('  injected prerendered content + JSON-LD into index.html');
+// Homepage keeps the shell's own head (title/description/OG live in index.html).
+write('index.html', withPrerender(appShell, { rootHtml: homeRoot, jsonld: [PERSON, WEBSITE, ORG], md: '/index.md' }));
+
+function writeAppRoute({ path, type, title, description, bodyHtml }) {
+  const page = {
+    '@context': 'https://schema.org',
+    '@type': type,
+    '@id': `${ORIGIN}${path}#webpage`,
+    url: `${ORIGIN}${path}`,
+    name: `${title} — ${SITE.name}`,
+    description,
+    isPartOf: { '@id': WEBSITE['@id'] },
+    author: { '@id': PERSON['@id'] },
+  };
+  const html = withPrerender(withRouteHead(appShell, { path, title, description }), {
+    rootHtml: `<p><a href="/">&larr; sshh.io</a></p>\n${bodyHtml}`,
+    jsonld: [PERSON, WEBSITE, page],
+    md: `${path}.md`,
+  });
+  write(`${path.slice(1)}.html`, html);
 }
+
+writeAppRoute({
+  path: '/code',
+  type: 'CollectionPage',
+  title: 'Projects',
+  description: `${publicProjects.length} software projects by ${SITE.name} — AI, full-stack, mobile, security, and developer tools — with source code and demos.`,
+  bodyHtml: `<h1>Project Gallery</h1>\n<p>${publicProjects.length} public projects, grouped by domain. Structured data: <a href="/projects.json">projects.json</a>.</p>\n${mdBodyToHtml(codeMdBody)}`,
+});
+
+writeAppRoute({
+  path: '/coffee-chat',
+  type: 'WebPage',
+  title: 'Coffee Chat',
+  description: `Chat with ${SITE.name} about AI agents, tech careers, and startup ideas — virtually or over coffee in San Francisco.`,
+  bodyHtml: `<h1>Coffee Chat</h1>\n${mdBodyToHtml(coffeeMdBody)}`,
+});
 
 console.log('done.');

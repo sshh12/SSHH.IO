@@ -30,6 +30,8 @@ function CoffeeChat() {
     return () => clearInterval(interval);
   }, [isHovering]);
 
+  // Copy is mirrored in coffeeMdBody (scripts/generate-agent-surface.mjs),
+  // which feeds the prerendered /coffee-chat HTML and coffee-chat.md — keep in sync.
   return (
     <div className="page">
       <a href="/" className="page-back">&larr; Back</a>

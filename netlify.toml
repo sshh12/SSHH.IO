@@ -73,15 +73,11 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
-[[redirects]]
-  from = "/code*"
-  to = "/"
-  status = 200
-
-[[redirects]]
-  from = "/coffee-chat*"
-  to = "/"
-  status = 200
+# No SPA rewrites: the build emits code.html and coffee-chat.html (the Vite
+# shell with route-specific head + prerendered content), which Netlify serves
+# at /code and /coffee-chat like about.html at /about — and /code/ 301s to
+# /code for free. Don't add a "/code/" -> "/code" rule: Netlify normalizes
+# trailing slashes before matching, so it would loop.
 
 # Versioned API aliases (canonical paths documented in /openapi.json)
 [[redirects]]

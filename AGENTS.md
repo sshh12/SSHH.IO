@@ -28,7 +28,8 @@ This is a personal portfolio website for Shrivu Shankar built with Vite + React.
 
 ### Build & Deploy
 - Vite builds to `dist/` directory
-- `netlify.toml` handles routing redirects for `/code*`, `/contact*`, `/coffee-chat`, etc.
+- `scripts/generate-agent-surface.mjs` runs after `vite build`: it emits the agent surface (llms.txt, sitemap, `.md` mirrors, JSON APIs), the static pages (`about.html`, `contact.html`, ...), and per-route SPA shells (`index.html`, `code.html`, `coffee-chat.html`), each with its own title, canonical, OG tags, prerendered content and JSON-LD
+- Netlify serves `code.html` at `/code` (pretty URLs), so there are no SPA rewrites in `netlify.toml`; a new SPA route needs a `writeAppRoute()` call in the generator
 
 ### Project Structure
 - Projects are categorized by domain (AI, Full Stack, Frontend, Backend, etc.)
