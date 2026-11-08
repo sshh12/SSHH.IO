@@ -4,6 +4,15 @@ import './Index.css';
 
 const socialUrl = label => SITE.socials.find(s => s.label === label).url;
 
+// `target` is the navigation_click analytics param (see ANALYTICS in
+// scripts/generate-agent-surface.mjs).
+const NAV = [
+  { label: 'Blog', href: SITE.blog.url, target: 'blog' },
+  { label: 'Projects', href: '/code', target: 'projects' },
+  { label: 'Coffee Chat', href: '/coffee-chat', target: 'coffee_chat' },
+  { label: 'Contact', href: '/contact', target: 'contact' },
+];
+
 function Index() {
   return (
     <div style={{
@@ -20,10 +29,17 @@ function Index() {
         <div className="divider"></div>
         <p className="bio">{SITE.bio}</p>
         <nav>
-          <a href={SITE.blog.url}>Blog</a>
-          <a href="/code">Projects</a>
-          <a href="/coffee-chat">Coffee Chat</a>
-          <a href="/contact">Contact</a>
+          {NAV.map(n => (
+            <a
+              key={n.target}
+              href={n.href}
+              data-ga-event="navigation_click"
+              data-ga-navigation-target={n.target}
+              data-ga-placement="home_navigation"
+            >
+              {n.label}
+            </a>
+          ))}
         </nav>
         <div className="social">
           <a href={socialUrl('GitHub')} title="GitHub" target="_blank" rel="noopener noreferrer">

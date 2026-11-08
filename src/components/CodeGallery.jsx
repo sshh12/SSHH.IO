@@ -22,8 +22,18 @@ function makeProjectRepr(project) {
   return repr.toLocaleLowerCase();
 }
 
+const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+// project_click analytics attributes (see ANALYTICS in scripts/generate-agent-surface.mjs).
+const trackProject = (item, linkType) => ({
+  'data-ga-event': 'project_click',
+  'data-ga-project-slug': item.slug,
+  'data-ga-link-type': linkType,
+});
+
 const allProjects = Projects.map((project) => ({
   title: project.title,
+  slug: slugify(project.title),
   desc: project.tagline,
   descs: project.desc || [],
   img: project.thumb || '/images/no-pic.png',
@@ -127,17 +137,17 @@ function CodeGallery() {
             <div className="project-desc">{item.desc}</div>
             <div className="project-links">
               {item.meta.github && (
-                <a href={item.meta.github} target="_blank" rel="noopener noreferrer" title="GitHub">
+                <a href={item.meta.github} target="_blank" rel="noopener noreferrer" title="GitHub" {...trackProject(item, 'source')}>
                   <GitHubSVG />
                 </a>
               )}
               {item.meta.url && (
-                <a href={item.meta.url} target="_blank" rel="noopener noreferrer" title="Website">
+                <a href={item.meta.url} target="_blank" rel="noopener noreferrer" title="Website" {...trackProject(item, 'demo')}>
                   <LinkSVG />
                 </a>
               )}
               {item.meta.article && (
-                <a href={item.meta.article} target="_blank" rel="noopener noreferrer" title="Article">
+                <a href={item.meta.article} target="_blank" rel="noopener noreferrer" title="Article" {...trackProject(item, 'article')}>
                   <BookSVG />
                 </a>
               )}

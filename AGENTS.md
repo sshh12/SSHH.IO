@@ -31,6 +31,12 @@ This is a personal portfolio website for Shrivu Shankar built with Vite + React.
 - `scripts/generate-agent-surface.mjs` runs after `vite build`: it emits the agent surface (llms.txt, sitemap, `.md` mirrors, JSON APIs), the static pages (`about.html`, `contact.html`, ...), and per-route SPA shells (`index.html`, `code.html`, `coffee-chat.html`), each with its own title, canonical, OG tags, prerendered content and JSON-LD
 - Netlify serves `code.html` at `/code` (pretty URLs), so there are no SPA rewrites in `netlify.toml`; a new SPA route needs a `writeAppRoute()` call in the generator
 
+### Analytics (GA4 `G-V2W5KN91T9`)
+- The tag is the `ANALYTICS` constant in `scripts/generate-agent-surface.mjs`, injected into every HTML page the generator writes. It is not in the source `index.html`, so `npm run dev` is untracked, and it only runs when `location.hostname === 'sshh.io'` (skips `vite preview` and Netlify deploy previews). `public/404.html` and `public/apps/*` are untracked.
+- One `page_view` per document (every route is a full page load) plus one on bfcache Back/Forward restores. Don't add manual `page_view` calls.
+- Intent events come from one delegated click listener: add `data-ga-event="<name>"` plus `data-ga-<param>` attributes to a link (`data-ga-link-type` → `link_type`). Links to the contact form host (`forms.gle`) and scheduler host (`calendar.app.google`) fire `contact_click` / `booking_click` automatically. Current events: `navigation_click` (home nav), `project_click` (gallery card links), `contact_click`, `booking_click`.
+- The privacy page copy (`privacyMdBody`) describes this; keep it accurate if tracking changes.
+
 ### Project Structure
 - Projects are categorized by domain (AI, Full Stack, Frontend, Backend, etc.)
 - Each project includes metadata: title, tagline, language, tags, GitHub links, start date, coolness rating

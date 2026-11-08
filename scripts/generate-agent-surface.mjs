@@ -6,7 +6,8 @@
 // .well-known/{api-catalog,ai-catalog.json,agent-skills/*}, static pages
 // (/about, /privacy, /writing, ...), and per-route SPA shells: prerendered
 // HTML + JSON-LD injected into dist/index.html, plus dist/code.html and
-// dist/coffee-chat.html with their own head metadata.
+// dist/coffee-chat.html with their own head metadata. Every HTML page it
+// writes also gets the GA4 tag (see ANALYTICS).
 
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -36,6 +37,56 @@ const esc = s =>
 // `<` escaped so no string in the data can close the <script> early.
 const ldScript = obj =>
   `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`;
+
+// --- Google Analytics 4 ------------------------------------------------------
+//
+// Injected into every HTML page this script writes (the SPA shells and the
+// static pages), never into the source index.html, so `npm run dev` stays
+// untracked. The hostname guard also skips `vite preview` and Netlify deploy
+// previews (www.sshh.io 301s to the apex).
+//
+// Page views: the default config sends one page_view per document, which is
+// one per route because every route is a full page load (no client-side
+// router). Back/Forward restores from the bfcache re-run nothing and gtag
+// sends nothing for them, so pageshow sends that page_view. The stream has
+// history-based page views enabled, but the /code search box's per-keystroke
+// history.replaceState(?q=) does not trigger them (verified 2026-11-08); if
+// you add pushState routing, re-check for duplicate page_views.
+//
+// Intent events: links opt in with data-ga-event plus data-ga-* params
+// (data-ga-link-type="demo" -> link_type: "demo"). Contact-form and scheduler
+// links are matched by host instead, so generated markdown pages need no
+// markup. The listener only observes; navigation never depends on gtag.
+const GA_ID = 'G-V2W5KN91T9';
+const ANALYTICS = `<script>
+if (location.hostname === 'sshh.io') {
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', '${GA_ID}');
+  var ga = document.createElement('script');
+  ga.async = true;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
+  document.head.appendChild(ga);
+  addEventListener('pageshow', function (e) { if (e.persisted) gtag('event', 'page_view'); });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var name = a.dataset.gaEvent, p = {};
+    if (name) {
+      for (var k in a.dataset) if (k !== 'gaEvent' && k.slice(0, 2) === 'ga')
+        p[k.slice(2).replace(/[A-Z]/g, function (c, i) { return (i ? '_' : '') + c.toLowerCase(); })] = a.dataset[k];
+    } else if (a.hostname === '${new URL(SITE.contactForm).hostname}') {
+      name = 'contact_click'; p.contact_method = 'contact_form';
+    } else if (a.hostname === '${new URL(SITE.coffeeChat.scheduleUrl).hostname}') {
+      name = 'booking_click';
+    } else return;
+    p.placement = p.placement || (location.pathname.replace(/^\\/|\\/$/g, '').replace(/\\W/g, '_') || 'home') + '_page';
+    if (a.hostname !== location.hostname) p.destination_host = a.hostname;
+    gtag('event', name, p);
+  });
+}
+</script>`;
 
 // ---------------------------------------------------------------------------
 // Data sources
@@ -142,6 +193,7 @@ function pageHtml({ title, description, path, bodyHtml, jsonld }) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+${ANALYTICS}
 <title>${esc(title)} — ${SITE.name}</title>
 <meta name="description" content="${esc(description)}" />
 <meta name="author" content="${SITE.name}" />
@@ -349,7 +401,8 @@ const aboutMd = `# About ${SITE.name}\n\n${aboutMdBody}\n`;
 
 const privacyMdBody = `sshh.io is a static personal website hosted on Netlify.
 
-- **No analytics or tracking cookies.** The only thing stored in your browser is a \`theme\` preference (light/dark) in localStorage.
+- **Analytics.** Google Analytics counts page views and clicks on a few kinds of links (projects, main navigation, the contact form, the coffee-chat scheduler) to show which pages and projects people find useful. It sets first-party \`_ga\` cookies, and Google processes the data under its own privacy policy. No names, email addresses, or form contents are sent. Any content blocker, or Google's [opt-out add-on](https://tools.google.com/dlpage/gaoptout), turns it off.
+- **Local storage.** The site itself stores only a \`theme\` preference (light/dark) in localStorage.
 - **Fonts** are loaded from Google Fonts, which receives standard request metadata (IP, user agent) when the page loads.
 - **Hosting** is provided by Netlify, which processes standard server logs.
 - **Contact form** submissions go to Google Forms; the coffee-chat scheduler is Google Calendar. Both are governed by Google's privacy policy.
@@ -868,7 +921,7 @@ write('about.html', pageHtml({
 
 write('privacy.html', pageHtml({
   title: 'Privacy',
-  description: 'Privacy policy for sshh.io — a static personal site with no analytics or tracking.',
+  description: 'Privacy policy for sshh.io — what Google Analytics measures, what the site stores in your browser, and which third parties are involved.',
   path: '/privacy',
   bodyHtml: `<h1>Privacy</h1>\n${mdBodyToHtml(privacyMdBody)}`,
 }));
@@ -924,14 +977,18 @@ write('.well-known/agent-skills/shrivu-shankar-site/SKILL.md', skillMd);
 // A shell mismatch throws instead of skipping: a failed build leaves the last
 // good deploy live, while a silent skip would ship /code as a 404.
 
-const appShell = readFileSync(join(DIST, 'index.html'), 'utf8');
-
 const mustReplace = (html, pattern, replacer) => {
   if (!pattern.test(html)) {
     throw new Error(`dist/index.html no longer matches ${pattern} — update generate-agent-surface.mjs`);
   }
   return html.replace(pattern, replacer);
 };
+
+const appShell = mustReplace(
+  readFileSync(join(DIST, 'index.html'), 'utf8'),
+  /<meta name="viewport"[^>]*>/,
+  tag => `${tag}\n  ${ANALYTICS}`
+);
 
 function withRouteHead(html, { path, title, description }) {
   const fullTitle = `${title} — ${SITE.name}`;
